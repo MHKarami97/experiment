@@ -37,12 +37,12 @@
 
         <section class="report-section">
           <h2>۱. هدف آزمایش (Objective)</h2>
-          <p>{{ objective }}</p>
+          <p>{{ objectiveText }}</p>
         </section>
 
         <section class="report-section">
           <h2>۲. ابزارها و دستگاه‌ها (Apparatus)</h2>
-          <p>{{ apparatus }}</p>
+          <p>{{ apparatusText }}</p>
         </section>
 
         <section class="report-section">
@@ -57,7 +57,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="v in variablesList" :key="v.name">
+              <tr v-for="v in effectiveVariablesList" :key="v.name">
                 <td>{{ v.name }}</td>
                 <td class="ltr">{{ v.symbol }}</td>
                 <td class="ltr">{{ v.value }}</td>
@@ -70,7 +70,7 @@
         <section class="report-section" v-if="graphSnapshot">
           <h2>۴. نمودار مسیر حرکت (Trajectory Graph)</h2>
           <div class="report-graph-img-wrap">
-            <img :src="graphSnapshot" alt="نمودار پرتابه" class="report-graph-img" />
+            <img :src="graphSnapshot" alt="نمودار آزمایش" class="report-graph-img" />
           </div>
         </section>
 
@@ -86,23 +86,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>برد پرتابه (Range)</td>
-                <td class="ltr">{{ formatVal(results.simulatedRange, 2) }} m</td>
-                <td class="ltr">{{ formatVal(results.theoreticalRange, 2) }} m</td>
-                <td class="ltr">{{ formatVal(results.rangeError, 2) }} %</td>
-              </tr>
-              <tr>
-                <td>اوج ارتفاع (Max Height)</td>
-                <td class="ltr">{{ formatVal(results.simulatedMaxHeight, 2) }} m</td>
-                <td class="ltr">{{ formatVal(results.theoreticalMaxHeight, 2) }} m</td>
-                <td class="ltr">{{ formatVal(results.heightError, 2) }} %</td>
-              </tr>
-              <tr>
-                <td>زمان پرواز (Flight Time)</td>
-                <td class="ltr">{{ formatVal(results.simulatedFlightTime, 2) }} s</td>
-                <td class="ltr">{{ formatVal(results.theoreticalFlightTime, 2) }} s</td>
-                <td class="ltr">{{ formatVal(results.timeError, 2) }} %</td>
+              <tr v-for="(row, idx) in finalResultsRows" :key="idx">
+                <td>{{ row.name }}</td>
+                <td class="ltr">{{ row.simulated }}</td>
+                <td class="ltr">{{ row.theoretical ?? '—' }}</td>
+                <td class="ltr">{{ row.error ?? '—' }}</td>
               </tr>
             </tbody>
           </table>
@@ -110,10 +98,7 @@
 
         <section class="report-section">
           <h2>۶. تحلیل خطای آزمایش (Error Analysis)</h2>
-          <p>
-            در حالت ایده‌آل خطای عددی ناشی از تقریب گام زمانی به لطف انتگرال‌گیر مرتبه چهارم رانگ-کوتا (RK4) کمتر از ۰.۱ درصد است.
-            در حالت واقعی، اختلاف مشاهده‌شده ناشی از اتلاف انرژی جنبشی به علت مقاومت هوا \(F_d = \frac{1}{2}\rho C_d A v^2\) و انحراف ناشی از وزش باد است.
-          </p>
+          <p>{{ errorAnalysisText }}</p>
         </section>
 
         <section class="report-section" v-if="notes">
@@ -123,10 +108,7 @@
 
         <section class="report-section">
           <h2>۸. نتیجه‌گیری علمی (Conclusion)</h2>
-          <p>
-            حرکت پرتابه در غیاب نیروهای اتلافی کاملاً سهموی است و بیشینه برد در زاویه ۴۵ درجه حاصل می‌شود.
-            افزایش ارتفاع پرتاب اولیه، زاویه بهینه‌ی پرتاب را به کمتر از ۴۵ درجه تغییر می‌دهد. با ورود مقاومت هوا، مسیر حرکت تقارن خود را از دست داده و انتهای مسیر شیب‌دارتر می‌شود.
-          </p>
+          <p>{{ conclusionText }}</p>
         </section>
 
         <footer class="report-footer">
@@ -145,24 +127,36 @@ import LZString from 'lz-string';
 import { formatScientificValue } from '../core/units';
 import { useAppStore } from '../app/store';
 
-const props = defineProps<{
-  title: string;
-  mode: 'ideal' | 'real';
-  params: Record<string, number>;
-  results: {
-    simulatedRange: number;
-    theoreticalRange: number;
-    rangeError: number;
-    simulatedMaxHeight: number;
-    theoreticalMaxHeight: number;
-    heightError: number;
-    simulatedFlightTime: number;
-    theoreticalFlightTime: number;
-    timeError: number;
-  };
-  notes?: string;
-  sceneCanvas?: HTMLCanvasElement | null;
-}>();
+const props = withDefaults(
+  defineProps<{
+    title: string;
+    mode: 'ideal' | 'real';
+    params: Record<string, number>;
+    results?: Record<string, any>;
+    resultsRows?: Array<{
+      name: string;
+      simulated: string;
+      theoretical?: string;
+      error?: string;
+    }>;
+    variablesList?: Array<{
+      name: string;
+      symbol: string;
+      value: number | string;
+      unit: string;
+    }>;
+    objective?: string;
+    apparatus?: string;
+    errorAnalysis?: string;
+    conclusion?: string;
+    notes?: string;
+    sceneCanvas?: HTMLCanvasElement | null;
+  }>(),
+  {
+    notes: '',
+    sceneCanvas: null
+  }
+);
 
 const store = useAppStore();
 const reportElement = ref<HTMLDivElement | null>(null);
@@ -176,19 +170,22 @@ const reportDate = computed(() => {
   }).format(new Date());
 });
 
-const objective = 'بررسی اثر زاویه، سرعت اولیه، گرانش و مقاومت هوا بر برد، ارتفاع اوج و مدت زمان پرواز پرتابه.';
-const apparatus = 'سامانه پرتاب زاویه‌دار، سنسورهای سرعت‌سنج، شتاب‌سنج گرانشی، توده‌هوا با قابلیت تنظیم چگالی و ضریب پسار.';
+const objectiveText = computed(() => props.objective || 'بررسی رفتار فیزیکی و مقایسه داده‌های تجربی با معادلات حاکم بر حرکت.');
+const apparatusText = computed(() => props.apparatus || 'سامانه شبیه‌سازی فیزیکی، سنسورهای سرعت‌سنج و موقعیت‌یاب، ثبت‌کننده زمانی.');
+const errorAnalysisText = computed(() => props.errorAnalysis || 'در حالت ایده‌آل خطای عددی ناشی از گام زمانی انتگرال‌گیر رانگ-کوتا (RK4) کمتر از ۰.۱٪ است. در حالت واقعی، اتلاف انرژی ناشی از اصطکاک و مقاومت محیطی باعث کاهش کمیت‌ها می‌شود.');
+const conclusionText = computed(() => props.conclusion || 'نتایج به‌دست‌آمده تطابق بالایی با مدل‌های تحلیلی استاندارد فیزیک دارند و اثر عوامل مقاومتی در اتلاف انرژی به‌خوبی ثبت شد.');
 
-const variablesList = computed(() => [
-  { name: 'سرعت اولیه', symbol: 'v₀', value: props.params.v0 ?? 20, unit: 'm/s' },
-  { name: 'زاویه پرتاب', symbol: 'θ', value: props.params.angle ?? 45, unit: '°' },
-  { name: 'ارتفاع اولیه', symbol: 'y₀', value: props.params.h0 ?? 0, unit: 'm' },
-  { name: 'شتاب گرانش', symbol: 'g', value: props.params.gravity ?? 9.81, unit: 'm/s²' },
-  { name: 'جرم پرتابه', symbol: 'm', value: props.params.mass ?? 1, unit: 'kg' },
-  { name: 'ضریب پسار', symbol: 'C_d', value: props.params.dragCoeff ?? 0.47, unit: '—' },
-  { name: 'چگالی هوا', symbol: 'ρ', value: props.params.airDensity ?? 1.225, unit: 'kg/m³' },
-  { name: 'سرعت باد', symbol: 'v_wind', value: props.params.wind ?? 0, unit: 'm/s' }
-]);
+const effectiveVariablesList = computed(() => {
+  if (props.variablesList && props.variablesList.length > 0) {
+    return props.variablesList;
+  }
+  return Object.entries(props.params).map(([k, v]) => ({
+    name: k,
+    symbol: k,
+    value: v,
+    unit: '—'
+  }));
+});
 
 function formatVal(v: number, decimals: number): string {
   return formatScientificValue(v, {
@@ -196,6 +193,44 @@ function formatVal(v: number, decimals: number): string {
     usePersianDigits: store.usePersianDigits
   });
 }
+
+const finalResultsRows = computed(() => {
+  if (props.resultsRows && props.resultsRows.length > 0) {
+    return props.resultsRows;
+  }
+  const r = props.results;
+  if (r && 'simulatedRange' in r) {
+    return [
+      {
+        name: 'برد پرتابه (Range)',
+        simulated: `${formatVal(r.simulatedRange, 2)} m`,
+        theoretical: `${formatVal(r.theoreticalRange, 2)} m`,
+        error: `${formatVal(r.rangeError, 2)} %`
+      },
+      {
+        name: 'اوج ارتفاع (Max Height)',
+        simulated: `${formatVal(r.simulatedMaxHeight, 2)} m`,
+        theoretical: `${formatVal(r.theoreticalMaxHeight, 2)} m`,
+        error: `${formatVal(r.heightError, 2)} %`
+      },
+      {
+        name: 'زمان پرواز (Flight Time)',
+        simulated: `${formatVal(r.simulatedFlightTime, 2)} s`,
+        theoretical: `${formatVal(r.theoreticalFlightTime, 2)} s`,
+        error: `${formatVal(r.timeError, 2)} %`
+      }
+    ];
+  }
+  if (r) {
+    return Object.entries(r).map(([k, v]) => ({
+      name: k,
+      simulated: typeof v === 'number' ? formatVal(v, 2) : String(v),
+      theoretical: '—',
+      error: '—'
+    }));
+  }
+  return [];
+});
 
 function captureSceneSnapshot() {
   if (props.sceneCanvas) {

@@ -3,6 +3,15 @@
     <!-- Top Navigation Bar -->
     <header class="app-header glass-panel">
       <div class="header-left">
+        <router-link
+          v-if="isExperimentRoute"
+          to="/"
+          class="btn-back-home touch-target"
+          :title="$t('experiment.backToList')"
+        >
+          {{ store.locale === 'fa' ? '→' : '←' }} {{ $t('app.nav.home') }}
+        </router-link>
+
         <router-link to="/" class="app-brand touch-target">
           <img src="/icons/icon-48.png" alt="آزمایشگاه علوم" class="brand-icon" />
           <span class="brand-name">{{ $t('app.title') }}</span>
@@ -38,12 +47,12 @@
     </header>
 
     <!-- Main View Content -->
-    <main class="app-main">
+    <main class="app-main" :class="{ 'in-experiment': isExperimentRoute }">
       <router-view />
     </main>
 
-    <!-- Mobile Bottom Navigation Bar (< 768px) -->
-    <nav class="mobile-nav glass-panel">
+    <!-- Mobile Bottom Navigation Bar (< 768px, Hidden inside experiments) -->
+    <nav v-if="!isExperimentRoute" class="mobile-nav glass-panel">
       <router-link to="/" class="nav-item touch-target" active-class="active">
         <span class="nav-icon">🔬</span>
         <span class="nav-text">{{ $t('app.nav.home') }}</span>
@@ -64,11 +73,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { useAppStore } from './store';
 import Toast from '../shared/Toast.vue';
 
 const store = useAppStore();
+const route = useRoute();
+
+const isExperimentRoute = computed(() => route.path.startsWith('/experiment'));
 
 function toggleLang() {
   store.setLanguage(store.locale === 'fa' ? 'en' : 'fa');
@@ -106,7 +119,29 @@ onMounted(() => {
 .header-left {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.35rem 0.65rem;
+  background: var(--surface-hover);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.btn-back-home:hover {
+  background: var(--primary-surface);
+  border-color: var(--primary);
 }
 
 .app-brand {
@@ -116,19 +151,30 @@ onMounted(() => {
   text-decoration: none;
   color: var(--text-primary);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-icon {
   width: 32px;
   height: 32px;
   border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.brand-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-right {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  flex-shrink: 0;
 }
 
 .btn-hdr {
@@ -157,6 +203,10 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom, 0px));
+}
+
+.app-main.in-experiment {
+  padding-bottom: 0 !important;
 }
 
 .mobile-nav {
@@ -200,8 +250,18 @@ onMounted(() => {
   .mobile-nav {
     display: flex;
   }
-  .app-main {
+  .app-main:not(.in-experiment) {
     padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0 var(--space-2);
+  }
+  .brand-name {
+    font-size: 0.9rem;
+    max-width: 140px;
   }
 }
 </style>

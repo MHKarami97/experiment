@@ -1,10 +1,19 @@
 import { createI18n } from 'vue-i18n';
 import projectileFa from '../experiments/physics/motion/projectile/i18n/fa.json';
 import projectileEn from '../experiments/physics/motion/projectile/i18n/en.json';
+import kinematicsFa from '../experiments/physics/motion/1d-2d-kinematics/i18n/fa.json';
+import kinematicsEn from '../experiments/physics/motion/1d-2d-kinematics/i18n/en.json';
+import inclinedPlaneFa from '../experiments/physics/motion/newton-inclined-plane/i18n/fa.json';
+import inclinedPlaneEn from '../experiments/physics/motion/newton-inclined-plane/i18n/en.json';
+import pulleysLeversFa from '../experiments/physics/motion/pulleys-levers/i18n/fa.json';
+import pulleysLeversEn from '../experiments/physics/motion/pulleys-levers/i18n/en.json';
 
 const globalMessages = {
   fa: {
     projectile: projectileFa,
+    kinematics: kinematicsFa,
+    inclinedPlane: inclinedPlaneFa,
+    pulleysLevers: pulleysLeversFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -67,6 +76,7 @@ const globalMessages = {
       guided: 'راهنمای گام‌به‌گام',
       tools: 'ابزارهای اندازه‌گیری',
       presets: 'پیش‌تنظیم‌ها',
+      controls: 'کنترل متغیرها',
       close: 'بستن',
       confirm: 'تایید',
       cancel: 'انصراف',
@@ -143,11 +153,33 @@ const globalMessages = {
       projectile: {
         title: 'حرکت پرتابه و دینامیک پرتاب',
         description: 'بررسی شبیه‌سازی حرکت دوبعدی پرتابه تحت گرانش‌های مختلف، مقاومت آیرودینامیکی هوا و باد'
+      },
+      kinematics: {
+        title: 'حرکت یک‌بعدی و دوبعدی',
+        description: 'بررسی سینماتیک حرکت بر خط راست، شتاب ثابت، معادلات مستقل از زمان توریسلی و مسیر دوبعدی'
+      },
+      inclinedPlane: {
+        title: 'قوانین نیوتن و اصطکاک روی سطح شیب‌دار',
+        description: 'بررسی تجزیه نیروها، اصطکاک ایستایی و جنبشی و شتاب حرکت روی سطح شیب‌دار'
+      },
+      pulleysLevers: {
+        title: 'قرقره‌ها، اهرم‌ها و ماشین‌های ساده',
+        description: 'بررسی ماشین آتوود، سیستم قرقره‌های مرکب، مزیت مکانیکی، بازده و تعادل اهرم‌ها'
       }
+    },
+    experiment: {
+      loading: 'در حال بارگذاری شبیه‌سازی آزمایشگاه...',
+      notFound: 'آزمایش مورد نظر یافت نشد',
+      notFoundDesc: 'آزمایش با شناسه "{id}" هنوز پیاده‌سازی نشده یا موجود نیست.',
+      backToList: 'بازگشت به فهرست آزمایش‌ها',
+      loadError: 'خطا در بارگذاری مؤلفه‌های آزمایش.'
     }
   },
   en: {
     projectile: projectileEn,
+    kinematics: kinematicsEn,
+    inclinedPlane: inclinedPlaneEn,
+    pulleysLevers: pulleysLeversEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -210,6 +242,7 @@ const globalMessages = {
       guided: 'Guided Lab Steps',
       tools: 'Measurement Tools',
       presets: 'Presets',
+      controls: 'Variable Controls',
       close: 'Close',
       confirm: 'Confirm',
       cancel: 'Cancel',
@@ -286,7 +319,26 @@ const globalMessages = {
       projectile: {
         title: 'Projectile Motion & Ballistics',
         description: 'Explore 2D projectile kinematics under various gravities, aerodynamic drag, and wind'
+      },
+      kinematics: {
+        title: '1D & 2D Kinematics',
+        description: 'Investigate rectilinear motion, constant acceleration, Torricelli time-independent relation, and 2D paths'
+      },
+      inclinedPlane: {
+        title: "Newton's Laws & Inclined Plane",
+        description: 'Explore force resolution, static & kinetic friction, and sliding acceleration on an incline'
+      },
+      pulleysLevers: {
+        title: 'Pulleys, Levers & Simple Machines',
+        description: 'Explore the Atwood machine, block and tackle pulleys, mechanical advantage, efficiency, and lever equilibrium'
       }
+    },
+    experiment: {
+      loading: 'Loading science simulation...',
+      notFound: 'Experiment not found',
+      notFoundDesc: 'Experiment with ID "{id}" is not yet built or available.',
+      backToList: 'Back to Experiment Catalog',
+      loadError: 'Error loading experiment components.'
     }
   }
 };

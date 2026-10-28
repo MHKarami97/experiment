@@ -98,4 +98,30 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Inline ternary checks (`locale === 'fa' ? ... : ...`): Unmaintainable and violates centralized translation key conventions.
 
+---
+
+### [2026-10-28] Decision 009: Generalization of ExportReport and Multi-Experiment Database Schemas
+- **Context:** `ExportReport.vue` and `StoredRun.summary` were initially typed strictly for the projectile experiment (e.g. `simulatedRange`, `maxHeight`, `flightTime`). For a multi-disciplinary virtual lab with 100+ planned experiments, each simulation measures different physical quantities (e.g., stopping distance, normal force, tension, period, frequency, current, etc.).
+- **Decision:**
+  1. Generalize `StoredRun.summary` to indexable `Record<string, number | undefined>`.
+  2. Generalize `ExportReport.vue` to accept either custom `resultsRows` and `variablesList` props or fallback to dynamic key-value rendering, with customizable `objective`, `apparatus`, `errorAnalysis`, and `conclusion` sections.
+  3. Ensure all experiments reuse `ExportReport.vue` directly without code duplication.
+- **Rationale:** Preserves DRY architecture while allowing any experiment plugin to generate rich Persian A4 PDF reports and `@media print` documents.
+- **Alternatives Rejected:**
+  - Duplicating `ExportReport.vue` per experiment: Violates AGENTS.md rule 4 (never duplicate shared components).
+
+---
+
+### [2026-10-28] Decision 010: Mobile Responsiveness Polish and Pulleys-Levers Architecture
+- **Context:** Mobile testing highlighted that fixed canvas heights (520px) and permanent mobile bottom navigation bar clashed with the draggable `BottomSheet` and bottom tabs on phone viewports (360px - 440px). Also, the fourth experiment "Pulleys, Levers & Simple Machines" needed a unified physical model accommodating Atwood machine, compound pulleys (block & tackle), and rotational equilibrium of levers.
+- **Decision:**
+  1. Experiment routes conditionally hide `.mobile-nav` and replace it with a compact top-header back button, freeing 60px of screen real estate.
+  2. Canvas mounts use `clamp(260px, 38vh, 420px)` on mobile screens ($\le 1023\text{px}$) instead of rigid 520px height.
+  3. Canvas wrapper HUD overlays adapt with smaller padding and font size on mobile screens ($\le 640\text{px}$) to prevent obstructing the physical simulation center.
+  4. Implement `pulleys-levers` with classical Atwood dynamics ($a = \frac{m_2 - m_1}{m_1 + m_2 + \frac{1}{2}M_p} g$), real bearing friction torque $\tau_f$, and block-and-tackle mechanical advantage ($IMA = N$, $AMA = \eta \cdot N$).
+- **Rationale:** Guarantees zero horizontal overflow, seamless touch controls, and high physical fidelity.
+- **Alternatives Rejected:**
+  - Removing tabs on mobile: Detrimental to pedagogical value and user notes.
+
+
 

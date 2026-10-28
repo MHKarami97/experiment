@@ -9,9 +9,9 @@ Status definitions:
 | Subject | Topic | Experiment ID | Title (fa) | Title (en) | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Physics** | Motion & Mechanics | `physics/motion/projectile` | حرکت پرتابه (گرانش، مقاومت هوا، سیارات) | Projectile Motion (Drag, Planets) | tested |
-| Physics | Motion & Mechanics | `physics/motion/1d-2d-kinematics` | حرکت یک‌بعدی و دوبعدی | 1D & 2D Kinematics | planned |
-| Physics | Motion & Mechanics | `physics/motion/newton-inclined-plane` | قوانین نیوتن و اصطکاک روی سطح شیب‌دار | Newton's Laws & Inclined Plane | planned |
-| Physics | Motion & Mechanics | `physics/motion/pulleys-levers` | قرقره‌ها، اهرم‌ها و ماشین‌های ساده | Pulleys, Levers & Simple Machines | planned |
+| Physics | Motion & Mechanics | `physics/motion/1d-2d-kinematics` | حرکت یک‌بعدی و دوبعدی | 1D & 2D Kinematics | tested |
+| Physics | Motion & Mechanics | `physics/motion/newton-inclined-plane` | قوانین نیوتن و اصطکاک روی سطح شیب‌دار | Newton's Laws & Inclined Plane | tested |
+| Physics | Motion & Mechanics | `physics/motion/pulleys-levers` | قرقره‌ها، اهرم‌ها و ماشین‌های ساده | Pulleys, Levers & Simple Machines | tested |
 | Physics | Motion & Mechanics | `physics/motion/circular-motion` | حرکت دایره‌ای و نیروی مرکزگرا | Circular Motion & Centripetal Force | planned |
 | Physics | Motion & Mechanics | `physics/motion/collisions-momentum` | برخوردها و پایستگی تکانه | Collisions & Linear Momentum | planned |
 | Physics | Motion & Mechanics | `physics/motion/torque-equilibrium` | گشتاور و تعادل ایستا (الاکلنگ) | Torque & Static Equilibrium | planned |

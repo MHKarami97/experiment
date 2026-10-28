@@ -19,7 +19,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 100,
       step: 0.5,
       default: 20,
-      descKey: 'projectile.v0.desc',
+      descKey: 'projectile.v0_desc',
       realModeEffect: null
     },
     {
@@ -30,7 +30,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 90,
       step: 1,
       default: 45,
-      descKey: 'projectile.angle.desc',
+      descKey: 'projectile.angle_desc',
       realModeEffect: null
     },
     {
@@ -41,7 +41,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 50,
       step: 1,
       default: 0,
-      descKey: 'projectile.h0.desc',
+      descKey: 'projectile.h0_desc',
       realModeEffect: null
     },
     {
@@ -52,7 +52,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 30,
       step: 0.1,
       default: CONSTANTS.GRAVITY_EARTH,
-      descKey: 'projectile.gravity.desc',
+      descKey: 'projectile.gravity_desc',
       realModeEffect: null
     },
     {
@@ -63,7 +63,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 50,
       step: 0.1,
       default: 1.0,
-      descKey: 'projectile.mass.desc',
+      descKey: 'projectile.mass_desc',
       realModeEffect: 'در حالت واقعی شتاب پسار با جرم نسبت عکس دارد (a = F_d / m)'
     },
     {
@@ -74,7 +74,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 2.0,
       step: 0.01,
       default: 0.47, // Sphere drag coefficient
-      descKey: 'projectile.dragCoeff.desc',
+      descKey: 'projectile.dragCoeff_desc',
       realModeEffect: 'ضریب پسار شکل کروی (۰.۴۷)'
     },
     {
@@ -85,7 +85,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 0.5,
       step: 0.005,
       default: 0.01,
-      descKey: 'projectile.crossSection.desc',
+      descKey: 'projectile.crossSection_desc',
       realModeEffect: 'سطح مقطع پرتابه در برابر جریان هوا'
     },
     {
@@ -96,7 +96,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 3.0,
       step: 0.05,
       default: CONSTANTS.AIR_DENSITY_SEA_LEVEL,
-      descKey: 'projectile.airDensity.desc',
+      descKey: 'projectile.airDensity_desc',
       realModeEffect: 'چگالی هوای محیط'
     },
     {
@@ -107,7 +107,7 @@ export const projectileConfig: ExperimentConfig = {
       max: 30,
       step: 1,
       default: 0,
-      descKey: 'projectile.wind.desc',
+      descKey: 'projectile.wind_desc',
       realModeEffect: 'سرعت افقی باد (+ موافق پرتاب، - مخالف)'
     }
   ],
@@ -178,8 +178,8 @@ export const projectileConfig: ExperimentConfig = {
     }
   ],
   tools: [
-    { id: 'ruler', nameKey: 'projectile.tools.ruler', icon: '📏' },
-    { id: 'stopwatch', nameKey: 'projectile.tools.stopwatch', icon: '⏱️' }
+    { id: 'ruler', nameKey: 'common.ruler', icon: '📏' },
+    { id: 'stopwatch', nameKey: 'common.stopwatch', icon: '⏱️' }
   ],
   formulas: [
     {

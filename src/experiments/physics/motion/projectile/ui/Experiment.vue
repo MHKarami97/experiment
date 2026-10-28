@@ -819,9 +819,32 @@ onBeforeUnmount(() => {
 @media (max-width: 1023px) {
   .experiment-workspace {
     grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .canvas-mount {
+    height: clamp(260px, 38vh, 420px);
+  }
+  .bottom-tabs-section {
+    height: auto;
+    min-height: 280px;
   }
   .desktop-only {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .projectile-experiment {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+  .tabs-nav {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-btn {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
   }
 }
 </style>

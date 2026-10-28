@@ -7,11 +7,12 @@ export interface StoredRun {
   mode: 'ideal' | 'real';
   params: Record<string, number>;
   summary: {
-    maxHeight: number;
-    range: number;
-    flightTime: number;
+    maxHeight?: number;
+    range?: number;
+    flightTime?: number;
     impactVelocity?: number;
     errorVsIdealPercent?: number;
+    [key: string]: number | undefined;
   };
   series: {
     t: number[];

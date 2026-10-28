@@ -434,9 +434,8 @@ onBeforeUnmount(() => {
 .canvas-wrapper {
   position: relative;
   width: 100%;
-  height: 480px;
-  min-height: 380px;
-  max-height: 520px;
+  height: 100%;
+  min-height: 260px;
   background: var(--bg-page-secondary);
   overflow: hidden;
   border-radius: var(--radius-xl);
@@ -454,9 +453,9 @@ onBeforeUnmount(() => {
 
 .canvas-hud {
   position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-  right: var(--space-3);
+  top: var(--space-2);
+  left: var(--space-2);
+  right: var(--space-2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -523,5 +522,18 @@ onBeforeUnmount(() => {
 
 .btn-hud-icon:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .hud-stat-pill {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    gap: 4px;
+  }
+  .hud-controls {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.45rem;
+    gap: 4px;
+  }
 }
 </style>

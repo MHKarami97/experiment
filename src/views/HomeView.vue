@@ -332,7 +332,7 @@ function openExperiment(id: string) {
 
 .experiments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: var(--space-4);
 }
 
@@ -427,7 +427,7 @@ function openExperiment(id: string) {
 
 .planned-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
   gap: var(--space-3);
 }
 
@@ -463,5 +463,27 @@ function openExperiment(id: string) {
 .planned-topic {
   font-size: 0.75rem;
   color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .home-view {
+    padding: var(--space-2);
+    gap: var(--space-4);
+  }
+  .hero-banner {
+    padding: var(--space-4) var(--space-3);
+  }
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  .logo-icon {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
 }
 </style>

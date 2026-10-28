@@ -2,14 +2,14 @@
   <div class="experiment-view-container">
     <div v-if="isLoading" class="loading-state">
       <div class="spinner"></div>
-      <p>در حال بارگذاری شبیه‌سازی آزمایشگاه...</p>
+      <p>{{ $t('experiment.loading') }}</p>
     </div>
 
     <div v-else-if="error" class="error-state glass-card">
-      <h3>⚠️ آزمایش مورد نظر یافت نشد</h3>
+      <h3>⚠️ {{ $t('experiment.notFound') }}</h3>
       <p>{{ error }}</p>
       <button type="button" class="btn-back touch-target" @click="$router.push('/')">
-        بازگشت به فهرست آزمایش‌ها
+        {{ $t('experiment.backToList') }}
       </button>
     </div>
 
@@ -20,10 +20,12 @@
 <script setup lang="ts">
 import { ref, shallowRef, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { getExperimentById } from '../experiments/registry';
 import { registerExperimentMessages } from '../app/i18n';
 
 const route = useRoute();
+const { t } = useI18n();
 const isLoading = ref(true);
 const error = ref<string | null>(null);
 const activeComponent = shallowRef<any>(null);
@@ -37,26 +39,33 @@ async function loadPlugin() {
 
   const catalogItem = getExperimentById(experimentId);
   if (!catalogItem) {
-    error.value = `آزمایش با شناسه "${experimentId}" هنوز پیاده‌سازی نشده یا موجود نیست.`;
+    error.value = t('experiment.notFoundDesc', { id: experimentId });
     isLoading.value = false;
     return;
   }
 
   try {
     const plugin = await catalogItem.load();
-    // Register local messages
+    // Register local messages under proper namespace
     if (plugin.messages) {
+      const nsMap: Record<string, string> = {
+        'projectile': 'projectile',
+        '1d-2d-kinematics': 'kinematics',
+        'newton-inclined-plane': 'inclinedPlane',
+        'pulleys-levers': 'pulleysLevers'
+      };
+      const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
-        registerExperimentMessages('fa', 'projectile', plugin.messages.fa);
+        registerExperimentMessages('fa', ns, plugin.messages.fa);
       }
       if (plugin.messages.en) {
-        registerExperimentMessages('en', 'projectile', plugin.messages.en);
+        registerExperimentMessages('en', ns, plugin.messages.en);
       }
     }
     activeComponent.value = plugin.component;
   } catch (err: any) {
     console.error('Failed to load experiment:', err);
-    error.value = 'خطا در بارگذاری مؤلفه‌های آزمایش.';
+    error.value = t('experiment.loadError');
   } finally {
     isLoading.value = false;
   }

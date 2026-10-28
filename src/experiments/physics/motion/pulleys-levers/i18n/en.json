@@ -1,0 +1,70 @@
+{
+  "m1": "Left Mass (m₁)",
+  "m1_desc": "Hanging mass on the left side of the Atwood pulley",
+  "m2": "Right Mass (m₂)",
+  "m2_desc": "Hanging mass on the right side of the Atwood pulley",
+  "pulleyMass": "Pulley Mass (M_p)",
+  "pulleyMass_desc": "Mass of the rotating cylindrical pulley wheel",
+  "pulleyMass_real": "Rotational inertia of the pulley reduces system linear acceleration",
+  "pulleyRadius": "Pulley Radius (R)",
+  "pulleyRadius_desc": "Radius of the pulley groove",
+  "frictionTorque": "Axle Friction Torque (τ_f)",
+  "frictionTorque_desc": "Rotational friction torque from axle bearings",
+  "frictionTorque_real": "Energy dissipation in axle rotation reducing net acceleration",
+  "gravity": "Gravitational Acceleration (g)",
+  "gravity_desc": "Ambient gravitational field acceleration",
+
+  "presets": {
+    "atwoodStandard": "Standard Atwood Machine (5kg & 3kg)",
+    "atwoodBalanced": "Static Equilibrium (Equal Masses)",
+    "atwoodHeavyPulley": "Heavy Pulley with Bearing Friction",
+    "atwoodMoon": "Atwood Experiment on the Moon"
+  },
+
+  "outputs": {
+    "acceleration": "Linear Acceleration (a)",
+    "tension1": "Left String Tension (T₁)",
+    "tension2": "Right String Tension (T₂)",
+    "velocity": "Linear Speed (v)"
+  },
+
+  "tabs": {
+    "graph": "Analysis Graphs",
+    "table": "Data Table",
+    "theory": "Theory & Formulas",
+    "notes": "Lab Notes",
+    "guided": "Guided Steps"
+  },
+
+  "controls": {
+    "groupMasses": "Hanging Masses",
+    "groupPulley": "Pulley Properties & Friction"
+  },
+
+  "formulas": {
+    "atwoodAccTitle": "Ideal Atwood Linear Acceleration",
+    "atwoodAccExpl": "System acceleration in the absence of pulley mass and friction is the mass difference divided by total mass times gravity.",
+    "atwoodTensionTitle": "Ideal String Tension",
+    "atwoodTensionExpl": "Tension in a light, inextensible rope over a frictionless massless pulley is uniform on both sides.",
+    "realInertiaTitle": "Acceleration with Pulley Rotational Inertia",
+    "realInertiaExpl": "Pulley rotational inertia I = 0.5 M_p R^2 adds equivalent mass equal to half the pulley mass into system denominator.",
+    "maTitle": "Mechanical Advantage of Simple Machines",
+    "maExpl": "Ratio of output resistance force to input effort force (IMA = count of supporting strands in pulleys, or effort arm / load arm in levers)."
+  },
+
+  "steps": {
+    "step1Title": "Step 1: Static Equilibrium with Equal Masses",
+    "step1Instr": "Set both m1 and m2 to equal values of 4.0 kg and press Play.",
+    "step1Hint": "In this state, net acceleration is zero and string tension exactly balances each hanging weight.",
+    "step2Title": "Step 2: Generate Acceleration via Mass Imbalance",
+    "step2Instr": "Change m2 to 5.0 kg and m1 to 3.0 kg, then observe the acceleration.",
+    "step2Hint": "Verify how the simulated acceleration matches the theoretical formula a = (m2 - m1)/(m1 + m2) * g.",
+    "step3Title": "Step 3: Compare Ideal and Real Physical Modes",
+    "step3Instr": "Switch to Real mode to observe how pulley rotational inertia and axle friction damp the acceleration.",
+    "step3Hint": "In Real mode, rope tensions on both sides of the pulley differ due to net torque required to angularly accelerate the wheel."
+  },
+
+  "runComparisonIdeal": "Ideal Run (m1={m1}, m2={m2})",
+  "runComparisonReal": "Real Run (m1={m1}, m2={m2})",
+  "notesSaved": "Lab notes saved successfully."
+}

@@ -106,6 +106,87 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/1d-2d-kinematics',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.kinematics.title',
+    descKey: 'experiments.kinematics.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'easy',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/1d-2d-kinematics/config'),
+        import('./physics/motion/1d-2d-kinematics/ui/Experiment.vue'),
+        import('./physics/motion/1d-2d-kinematics/i18n/fa.json'),
+        import('./physics/motion/1d-2d-kinematics/i18n/en.json')
+      ]);
+      return {
+        config: configModule.kinematicsConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
+  },
+  {
+    id: 'physics/motion/newton-inclined-plane',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.inclinedPlane.title',
+    descKey: 'experiments.inclinedPlane.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/newton-inclined-plane/config'),
+        import('./physics/motion/newton-inclined-plane/ui/Experiment.vue'),
+        import('./physics/motion/newton-inclined-plane/i18n/fa.json'),
+        import('./physics/motion/newton-inclined-plane/i18n/en.json')
+      ]);
+      return {
+        config: configModule.inclinedPlaneConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
+  },
+  {
+    id: 'physics/motion/pulleys-levers',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.pulleysLevers.title',
+    descKey: 'experiments.pulleysLevers.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/pulleys-levers/config'),
+        import('./physics/motion/pulleys-levers/ui/Experiment.vue'),
+        import('./physics/motion/pulleys-levers/i18n/fa.json'),
+        import('./physics/motion/pulleys-levers/i18n/en.json')
+      ]);
+      return {
+        config: configModule.pulleysLeversConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

@@ -260,8 +260,38 @@ function toggleFullscreen() {
 }
 
 @media (max-width: 640px) {
+  .lab-toolbar {
+    padding: var(--space-2);
+    gap: var(--space-1);
+    justify-content: flex-start;
+  }
+  .tool-btn {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .speed-label {
+    display: none;
+  }
+  .speed-chip {
+    padding: 0.15rem 0.35rem;
+    font-size: 0.7rem;
+  }
+  .mode-btn {
+    padding: 0.2rem 0.45rem;
+    font-size: 0.75rem;
+  }
   .hide-mobile {
     display: none;
+  }
+}
+
+@media (max-width: 440px) {
+  .tool-btn .label {
+    display: none;
+  }
+  .mode-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.35rem;
   }
 }
 </style>

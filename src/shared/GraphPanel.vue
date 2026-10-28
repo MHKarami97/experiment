@@ -273,6 +273,10 @@ onBeforeUnmount(() => {
   background: var(--surface-hover);
   padding: 2px;
   border-radius: var(--radius-md);
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  scrollbar-width: none;
 }
 
 .chart-tab {
@@ -282,6 +286,8 @@ onBeforeUnmount(() => {
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .chart-tab.active {
@@ -305,6 +311,17 @@ onBeforeUnmount(() => {
   min-height: 250px;
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .chart-container {
+    height: 210px;
+    min-height: 210px;
+  }
+  .chart-tab {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.45rem;
+  }
 }
 
 :deep(.uplot) {
