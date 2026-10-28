@@ -133,12 +133,17 @@ async function onImportFile(event: Event) {
 
 <style scoped>
 .settings-view {
+  width: 100%;
   max-width: 700px;
   margin: var(--space-4) auto;
   padding: var(--space-4);
+  box-sizing: border-box;
 }
 
 .settings-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: var(--space-6);
   border-radius: var(--radius-2xl);
   display: flex;
@@ -175,10 +180,12 @@ async function onImportFile(event: Event) {
 .options-row {
   display: flex;
   gap: var(--space-2);
+  flex-wrap: wrap;
 }
 
 .opt-btn {
   flex: 1;
+  min-width: 120px;
   padding: 0.6rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
@@ -187,6 +194,7 @@ async function onImportFile(event: Event) {
   font-weight: 600;
   font-size: 0.9rem;
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .opt-btn:hover {
@@ -215,6 +223,7 @@ async function onImportFile(event: Event) {
   display: flex;
   gap: var(--space-3);
   margin-top: var(--space-2);
+  flex-wrap: wrap;
 }
 
 .btn-action {
@@ -248,5 +257,27 @@ async function onImportFile(event: Event) {
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .settings-view {
+    padding: var(--space-3) var(--space-2);
+  }
+  .settings-container {
+    padding: var(--space-4) var(--space-3);
+    border-radius: var(--radius-xl);
+    gap: var(--space-4);
+  }
+  .options-row {
+    flex-direction: column;
+  }
+  .storage-actions {
+    flex-direction: column;
+  }
+  .btn-action,
+  .file-label {
+    width: 100%;
+    justify-content: center;
+  }
 }
 </style>

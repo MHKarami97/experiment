@@ -26,7 +26,7 @@
 - **Quality & Localization Verification:**
   - 16/16 Unit Tests Passing with analytical error $< 10^{-3}$.
   - 0 missing i18n keys across 344 keys scanned in all components and configurations.
-  - Mobile responsiveness verified down to 360px viewport width (no horizontal scrolling, clean bottom sheet, compact HUD overlays).
+  - Complete Mobile Responsiveness Overhaul: Fixed `.subject-chips` flexbox expansion bug, ensured `grid-template-columns: 1fr` on mobile for `.experiments-grid` and `.planned-grid`, wrapped `.badges` and `.card-meta`, added `max-width: 100vw; overflow-x: hidden; box-sizing: border-box;` on `html`, `body`, `.app-root`, `.app-main`, and `.home-view` to guarantee 0 overflow down to 320px screens.
 
 ## Folder Map
 - `public/fonts/` — Vazirmatn woff2 local font files and `@font-face` css

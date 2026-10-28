@@ -102,6 +102,10 @@ onMounted(() => {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .app-header {
@@ -114,6 +118,9 @@ onMounted(() => {
   justify-content: space-between;
   padding: 0 var(--space-4);
   border-bottom: 1px solid var(--border-subtle);
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .header-left {
@@ -202,6 +209,10 @@ onMounted(() => {
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
   padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom, 0px));
 }
 
@@ -220,6 +231,9 @@ onMounted(() => {
   align-items: center;
   border-top: 1px solid var(--border-subtle);
   z-index: 999;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
@@ -260,8 +274,13 @@ onMounted(() => {
     padding: 0 var(--space-2);
   }
   .brand-name {
-    font-size: 0.9rem;
-    max-width: 140px;
+    font-size: 0.85rem;
+    max-width: 120px;
+  }
+  .btn-hdr {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
   }
 }
 </style>
