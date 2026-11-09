@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 25 Experiments Built & Tested (130/130 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 26 Experiments Built & Tested (136/136 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -85,6 +85,7 @@
 23. `physics/waves/wave-interference` (tested) — Wave Superposition & Interference (Principle of linear superposition $y_{\text{tot}} = y_1 + y_2$, 2D ripple tank two-source interference with drag-and-drop probe, constructive $\Delta r = m\lambda$ and destructive $\Delta r = (m+0.5)\lambda$ nodal lines, 1D transverse string wave, and 1D longitudinal sound compression/rarefaction).
 24. `physics/waves/standing-waves` (tested) — Standing Waves on Strings & Air Columns (Wave speed $v = \sqrt{T/\mu}$ on strings and sound speed $v$ in air columns, boundary conditions for fixed strings, open-open pipes, and open-closed pipes, harmonic series $f_n = n \frac{v}{2L}$ and $f_n = (2n-1) \frac{v}{4L}$, node/antinode markers, Kundt's tube acoustic dust clustering, acoustic end correction in real mode).
 25. `physics/waves/doppler-effect` (tested) — Doppler Effect & Shock Waves (Doppler pitch shift $f' = f_0 \frac{v \pm v_o}{v \mp v_s}$, 2D line-of-sight directional frequency at draggable listener probe, wavefront compression/expansion, sonic barrier $M = 1$, supersonic flight with Mach cone shockwaves $\sin\mu = 1/M$, sonic boom envelope, live Web Audio pitch synthesis, real-mode wind drift).
+26. `physics/waves/beats-fourier` (tested) — Beats & Fourier Analysis (Two-tone acoustic beats $f_{\text{beat}} = |f_1 - f_2|$, modulation envelope, carrier frequency, fine instrument tuning, Fourier series synthesis of square, sawtooth, and triangle waves, Gibbs phenomenon, and live discrete FFT magnitude spectrum).
 
 ## Next Experiment
-- `physics/waves/beats-fourier` — Beats & Fourier Analysis (پدیده ضربان صوتی، برهم‌نهی بسامدهای نزدیک، بسامد ضربان $f_b = |f_1 - f_2|$، طیف فوریه FFT و سنتز هارمونیک‌ها).
+- `physics/waves/resonance-tubes` — Resonance Tubes & Speed of Sound (لوله‌های صوتی، تشدید تشدیدگرهای هلمهولتز و اندازه‌گیری تندی صوت).

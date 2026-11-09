@@ -283,6 +283,10 @@ const globalMessages = {
       dopplerEffect: {
         title: 'اثر دوپلر صوتی و مخروط ماخ',
         description: 'بررسی تغییر بسامد صوتی در حرکت نسبی چشمه و ناظر، فشردگی جبهه‌های موج، دیوار صوتی، مخروط ماخ و امواج شوک مافوق صوت'
+      },
+      beatsFourier: {
+        title: 'ضربان صوتی و تجزیه فوریه',
+        description: 'بررسی برهم‌نهی دو موج با بسامدهای نزدیک، مدولاسیون دامنه ضربان، کوک سازها، و سنتز هارمونیک‌های فوریه (موج مربعی، دندانه‌اره‌ای و مثلثی)'
       }
     },
     experiment: {
@@ -545,6 +549,10 @@ const globalMessages = {
       dopplerEffect: {
         title: "Doppler Effect & Mach Shockwaves",
         description: "Investigate Doppler pitch shift with moving source and observer, wavefront compression, sound barrier, Mach cone, and supersonic sonic booms"
+      },
+      beatsFourier: {
+        title: "Acoustic Beats & Fourier Analysis",
+        description: "Explore superposition of slightly detuned audio tones, amplitude envelope beating, musical instrument tuning, and Fourier harmonic synthesis"
       }
     },
     experiment: {

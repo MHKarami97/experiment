@@ -754,6 +754,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/waves/beats-fourier',
+    subject: 'physics',
+    topic: 'waves',
+    titleKey: 'experiments.beatsFourier.title',
+    descKey: 'experiments.beatsFourier.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/waves/beats-fourier/config'),
+        import('./physics/waves/beats-fourier/ui/Experiment.vue'),
+        import('./physics/waves/beats-fourier/i18n/fa.json'),
+        import('./physics/waves/beats-fourier/i18n/en.json')
+      ]);
+      return {
+        config: configModule.beatsFourierConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

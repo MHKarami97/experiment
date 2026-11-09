@@ -73,7 +73,8 @@ async function loadPlugin() {
         'heat-engines': 'heatEngines',
         'wave-interference': 'waveInterference',
         'standing-waves': 'standingWaves',
-        'doppler-effect': 'dopplerEffect'
+        'doppler-effect': 'dopplerEffect',
+        'beats-fourier': 'beatsFourier'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

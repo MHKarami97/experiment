@@ -33,7 +33,7 @@ Status definitions:
 | Physics | Waves & Sound | `physics/waves/wave-interference` | امواج طولی و عرضی و تداخل | Wave Superposition & Interference | tested |
 | Physics | Waves & Sound | `physics/waves/standing-waves` | امواج ایستاده در سیم و لوله | Standing Waves on a String | tested |
 | Physics | Waves & Sound | `physics/waves/doppler-effect` | اثر دوپلر صوتی | Doppler Effect | tested |
-| Physics | Waves & Sound | `physics/waves/beats-fourier` | ضربان صوتی و تجزیه فوریه | Beats & Fourier Analysis | planned |
+| Physics | Waves & Sound | `physics/waves/beats-fourier` | ضربان صوتی و تجزیه فوریه | Beats & Fourier Analysis | tested |
 | Physics | Waves & Sound | `physics/waves/resonance-tubes` | لوله‌های صوتی و تشدید | Resonance Tubes | planned |
 | Physics | Optics | `physics/optics/snell-refraction` | شکست نور و قانون اسنل | Reflection & Snell's Law | planned |
 | Physics | Optics | `physics/optics/geometric-optics` | عدسی‌ها و آینه‌ها (تشکیل تصویر) | Lenses & Curved Mirrors | planned |
