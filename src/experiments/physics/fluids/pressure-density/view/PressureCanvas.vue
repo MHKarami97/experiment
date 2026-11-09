@@ -134,9 +134,9 @@ function render() {
 function renderTank(ctx: CanvasRenderingContext2D, w: number, h: number, isDark: boolean) {
   // Tank Dimensions
   const tankW = Math.min(380, w * 0.62);
-  const tankH = Math.min(380, h * 0.68);
+  const tankH = Math.min(380, Math.max(260, h - 90));
   const tankX = (w - tankW) / 2;
-  const tankY = h - tankH - 45;
+  const tankY = 55;
 
   const maxDepthMeters = 5.0;
   const scale = tankH / maxDepthMeters; // px per meter
@@ -259,11 +259,11 @@ function renderTank(ctx: CanvasRenderingContext2D, w: number, h: number, isDark:
   ctx.fillText(`${(props.state.measuredPressure / 1000).toFixed(1)} kPa`, tagX + 8, tagY + 19);
 }
 
-function renderUTube(ctx: CanvasRenderingContext2D, w: number, h: number, isDark: boolean) {
+function renderUTube(ctx: CanvasRenderingContext2D, w: number, _h: number, isDark: boolean) {
   const uW = 200;
-  const uH = 260;
+  const uH = 280;
   const uX = (w - uW) / 2;
-  const uY = (h - uH) / 2 + 20;
+  const uY = 65;
   const tubeDia = 36;
 
   // Glass U-tube outer path

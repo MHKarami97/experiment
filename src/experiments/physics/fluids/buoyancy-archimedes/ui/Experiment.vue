@@ -743,56 +743,68 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: var(--space-4, 16px);
+  padding: var(--space-4, 16px);
+  box-sizing: border-box;
 }
 
 .experiment-workspace {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-4, 16px);
+  width: 100%;
+  align-items: flex-start;
 }
 
 .scene-container {
-  flex: 1;
-  display: flex;
-  position: relative;
+  flex: 1 1 auto;
   min-width: 0;
-  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .canvas-mount {
-  width: 100%;
-  height: 100%;
   position: relative;
+  width: 100%;
+  height: 520px;
+  background-color: var(--bg-scene, #0f172a);
+  border-radius: var(--radius-lg, 12px);
   overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
 .control-sidebar {
-  width: 320px;
-  background: var(--bg-surface-elevated, #1e293b);
-  border-inline-start: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  width: 340px;
+  flex-shrink: 0;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg, 12px);
+  padding: var(--space-4, 16px);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  max-height: 580px;
 }
 
 .sidebar-header {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  padding-bottom: var(--space-3, 12px);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .sidebar-header h3 {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .sidebar-scroll {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem;
+  padding-top: var(--space-3, 12px);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -807,7 +819,8 @@ onBeforeUnmount(() => {
 
 .control-label {
   font-size: 0.85rem;
-  color: var(--text-secondary, #94a3b8);
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .profile-pill-list {
@@ -825,9 +838,9 @@ onBeforeUnmount(() => {
   min-width: 90px;
   padding: 0.45rem 0.65rem;
   border-radius: 8px;
-  background: var(--bg-surface, #0f172a);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
-  color: var(--text-secondary, #94a3b8);
+  background: var(--surface-input);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -839,59 +852,64 @@ onBeforeUnmount(() => {
 }
 
 .profile-pill-btn:hover {
-  background: var(--bg-surface-hover, #334155);
-  color: var(--text-primary, #f8fafc);
+  background: var(--surface-hover);
+  border-color: #38bdf8;
+  color: var(--text-primary);
 }
 
 .profile-pill-btn.active {
-  background: var(--accent-primary, #0284c7);
+  background: #0284c7;
   border-color: #38bdf8;
   color: #ffffff;
   font-weight: 600;
 }
 
 .bottom-tabs-section {
-  height: 240px;
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-surface-elevated, #1e293b);
-  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  width: 100%;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .tabs-nav {
   display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  gap: var(--space-2, 8px);
+  padding: var(--space-2, 8px) var(--space-4, 16px);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-hover);
   overflow-x: auto;
 }
 
 .tab-btn {
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border: none;
   background: transparent;
-  border: 1px solid transparent;
-  color: var(--text-secondary, #94a3b8);
-  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: var(--radius-md, 8px);
   cursor: pointer;
   white-space: nowrap;
+  transition: all 0.15s ease;
 }
 
 .tab-btn:hover {
-  background: var(--bg-surface-hover, #334155);
+  color: var(--text-primary);
+  background: var(--surface-hover);
 }
 
 .tab-btn.active {
-  background: var(--accent-subtle, rgba(2, 132, 199, 0.2));
-  color: var(--accent-primary, #38bdf8);
-  border-color: var(--accent-primary, #38bdf8);
+  color: var(--color-physics, #0284c7);
+  background: var(--surface-card);
   font-weight: 600;
+  box-shadow: var(--shadow-sm);
 }
 
 .tab-content-area {
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
+  padding: var(--space-4, 16px);
+  min-height: 240px;
 }
 
 .tab-panel {
@@ -904,7 +922,7 @@ onBeforeUnmount(() => {
   padding: 1rem;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--text-secondary, #94a3b8);
+  color: var(--text-secondary);
   white-space: pre-line;
 }
 
@@ -923,12 +941,13 @@ onBeforeUnmount(() => {
 
 .notes-header h4 {
   margin: 0;
+  color: var(--text-primary);
 }
 
 .btn-save-note {
   padding: 0.35rem 0.75rem;
   border-radius: 6px;
-  background: var(--accent-primary, #0284c7);
+  background: #0284c7;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -938,17 +957,29 @@ onBeforeUnmount(() => {
 .notes-textarea {
   flex: 1;
   width: 100%;
-  min-height: 100px;
-  background: var(--bg-surface, #0f172a);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+  min-height: 120px;
+  background: var(--surface-input);
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
   padding: 0.75rem;
-  color: var(--text-primary, #f8fafc);
-  resize: none;
+  color: var(--text-primary);
+  resize: vertical;
   font-family: inherit;
 }
 
 @media (max-width: 1023px) {
+  .experiment-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-mount {
+    height: 380px;
+  }
+
+  .control-sidebar {
+    display: none;
+  }
+
   .desktop-only {
     display: none !important;
   }

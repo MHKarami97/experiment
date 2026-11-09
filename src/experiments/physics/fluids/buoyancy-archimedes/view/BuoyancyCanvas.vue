@@ -146,11 +146,11 @@ function render() {
   ctx.fillRect(0, 0, w, h);
 
   // Layout geometry
-  // Primary tank: width ~320px, height ~340px
+  // Primary tank: width ~320px, height ~330px
   const tankW = Math.min(330, w * 0.52);
-  const tankH = Math.min(320, h * 0.65);
+  const tankH = Math.min(330, Math.max(260, h - 130));
   const tankX = (w - tankW) / 2 - 40;
-  const tankY = h - tankH - 35;
+  const tankY = 85;
 
   const fluidH = tankH * 0.78; // 78% filled
   const fluidSurfaceY = tankY + (tankH - fluidH);

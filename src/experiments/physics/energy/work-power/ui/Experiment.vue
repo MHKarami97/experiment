@@ -686,27 +686,27 @@ onBeforeUnmount(() => {
   position: relative;
   width: 100%;
   height: 520px;
-  background-color: var(--color-surface, #0f172a);
+  background-color: var(--bg-scene, #0f172a);
   border-radius: var(--radius-lg, 12px);
   overflow: hidden;
-  box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  box-shadow: var(--shadow-md);
 }
 
 .control-sidebar {
   width: 320px;
   flex-shrink: 0;
-  background: var(--color-surface, rgba(255, 255, 255, 0.7));
-  border: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg, 12px);
   padding: var(--space-4, 16px);
-  box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  box-shadow: var(--shadow-sm);
 }
 
 .sidebar-header h3 {
   margin: 0 0 var(--space-3, 12px) 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--color-text, #1e293b);
+  color: var(--text-primary);
 }
 
 .sidebar-scroll {
@@ -725,7 +725,7 @@ onBeforeUnmount(() => {
 .control-label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-text, #334155);
+  color: var(--text-secondary);
 }
 
 .profile-pill-list {
@@ -736,20 +736,21 @@ onBeforeUnmount(() => {
 
 .profile-pill-btn {
   padding: 6px 10px;
-  border: 1px solid var(--color-border, rgba(0, 0, 0, 0.15));
-  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-input);
   border-radius: var(--radius-md, 8px);
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  color: var(--color-text, #334155);
+  color: var(--text-secondary);
   transition: all 0.15s ease;
   text-align: start;
 }
 
 .profile-pill-btn:hover {
-  background: rgba(2, 132, 199, 0.08);
+  background: var(--surface-hover);
   border-color: #38bdf8;
+  color: var(--text-primary);
 }
 
 .profile-pill-btn.active {
@@ -761,19 +762,19 @@ onBeforeUnmount(() => {
 
 .bottom-tabs-section {
   width: 100%;
-  background: var(--color-surface, rgba(255, 255, 255, 0.7));
-  border: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg, 12px);
   overflow: hidden;
-  box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  box-shadow: var(--shadow-sm);
 }
 
 .tabs-nav {
   display: flex;
   gap: var(--space-2, 8px);
   padding: var(--space-2, 8px) var(--space-4, 16px);
-  border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
-  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-hover);
   overflow-x: auto;
 }
 
@@ -781,7 +782,7 @@ onBeforeUnmount(() => {
   padding: 8px 16px;
   border: none;
   background: transparent;
-  color: var(--color-text-secondary, #64748b);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: var(--radius-md, 8px);
@@ -791,13 +792,13 @@ onBeforeUnmount(() => {
 }
 
 .tab-btn:hover {
-  color: var(--color-text, #1e293b);
-  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+  background: var(--surface-active);
 }
 
 .tab-btn.active {
-  color: #0284c7;
-  background: rgba(2, 132, 199, 0.1);
+  color: var(--color-physics, #0284c7);
+  background: var(--surface-card);
   font-weight: 600;
 }
 
@@ -813,10 +814,11 @@ onBeforeUnmount(() => {
 .theory-prose {
   margin-top: var(--space-4, 16px);
   padding: var(--space-4, 16px);
-  background: rgba(0, 0, 0, 0.02);
+  background: var(--surface-hover);
   border-radius: var(--radius-md, 8px);
   font-size: 0.95rem;
   line-height: 1.6;
+  color: var(--text-secondary);
   white-space: pre-line;
 }
 
@@ -835,11 +837,12 @@ onBeforeUnmount(() => {
 .notes-header h4 {
   margin: 0;
   font-size: 1rem;
+  color: var(--text-primary);
 }
 
 .btn-save-note {
   padding: 6px 14px;
-  background: #0284c7;
+  background: var(--color-physics, #0284c7);
   color: #ffffff;
   border: none;
   border-radius: var(--radius-md, 8px);
@@ -852,9 +855,9 @@ onBeforeUnmount(() => {
   min-height: 160px;
   padding: 12px;
   border-radius: var(--radius-md, 8px);
-  border: 1px solid var(--color-border, rgba(0, 0, 0, 0.12));
-  background: var(--color-bg, #ffffff);
-  color: var(--color-text, #0f172a);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-input);
+  color: var(--text-primary);
   font-family: inherit;
   font-size: 0.95rem;
   resize: vertical;
