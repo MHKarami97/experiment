@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 6 Experiments Built & Tested (26/26 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 7 Experiments Built & Tested (31/31 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -25,9 +25,10 @@
   4. `physics/motion/pulleys-levers`: Atwood machine, block-and-tackle pulley systems, ideal & real rotational inertia of pulley, axle friction, mechanical advantage (IMA & AMA), and lever equilibrium.
   5. `physics/motion/circular-motion`: Uniform & non-uniform circular motion, centripetal force ($F_c = m\omega^2 r$), tangential speed ($v = \omega r$), centripetal acceleration ($a_c = \omega^2 r$), elastic string compliance, tensile breaking threshold with Newton's 1st law tangential release.
   6. `physics/motion/collisions-momentum`: 1D collisions on air track, conservation of linear momentum ($P_{\text{tot}} = \text{const}$), coefficient of restitution $e \in [0, 1]$, elastic vs inelastic mechanical energy dissipation, velocity vectors & collision flash effects.
+  7. `physics/motion/torque-equilibrium`: Torque, lever arm, principle of moments ($m_1 |x_1| = m_2 x_2$), seesaw rotational dynamics around fulcrum, self-weight torque of offset beam, and ground bumper contact.
 - **Quality & Localization Verification:**
-  - 26/26 Unit Tests Passing with analytical error $< 10^{-3}$.
-  - 0 missing i18n keys across 426 keys scanned in all components and configurations.
+  - 31/31 Unit Tests Passing with analytical error $< 10^{-3}$.
+  - 0 missing i18n keys across 463 keys scanned in all components and configurations.
   - Complete Mobile Responsiveness Overhaul: Fixed `.subject-chips` flexbox expansion bug, ensured `grid-template-columns: 1fr` on mobile for `.experiments-grid` and `.planned-grid`, wrapped `.badges` and `.card-meta`, added `max-width: 100vw; overflow-x: hidden; box-sizing: border-box;` on `html`, `body`, `.app-root`, `.app-main`, and `.home-view` to guarantee 0 overflow down to 320px screens.
 
 ## Folder Map
@@ -43,9 +44,9 @@
 - `src/views/` — `HomeView`, `ExperimentView`, `SettingsView`
 
 ## How to Run & Test
-- Unit tests: `pnpm run test` (26 passed)
+- Unit tests: `pnpm run test` (31 passed)
 - Type check: `pnpm run type-check` (0 errors)
-- Production build: `pnpm run build` (PWA SW generated in ~5.5s)
+- Production build: `pnpm run build` (PWA SW generated in ~5.6s)
 - Playwright tests: `pnpm exec playwright test`
 - Preview server: `pnpm run preview`
 
@@ -62,6 +63,7 @@
 4. `physics/motion/pulleys-levers` (tested) — Pulleys, levers & simple machines (mechanical advantage, Atwood machine, ideal vs real efficiency with pulley mass/friction).
 5. `physics/motion/circular-motion` (tested) — Circular motion & centripetal force ($F_c = m\omega^2 r$, string elasticity, rupture threshold, tangential release).
 6. `physics/motion/collisions-momentum` (tested) — 1D collisions on linear air track, coefficient of restitution $e$, momentum conservation, and kinetic energy dissipation.
+7. `physics/motion/torque-equilibrium` (tested) — Torque & static equilibrium, Archimedes' law of the lever ($m_1 |x_1| = m_2 x_2$), seesaw tilt dynamics, and fulcrum support reaction force.
 
 ## Next Experiment
-- `physics/motion/torque-equilibrium` — Torque, center of mass, rotational equilibrium, lever balance (seesaw), center of gravity.
+- `physics/motion/pendulums` — Simple pendulum & double pendulum (chaos, period vs amplitude, phase portrait $\theta$-$\omega$).

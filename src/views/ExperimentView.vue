@@ -54,7 +54,8 @@ async function loadPlugin() {
         'newton-inclined-plane': 'inclinedPlane',
         'pulleys-levers': 'pulleysLevers',
         'circular-motion': 'circularMotion',
-        'collisions-momentum': 'collisionsMomentum'
+        'collisions-momentum': 'collisionsMomentum',
+        'torque-equilibrium': 'torqueEquilibrium'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

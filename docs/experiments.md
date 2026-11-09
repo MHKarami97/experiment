@@ -14,7 +14,7 @@ Status definitions:
 | Physics | Motion & Mechanics | `physics/motion/pulleys-levers` | قرقره‌ها، اهرم‌ها و ماشین‌های ساده | Pulleys, Levers & Simple Machines | tested |
 | Physics | Motion & Mechanics | `physics/motion/circular-motion` | حرکت دایره‌ای و نیروی مرکزگرا | Circular Motion & Centripetal Force | tested |
 | Physics | Motion & Mechanics | `physics/motion/collisions-momentum` | برخوردها و پایستگی تکانه | Collisions & Linear Momentum | tested |
-| Physics | Motion & Mechanics | `physics/motion/torque-equilibrium` | گشتاور و تعادل ایستا (الاکلنگ) | Torque & Static Equilibrium | planned |
+| Physics | Motion & Mechanics | `physics/motion/torque-equilibrium` | گشتاور و تعادل ایستا (الاکلنگ) | Torque & Static Equilibrium | tested |
 | Physics | Motion & Mechanics | `physics/motion/pendulums` | آونگ ساده و آونگ دوگانه (آشوب) | Simple & Double Pendulum | planned |
 | Physics | Motion & Mechanics | `physics/motion/spring-shm` | فنر و نوسان هماهنگ ساده (رزونانس) | Spring & Simple Harmonic Motion | planned |
 | Physics | Motion & Mechanics | `physics/motion/orbital-gravity` | گرانش و مدارهای سیاره‌ای (کپلر) | Gravity & Planetary Orbits | planned |

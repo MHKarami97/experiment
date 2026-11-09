@@ -1,0 +1,59 @@
+{
+  "title": "Torque & Static Equilibrium",
+  "description": "Investigate lever arms, principle of moments, rotational equilibrium of a seesaw, and beam center of gravity",
+  "variables": {
+    "m1": "Left Load Mass (m₁)",
+    "m1Desc": "Mass of the load placed on the left side of the seesaw",
+    "x1": "Left Load Position (x₁)",
+    "x1Desc": "Distance of the left mass from the pivot (negative denotes leftward)",
+    "m2": "Right Load Mass (m₂)",
+    "m2Desc": "Mass of the load placed on the right side of the seesaw",
+    "x2": "Right Load Position (x₂)",
+    "x2Desc": "Distance of the right mass from the pivot (positive denotes rightward)",
+    "beamMass": "Beam Mass (M_beam)",
+    "beamMassDesc": "Mass of the seesaw beam distributed along its full length",
+    "pivotOffset": "Fulcrum Offset (Δx_pivot)",
+    "pivotOffsetDesc": "Distance of the fulcrum relative to beam center; non-zero value creates self-weight torque",
+    "friction": "Pivot Bearing Friction",
+    "frictionDesc": "Rotational friction and damping at the fulcrum axle in real mode"
+  },
+  "presets": {
+    "perfectBalance": "Archimedes Balance (4kg @ 1.5m vs 2kg @ 3m)",
+    "perfectBalanceDesc": "Balancing unequal masses using reciprocal lever arm lengths (net torque = 0)",
+    "equalArms": "Equal Masses & Arms (5kg @ 2m)",
+    "equalArmsDesc": "Classic symmetric equilibrium with identical torques on both sides",
+    "heavyShortArm": "Heavy Weight on Short Arm (12kg @ 0.5m vs 3kg @ 2m)",
+    "heavyShortArmDesc": "Lifting heavy loads by applying effort along a longer lever arm",
+    "shiftedFulcrum": "Shifted Fulcrum & Heavy Beam",
+    "shiftedFulcrumDesc": "Explore self-weight torque when the fulcrum is moved away from the geometric center"
+  },
+  "formulas": {
+    "torqueDef": "Definition of torque: perpendicular lever arm times gravitational force",
+    "equilibriumLaw": "Rotational equilibrium: clockwise torques equal counter-clockwise torques",
+    "archimedesLaw": "Archimedes' law of the lever for concentrated point loads",
+    "rotationalDynamics": "Newton's second law for rotation: net torque equals moment of inertia times angular acceleration"
+  },
+  "realMode": {
+    "beamMassEffect": "Influence of beam dead weight in overall rotational balance",
+    "pivotOffsetEffect": "Fulcrum offset introduces a self-centering or tilting gravitational moment",
+    "bearingFriction": "Mechanical bearing friction providing rotational oscillation damping"
+  },
+  "hud": {
+    "tauLeft": "Left Torque (τₗ)",
+    "tauRight": "Right Torque (τᵣ)",
+    "tauNet": "Net Torque (τ_net)",
+    "supportForce": "Fulcrum Support (F_N)",
+    "angle": "Tilt Angle",
+    "status": "Balance State",
+    "balanced": "Balanced ✓",
+    "tilted": "Unbalanced"
+  },
+  "guided": {
+    "step1Title": "Step 1: Test Symmetry with Equal Masses",
+    "step1Desc": "Run with 'Equal Masses & Arms'. Notice how identical masses at equal distances create zero net torque and keep the beam level.",
+    "step2Title": "Step 2: Archimedes' Lever Principle with Unequal Masses",
+    "step2Desc": "Select 'Archimedes Balance'. A 4 kg mass at 1.5 m perfectly balances a 2 kg mass at 3.0 m because 4×1.5 = 2×3 = 6.",
+    "step3Title": "Step 3: Shift the Fulcrum",
+    "step3Desc": "Select 'Shifted Fulcrum' and observe how the dead weight of the beam produces an intrinsic torque when the pivot is off-center."
+  }
+}

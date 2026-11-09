@@ -241,6 +241,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/torque-equilibrium',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.torqueEquilibrium.title',
+    descKey: 'experiments.torqueEquilibrium.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/torque-equilibrium/config'),
+        import('./physics/motion/torque-equilibrium/ui/Experiment.vue'),
+        import('./physics/motion/torque-equilibrium/i18n/fa.json'),
+        import('./physics/motion/torque-equilibrium/i18n/en.json')
+      ]);
+      return {
+        config: configModule.torqueEquilibriumConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

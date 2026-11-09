@@ -150,6 +150,19 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Penalty-based spring-dashpot contact forces: Prone to stiff ODE integration instabilities at high velocities; impulse-restitution formulation is exact and unconditionally stable.
 
+---
+
+### [2026-11-09] Decision 013: Torque & Static Equilibrium (Lever / Seesaw) Architecture
+- **Context:** Experiment 7 "Torque & Static Equilibrium" (`physics/motion/torque-equilibrium`) simulates the principle of moments, lever equilibrium ($m_1 |x_1| = m_2 x_2$), and rotational dynamics around a fulcrum.
+- **Decision:**
+  1. Net torque around pivot $\tau_{\text{net}} = \sum x_i m_i g - \Delta x_{\text{pivot}} M_{\text{beam}} g$.
+  2. Dynamic tilt simulation with rotational inertia $I = \frac{1}{12} M L^2 + M (\Delta x_{\text{pivot}})^2 + \sum m_i x_i^2$, restoring torque $\tau(\theta) = \tau_{\text{net}} \cos\theta$, and pivot bearing damping in Real mode.
+  3. Interactive canvas rendering with triangular fulcrum axle, wood/metallic marked beam with distance gradations, suspended weight blocks, and weight vector arrows ($\vec{W} = m\vec{g}$).
+- **Rationale:** Meets analytical reference verification within $< 10^{-6}$ error and provides clear visual feedback on Archimedes' lever principle.
+- **Alternatives Rejected:**
+  - Static-only diagram without tilt dynamics: Fails to show mechanical instability and rotational acceleration when torques are unbalanced.
+
+
 
 
 

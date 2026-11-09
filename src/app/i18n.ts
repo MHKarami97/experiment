@@ -11,6 +11,8 @@ import circularMotionFa from '../experiments/physics/motion/circular-motion/i18n
 import circularMotionEn from '../experiments/physics/motion/circular-motion/i18n/en.json';
 import collisionsFa from '../experiments/physics/motion/collisions-momentum/i18n/fa.json';
 import collisionsEn from '../experiments/physics/motion/collisions-momentum/i18n/en.json';
+import torqueFa from '../experiments/physics/motion/torque-equilibrium/i18n/fa.json';
+import torqueEn from '../experiments/physics/motion/torque-equilibrium/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -20,6 +22,7 @@ const globalMessages = {
     pulleysLevers: pulleysLeversFa,
     circularMotion: circularMotionFa,
     collisionsMomentum: collisionsFa,
+    torqueEquilibrium: torqueFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -179,6 +182,10 @@ const globalMessages = {
       collisionsMomentum: {
         title: 'برخوردها و پایستگی تکانه',
         description: 'بررسی برخورد کشسان و ناکشسان، ضریب بازگشت، پایستگی تکانه خطی و تغییرات انرژی جنبشی'
+      },
+      torqueEquilibrium: {
+        title: 'گشتاور و تعادل ایستا (الاکلنگ)',
+        description: 'بررسی بازوی محرک و مقاوم، قانون گشتاورها، تعادل چرخشی اهرم و الاکلنگ و مرکز ثقل تیرک'
       }
     },
     experiment: {
@@ -196,6 +203,7 @@ const globalMessages = {
     pulleysLevers: pulleysLeversEn,
     circularMotion: circularMotionEn,
     collisionsMomentum: collisionsEn,
+    torqueEquilibrium: torqueEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -355,6 +363,10 @@ const globalMessages = {
       collisionsMomentum: {
         title: 'Collisions & Linear Momentum',
         description: 'Investigate 1D elastic and inelastic collisions on an air track, coefficient of restitution, and momentum conservation'
+      },
+      torqueEquilibrium: {
+        title: 'Torque & Static Equilibrium',
+        description: 'Investigate lever arms, principle of moments, rotational equilibrium of a seesaw, and center of gravity'
       }
     },
     experiment: {
