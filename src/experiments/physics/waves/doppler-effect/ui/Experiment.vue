@@ -449,7 +449,8 @@ const uiParams = reactive<Record<string, number>>({
   windSpeed: 0,
 });
 
-const sourceX = ref(-80);
+const sourceX = ref(-100);
+const TIME_SCALE = 0.28; // 1 real second = 0.28 simulation seconds for smooth visual wave progression
 
 const internalParams = computed<DopplerParams>(() => ({
   sourceSpeed: uiParams.sourceSpeed,
@@ -509,7 +510,7 @@ const formulaItems = computed<FormulaItem[]>(() =>
 const simTime = ref(0);
 const series = reactive<DataSeries>({
   t: [0],
-  x: [-80],
+  x: [-100],
   y: [440],
   vx: [0.4],
   vy: [0],
@@ -524,17 +525,27 @@ function initLoop() {
   accumulator = new PhysicsAccumulator({
     fixedDeltaTime: 0.02,
     onPhysicsStep: (dt: number) => {
-      simTime.value += dt * speed.value;
-      sampleTimer += dt * speed.value;
+      const simDt = dt * speed.value * TIME_SCALE;
+      simTime.value += simDt;
+      sampleTimer += simDt;
 
-      // Move source continuously along corridor
+      // Move source continuously along flight corridor
       const vs = uiParams.sourceSpeed;
-      sourceX.value += vs * dt * speed.value * 0.4;
+      sourceX.value += vs * simDt;
       if (sourceX.value > 350) {
-        sourceX.value = -80;
+        sourceX.value = -100;
+      } else if (sourceX.value < -100) {
+        sourceX.value = 350;
       }
 
-      if (sampleTimer >= 0.06) {
+      // Move observer if observerSpeed is non-zero
+      if (Math.abs(uiParams.observerSpeed) > 0.1) {
+        uiParams.observerX += uiParams.observerSpeed * simDt;
+        if (uiParams.observerX > 320) uiParams.observerX = -80;
+        else if (uiParams.observerX < -80) uiParams.observerX = 320;
+      }
+
+      if (sampleTimer >= 0.05) {
         sampleTimer = 0;
         recordDataPoint();
       }
@@ -580,9 +591,9 @@ function resetSimulation() {
   isRunning.value = false;
   simTime.value = 0;
   sampleTimer = 0;
-  sourceX.value = -80;
+  sourceX.value = -100;
   series.t = [0];
-  series.x = [-80];
+  series.x = [-100];
   series.y = [derivedConstants.value.observedFrequency2D];
   series.vx = [derivedConstants.value.machNumber];
   series.vy = [0];
@@ -594,9 +605,15 @@ function stepSimulation() {
     accumulator.pause();
   }
   isRunning.value = false;
-  simTime.value += 0.04;
-  sourceX.value += uiParams.sourceSpeed * 0.04 * 0.4;
-  if (sourceX.value > 350) sourceX.value = -80;
+  const simDt = 0.04 * speed.value * TIME_SCALE;
+  simTime.value += simDt;
+  sourceX.value += uiParams.sourceSpeed * simDt;
+  if (sourceX.value > 350) sourceX.value = -100;
+  else if (sourceX.value < -100) sourceX.value = 350;
+
+  if (Math.abs(uiParams.observerSpeed) > 0.1) {
+    uiParams.observerX += uiParams.observerSpeed * simDt;
+  }
   recordDataPoint();
 }
 
