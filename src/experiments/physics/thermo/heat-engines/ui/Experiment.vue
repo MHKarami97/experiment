@@ -331,7 +331,7 @@
               :class="{ 'current-vertex': currentInstantState.strokeIndex === st.index }"
             >
               <div class="state-card-header">
-                <span class="state-badge">① ② ③ ④`[st.index - 1]`</span>
+                <span class="state-badge">{{ stateBadges[st.index - 1] }}</span>
                 <span class="state-title">{{ $t('heatEngines.state') }} {{ st.index }}</span>
               </div>
               <div class="state-metrics-list">
@@ -556,6 +556,7 @@ const userNotes = ref('');
 
 const cycleTypeKeys: CycleType[] = ['carnot', 'otto', 'diesel', 'stirling'];
 const gasTypeKeys: GasType[] = ['monatomic', 'diatomic', 'polyatomic'];
+const stateBadges = ['①', '②', '③', '④'];
 
 const cycleTypeOptions = computed(() => [
   { label: t('heatEngines.cycle_carnot'), icon: '🔄' },
@@ -826,67 +827,77 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  gap: var(--space-4, 16px);
+  padding: 12px;
   background: var(--bg-page);
   color: var(--text-primary);
-  overflow-y: auto;
 }
 
 .experiment-workspace {
-  display: flex;
-  flex: 1;
-  min-height: 480px;
-  position: relative;
-  gap: 12px;
-  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 16px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .experiment-workspace {
+    grid-template-columns: 1fr;
+  }
 }
 
 .scene-container {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  min-width: 0;
 }
 
 .canvas-mount {
   position: relative;
-  flex: 1;
-  min-height: 440px;
+  width: 100%;
+  height: 480px;
   background: var(--bg-page);
   border-radius: var(--radius-lg, 12px);
   overflow: hidden;
   border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
 }
 
 .control-sidebar {
-  width: 320px;
+  width: 340px;
+  height: 480px;
+  max-height: 480px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   border-radius: var(--radius-lg, 12px);
   background: var(--surface-card);
   border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
 .sidebar-header {
   padding: 12px 16px;
   border-bottom: 1px solid var(--border-subtle);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .sidebar-header h3 {
   margin: 0;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
 .sidebar-scroll {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .control-section {

@@ -175,14 +175,14 @@ function drawEngineMechanism(
   ctx.translate(x, y);
 
   const cx = w / 2;
-  const cylinderW = Math.min(w * 0.58, 140);
-  const cylinderTop = 40;
-  const cylinderStrokeLen = Math.min(h * 0.28, 95);
-  const cylinderH = cylinderStrokeLen + 70;
+  const cylinderW = Math.min(w * 0.52, 120);
+  const cylinderTop = 32;
+  const cylinderStrokeLen = Math.min(h * 0.20, 65);
+  const cylinderH = cylinderStrokeLen + 50;
 
-  const pistonH = 32;
+  const pistonH = 24;
   const normPos = props.instantState.pistonPosition; // 0 = TDC (top), 1 = BDC (bottom)
-  const pistonY = cylinderTop + 24 + normPos * cylinderStrokeLen;
+  const pistonY = cylinderTop + 18 + normPos * cylinderStrokeLen;
 
   // 1. Draw Gas Chamber background with temperature-dependent glow
   const chamberH = pistonY - cylinderTop;
@@ -297,8 +297,8 @@ function drawEngineMechanism(
   ctx.fill();
 
   // 3. Crankshaft Flywheel & Crankpin
-  const crankY = cylinderTop + cylinderH + 55;
-  const crankR = 34;
+  const crankY = cylinderTop + cylinderH + 42;
+  const crankR = 26;
   const crankAngle = props.instantState.phase; // 0 to 2π
 
   // Crankcase circle outline
@@ -754,7 +754,7 @@ defineExpose({
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 440px;
+  min-height: 380px;
   background: var(--bg-page);
   overflow: hidden;
   border-radius: var(--radius-lg, 12px);
