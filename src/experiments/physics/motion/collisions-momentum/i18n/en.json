@@ -1,0 +1,63 @@
+{
+  "title": "Collisions & Linear Momentum",
+  "description": "Investigate 1D elastic and inelastic collisions on an air track, coefficient of restitution (e), linear momentum conservation, and kinetic energy loss",
+  "variables": {
+    "m1": "Cart 1 Mass (m₁)",
+    "m1Desc": "Mass of the first glider cart on the air track",
+    "m2": "Cart 2 Mass (m₂)",
+    "m2Desc": "Mass of the second glider cart on the air track",
+    "v1": "Cart 1 Initial Velocity (v₁)",
+    "v1Desc": "Initial velocity of cart 1 (+ right, - left)",
+    "v2": "Cart 2 Initial Velocity (v₂)",
+    "v2Desc": "Initial velocity of cart 2 (+ right, - left)",
+    "restitution": "Restitution Coeff (e)",
+    "restitutionDesc": "Ratio of relative separation velocity to approach velocity (1 = elastic, 0 = completely inelastic)",
+    "friction": "Air Drag & Friction",
+    "frictionDesc": "Dissipation losses due to track air cushion drag in real mode"
+  },
+  "presets": {
+    "elasticEqual": "Elastic Equal Masses",
+    "elasticEqualDesc": "Full velocity transfer between equal mass gliders in ideal elastic collision (e = 1)",
+    "inelasticSticking": "Completely Inelastic (Stick Together)",
+    "inelasticStickingDesc": "Carts stick together after collision with maximum kinetic energy dissipation (e = 0)",
+    "headOn": "Head-on Rebound",
+    "headOnDesc": "Gliders moving toward each other with opposing velocities (e = 0.9)",
+    "heavyLight": "Heavy Strikes Light Target",
+    "heavyLightDesc": "Massive cart catapults light stationary cart with high velocity"
+  },
+  "formulas": {
+    "momentum": "Total linear momentum conservation in the absence of external net forces",
+    "restitution": "Coefficient of restitution definition based on relative velocities",
+    "v1Prime": "Analytical post-collision velocity formula for cart 1",
+    "kineticEnergy": "Total mechanical kinetic energy of both glider carts"
+  },
+  "realMode": {
+    "inertiaEffect": "Effect of glider mass distribution and slight air cushion imperfections",
+    "restitutionLoss": "Dissipation of mechanical energy into heat, acoustic vibrations, and bumper deformation",
+    "airFriction": "Aerodynamic drag slowing down moving gliders over distance"
+  },
+  "hud": {
+    "pTotal": "Total Momentum (P)",
+    "keTotal": "Kinetic Energy (Eₖ)",
+    "v1": "Cart 1 Velocity",
+    "v2": "Cart 2 Velocity",
+    "status": "Track Status",
+    "ready": "Gliders Moving",
+    "collided": "Collision Occurred!",
+    "deltaKe": "KE Dissipated"
+  },
+  "charts": {
+    "xTrack": "Cart Positions on Track (m)",
+    "vTime": "Glider Velocities vs Time (m/s)",
+    "momentum": "Momentum p₁, p₂ and Total P (kg·m/s)",
+    "energy": "Total Kinetic Energy vs Time (J)"
+  },
+  "guided": {
+    "step1Title": "Step 1: Verify Momentum Conservation in Elastic Collision",
+    "step1Desc": "Run with default values (e = 1) and note how total linear momentum remains perfectly conserved before and after impact.",
+    "step2Title": "Step 2: Measure Kinetic Energy Loss in Inelastic Collision",
+    "step2Desc": "Select 'Completely Inelastic' (e = 0). Notice that while momentum is conserved, mechanical kinetic energy drops significantly.",
+    "step3Title": "Step 3: Analyze Unequal Masses",
+    "step3Desc": "Make m₁ substantially larger than m₂ and verify the resulting velocity amplification on the lighter target cart."
+  }
+}

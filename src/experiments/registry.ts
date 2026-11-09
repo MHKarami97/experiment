@@ -214,6 +214,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/collisions-momentum',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.collisionsMomentum.title',
+    descKey: 'experiments.collisionsMomentum.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/collisions-momentum/config'),
+        import('./physics/motion/collisions-momentum/ui/Experiment.vue'),
+        import('./physics/motion/collisions-momentum/i18n/fa.json'),
+        import('./physics/motion/collisions-momentum/i18n/en.json')
+      ]);
+      return {
+        config: configModule.collisionsConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

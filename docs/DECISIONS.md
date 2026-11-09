@@ -136,6 +136,21 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Simulating only ideal uniform circular motion: Misses real-world cable breaking and elastic stretch phenomena.
 
+---
+
+### [2026-11-09] Decision 012: Collisions & Linear Momentum Architecture (Air Track 1D Kinematics)
+- **Context:** Experiment 6 "Collisions & Linear Momentum" (`physics/motion/collisions-momentum`) must simulate 1D collisions on a linear air track between two glider carts ($m_1, m_2$) with velocities ($v_1, v_2$) across elastic ($e=1$) and inelastic ($0 \le e < 1$) conditions.
+- **Decision:**
+  1. Use analytical impulse-momentum equations with restitution coefficient $e$:
+     $$v_1' = \frac{(m_1 - e m_2)v_1 + (1 + e)m_2 v_2}{m_1 + m_2}, \quad v_2' = \frac{(1 + e)m_1 v_1 + (m_2 - e m_1)v_2}{m_1 + m_2}$$
+  2. Implement sub-stepped numerical integration ($10\times$ sub-stepping per frame) to guarantee collision boundary detection without cart tunneling even at extreme relative speeds ($|v_{\text{rel}}| = 20\text{ m/s}$).
+  3. Real mode models track air drag and bumper mechanical energy dissipation, while Ideal mode strictly verifies exact conservation of total linear momentum ($P_{\text{tot}} = \text{const}$) within $10^{-6}$ numerical tolerance.
+  4. Canvas view features metallic air track extrusion with air orifice holes, distance ticks, contact bumpers, directional velocity vectors ($\vec{v}_1, \vec{v}_2$), and an impact flash aura.
+- **Rationale:** Rigorous demonstration of momentum conservation and kinetic energy dissipation with zero numerical drift.
+- **Alternatives Rejected:**
+  - Penalty-based spring-dashpot contact forces: Prone to stiff ODE integration instabilities at high velocities; impulse-restitution formulation is exact and unconditionally stable.
+
+
 
 
 

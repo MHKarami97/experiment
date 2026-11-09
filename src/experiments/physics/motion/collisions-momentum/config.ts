@@ -1,0 +1,168 @@
+import type { ExperimentConfig } from '@/experiments/registry'
+
+export const collisionsConfig: ExperimentConfig = {
+  id: 'physics/motion/collisions-momentum',
+  subject: 'physics',
+  topic: 'motion',
+  titleKey: 'experiments.collisionsMomentum.title',
+  descKey: 'experiments.collisionsMomentum.description',
+  gradeTags: ['middle-school', 'high-school', 'university'],
+  difficulty: 'medium',
+  engine: 'canvas2d',
+
+  variables: [
+    {
+      id: 'm1',
+      labelKey: 'collisionsMomentum.variables.m1',
+      unit: 'kg',
+      min: 0.1,
+      max: 10.0,
+      step: 0.1,
+      default: 1.0,
+      descKey: 'collisionsMomentum.variables.m1Desc',
+      realModeEffect: 'collisionsMomentum.realMode.inertiaEffect',
+    },
+    {
+      id: 'm2',
+      labelKey: 'collisionsMomentum.variables.m2',
+      unit: 'kg',
+      min: 0.1,
+      max: 10.0,
+      step: 0.1,
+      default: 2.0,
+      descKey: 'collisionsMomentum.variables.m2Desc',
+      realModeEffect: 'collisionsMomentum.realMode.inertiaEffect',
+    },
+    {
+      id: 'v1',
+      labelKey: 'collisionsMomentum.variables.v1',
+      unit: 'm/s',
+      min: -10.0,
+      max: 10.0,
+      step: 0.2,
+      default: 3.0,
+      descKey: 'collisionsMomentum.variables.v1Desc',
+      realModeEffect: null,
+    },
+    {
+      id: 'v2',
+      labelKey: 'collisionsMomentum.variables.v2',
+      unit: 'm/s',
+      min: -10.0,
+      max: 10.0,
+      step: 0.2,
+      default: 0.0,
+      descKey: 'collisionsMomentum.variables.v2Desc',
+      realModeEffect: null,
+    },
+    {
+      id: 'restitution',
+      labelKey: 'collisionsMomentum.variables.restitution',
+      unit: '',
+      min: 0.0,
+      max: 1.0,
+      step: 0.05,
+      default: 1.0,
+      descKey: 'collisionsMomentum.variables.restitutionDesc',
+      realModeEffect: 'collisionsMomentum.realMode.restitutionLoss',
+    },
+    {
+      id: 'friction',
+      labelKey: 'collisionsMomentum.variables.friction',
+      unit: '1/m',
+      min: 0.0,
+      max: 0.2,
+      step: 0.01,
+      default: 0.03,
+      descKey: 'collisionsMomentum.variables.frictionDesc',
+      realModeEffect: 'collisionsMomentum.realMode.airFriction',
+    },
+  ],
+
+  presets: [
+    {
+      id: 'elastic-equal-masses',
+      labelKey: 'collisionsMomentum.presets.elasticEqual',
+      params: {
+        m1: 1.0,
+        m2: 1.0,
+        v1: 3.0,
+        v2: 0.0,
+        restitution: 1.0,
+        friction: 0.02,
+      },
+    },
+    {
+      id: 'inelastic-sticking',
+      labelKey: 'collisionsMomentum.presets.inelasticSticking',
+      params: {
+        m1: 2.0,
+        m2: 3.0,
+        v1: 4.0,
+        v2: 0.0,
+        restitution: 0.0,
+        friction: 0.02,
+      },
+    },
+    {
+      id: 'head-on-rebound',
+      labelKey: 'collisionsMomentum.presets.headOn',
+      params: {
+        m1: 1.5,
+        m2: 1.5,
+        v1: 3.0,
+        v2: -3.0,
+        restitution: 0.9,
+        friction: 0.02,
+      },
+    },
+    {
+      id: 'heavy-strikes-light',
+      labelKey: 'collisionsMomentum.presets.heavyLight',
+      params: {
+        m1: 5.0,
+        m2: 0.5,
+        v1: 2.5,
+        v2: 0.0,
+        restitution: 1.0,
+        friction: 0.02,
+      },
+    },
+  ],
+
+  tools: [
+    {
+      id: 'ruler',
+      nameKey: 'common.ruler',
+      icon: '📏',
+    },
+    {
+      id: 'stopwatch',
+      nameKey: 'common.stopwatch',
+      icon: '⏱️',
+    },
+  ],
+
+  formulas: [
+    {
+      titleKey: 'collisionsMomentum.formulas.momentum',
+      latex: 'p = m_1 v_1 + m_2 v_2 = \\text{const}',
+      explanationKey: 'collisionsMomentum.formulas.momentum',
+    },
+    {
+      titleKey: 'collisionsMomentum.formulas.restitution',
+      latex: 'e = \\frac{v_2\' - v_1\'}{v_1 - v_2}',
+      explanationKey: 'collisionsMomentum.formulas.restitution',
+    },
+    {
+      titleKey: 'collisionsMomentum.formulas.v1Prime',
+      latex: 'v_1\' = \\frac{(m_1 - e m_2)v_1 + (1 + e)m_2 v_2}{m_1 + m_2}',
+      explanationKey: 'collisionsMomentum.formulas.v1Prime',
+    },
+    {
+      titleKey: 'collisionsMomentum.formulas.kineticEnergy',
+      latex: 'E_k = \\frac{1}{2} m_1 v_1^2 + \\frac{1}{2} m_2 v_2^2',
+      explanationKey: 'collisionsMomentum.formulas.kineticEnergy',
+    },
+  ],
+}

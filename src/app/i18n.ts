@@ -9,6 +9,8 @@ import pulleysLeversFa from '../experiments/physics/motion/pulleys-levers/i18n/f
 import pulleysLeversEn from '../experiments/physics/motion/pulleys-levers/i18n/en.json';
 import circularMotionFa from '../experiments/physics/motion/circular-motion/i18n/fa.json';
 import circularMotionEn from '../experiments/physics/motion/circular-motion/i18n/en.json';
+import collisionsFa from '../experiments/physics/motion/collisions-momentum/i18n/fa.json';
+import collisionsEn from '../experiments/physics/motion/collisions-momentum/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -17,6 +19,7 @@ const globalMessages = {
     inclinedPlane: inclinedPlaneFa,
     pulleysLevers: pulleysLeversFa,
     circularMotion: circularMotionFa,
+    collisionsMomentum: collisionsFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -172,6 +175,10 @@ const globalMessages = {
       circularMotion: {
         title: 'حرکت دایره‌ای و نیروی مرکزگرا',
         description: 'بررسی شتاب مرکزگرا، کشش ریسمان، بسامد و دوره دوران و پدیده پاره‌شدن نخ'
+      },
+      collisionsMomentum: {
+        title: 'برخوردها و پایستگی تکانه',
+        description: 'بررسی برخورد کشسان و ناکشسان، ضریب بازگشت، پایستگی تکانه خطی و تغییرات انرژی جنبشی'
       }
     },
     experiment: {
@@ -188,6 +195,7 @@ const globalMessages = {
     inclinedPlane: inclinedPlaneEn,
     pulleysLevers: pulleysLeversEn,
     circularMotion: circularMotionEn,
+    collisionsMomentum: collisionsEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -343,6 +351,10 @@ const globalMessages = {
       circularMotion: {
         title: 'Circular Motion & Centripetal Force',
         description: 'Investigate centripetal acceleration, string tension, orbital period, frequency, and tether snapping'
+      },
+      collisionsMomentum: {
+        title: 'Collisions & Linear Momentum',
+        description: 'Investigate 1D elastic and inelastic collisions on an air track, coefficient of restitution, and momentum conservation'
       }
     },
     experiment: {
