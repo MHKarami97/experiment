@@ -271,6 +271,10 @@ const globalMessages = {
       heatEngines: {
         title: 'چرخه‌های ترمودینامیکی و موتورهای گرمایی',
         description: 'بررسی جامع چرخه‌های کارنو، اتو، دیزل و استرلینگ، دیاگرام‌های فشار-حجم (PV) و دما-آنتروپی (TS)، محاسبه کار خالص و راندمان حرارتی'
+      },
+      waveInterference: {
+        title: 'امواج طولی و عرضی و تداخل',
+        description: 'بررسی اصل برهم‌نهی امواج، تداخل دو منبعی در تشت موج، خطوط گرهی و پادگرهی، و امواج طولی و عرضی'
       }
     },
     experiment: {
@@ -521,6 +525,10 @@ const globalMessages = {
       heatEngines: {
         title: "Thermodynamic Heat Cycles & Heat Engines",
         description: "Comprehensive simulation of Carnot, Otto, Diesel, and Stirling heat cycles, featuring live PV and TS indicator diagrams, net work, and thermal efficiency"
+      },
+      waveInterference: {
+        title: "Wave Superposition & Interference",
+        description: "Explore the principle of linear superposition, 2D two-source ripple tank interference fringes, nodal lines, and 1D transverse/longitudinal waves"
       }
     },
     experiment: {

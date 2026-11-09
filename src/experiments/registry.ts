@@ -673,6 +673,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/waves/wave-interference',
+    subject: 'physics',
+    topic: 'waves',
+    titleKey: 'experiments.waveInterference.title',
+    descKey: 'experiments.waveInterference.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/waves/wave-interference/config'),
+        import('./physics/waves/wave-interference/ui/Experiment.vue'),
+        import('./physics/waves/wave-interference/i18n/fa.json'),
+        import('./physics/waves/wave-interference/i18n/en.json')
+      ]);
+      return {
+        config: configModule.waveInterferenceConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

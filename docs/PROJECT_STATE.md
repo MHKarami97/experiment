@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 22 Experiments Built & Tested (112/112 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 23 Experiments Built & Tested (118/118 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -82,6 +82,7 @@
 20. `physics/thermo/gas-laws` (tested) — Gas Laws & Molecular Kinetics (Ideal gas equation $PV = nRT$, Boyle isothermal compression, Charles isobaric thermal expansion, Gay-Lussac isochoric heating, Maxwell-Boltzmann RMS molecular speed $v_{\text{rms}} = \sqrt{3RT/M}$, Van der Waals real gas correction, movable piston with volume ruler, and Bourdon dial manometer).
 21. `physics/thermo/thermal-expansion` (tested) — Thermal Expansion (linear $\Delta L = \alpha L_0 \Delta T$ with micrometer dial and optical zoom, bimetallic strip Timoshenko deflection and thermostat switch, water 4°C density maximum and anomaly dilatometer flask).
 22. `physics/thermo/heat-engines` (tested) — Thermodynamic Heat Cycles & Heat Engines (Carnot, Otto, Diesel, and Stirling cycles, continuous trajectory $V(\theta), P(\theta)$, indicator $PV$ and $TS$ diagrams, mechanical power $P = W_{\text{net}} \times \frac{\text{RPM}}{60}$, First & Second law energy balance, and real mode losses).
+23. `physics/waves/wave-interference` (tested) — Wave Superposition & Interference (Principle of linear superposition $y_{\text{tot}} = y_1 + y_2$, 2D ripple tank two-source interference with drag-and-drop probe, constructive $\Delta r = m\lambda$ and destructive $\Delta r = (m+0.5)\lambda$ nodal lines, 1D transverse string wave, and 1D longitudinal sound compression/rarefaction).
 
 ## Next Experiment
-- `physics/waves/wave-interference` — Wave Superposition & Interference (transverse & longitudinal waves, constructive & destructive superposition $\Delta \phi$, two-source ripple wave interference, wave speed $v = \lambda f$, boundary reflection).
+- `physics/waves/standing-waves` — Standing Waves on a String & Air Columns (امواج ایستاده در سیم و لوله، هارمونیک‌ها، گره‌ها و شکم‌ها، رزونانس و فرکانس‌های ویژه).

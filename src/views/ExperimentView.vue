@@ -70,7 +70,8 @@ async function loadPlugin() {
         'calorimetry': 'calorimetry',
         'gas-laws': 'gasLaws',
         'thermal-expansion': 'thermalExpansion',
-        'heat-engines': 'heatEngines'
+        'heat-engines': 'heatEngines',
+        'wave-interference': 'waveInterference'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
