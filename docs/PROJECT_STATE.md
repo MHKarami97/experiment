@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 17 Experiments Built & Tested (82/82 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 18 Experiments Built & Tested (89/89 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -77,6 +77,7 @@
 15. `physics/fluids/buoyancy-archimedes` (tested) — Buoyancy & Archimedes' Principle ($F_b = \rho_{\text{fluid}} V_{\text{disp}} g$, floating equilibrium fraction $\frac{V_{\text{sub}}}{V} = \frac{\rho_b}{\rho_f}$, spring balance apparent weight $W_{\text{app}} = W - F_b$, overflow displacement cylinder, iron on mercury).
 16. `physics/fluids/pascal-bernoulli` (tested) — Pascal's Principle & Bernoulli ($P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2$, Venturi tube with differential manometers and streamline particle flow, hydraulic lift press $F_1 / A_1 = F_2 / A_2$ with mechanical advantage, displacement conservation $A_1 d_1 = A_2 d_2$, and work efficiency).
 17. `physics/fluids/viscosity-pipe-flow` (tested) — Viscosity & Pipe Flow (Poiseuille's law $Q = \frac{\pi R^4 \Delta P}{8 \eta L}$, Reynolds number $Re = \rho v D / \eta$, Reynolds dye streak experiment, parabolic laminar velocity profile $v(r) = v_{\max}(1 - r^2/R^2)$, no-slip wall boundary condition, transition & turbulent eddies, Andrade exponential temperature viscosity dependence).
+18. `physics/thermo/heat-transfer` (tested) — Heat Transfer Mechanisms (Fourier solid conduction $\dot{Q}_{\text{cond}} = \frac{k A \Delta T}{L}$, Newton fluid convection $\dot{Q}_{\text{conv}} = h A \Delta T$ with buoyancy plumes & boundary layer, Stefan-Boltzmann photon radiation $\dot{Q}_{\text{rad}} = \varepsilon \sigma A (T_H^4 - T_C^4)$, Wien's displacement law $\lambda_{\max} = b / T$, incandescent blackbody glow colors, and multi-mode combined heat loss).
 
 ## Next Experiment
-- `physics/thermo/heat-transfer` — Heat Transfer Mechanisms (conduction, convection, radiation, Fourier's law, Stefan-Boltzmann radiation, Newton's law of cooling).
+- `physics/thermo/calorimetry` — Calorimetry & Specific Heat (heat capacity $Q = m c \Delta T$, latent heat of fusion $L_f$ and vaporization $L_v$, thermal equilibrium mixtures, calorimeter water equivalent, phase transitions).

@@ -538,6 +538,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/thermo/heat-transfer',
+    subject: 'physics',
+    topic: 'thermo',
+    titleKey: 'experiments.heatTransfer.title',
+    descKey: 'experiments.heatTransfer.description',
+    gradeTags: ['high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/thermo/heat-transfer/config'),
+        import('./physics/thermo/heat-transfer/ui/Experiment.vue'),
+        import('./physics/thermo/heat-transfer/i18n/fa.json'),
+        import('./physics/thermo/heat-transfer/i18n/en.json')
+      ]);
+      return {
+        config: configModule.heatTransferConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

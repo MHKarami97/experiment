@@ -251,6 +251,10 @@ const globalMessages = {
       viscosityPipe: {
         title: 'گرانروی (ویسکوزیته) و جریان لوله‌ها',
         description: 'بررسی قانون پوازوی در جریان لامینار، پروفیل سهموی سرعت، آزمایش تزریق جوهر رینولدز و گذار از جریان آرام به متلاطم'
+      },
+      heatTransfer: {
+        title: 'انتقال حرارت: رسانش، همرفت، تابش',
+        description: 'بررسی قانون فوریه در جامدات، همرفت طبیعی و ستون‌های شناوری نیوتونی، قانون تابش استفان-بولتزمن و قانون وین'
       }
     },
     experiment: {
@@ -481,6 +485,10 @@ const globalMessages = {
       viscosityPipe: {
         title: "Viscosity & Pipe Flow",
         description: "Investigate Poiseuille's law in laminar flow, parabolic velocity profile, Reynolds dye streak experiment, and transition to turbulence"
+      },
+      heatTransfer: {
+        title: "Heat Transfer: Conduction, Convection, Radiation",
+        description: "Investigate Fourier conduction in solids, Newton convective plumes, Stefan-Boltzmann radiation, and Wien displacement law"
       }
     },
     experiment: {

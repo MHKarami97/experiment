@@ -65,7 +65,8 @@ async function loadPlugin() {
         'pressure-density': 'pressureDensity',
         'buoyancy-archimedes': 'buoyancy',
         'pascal-bernoulli': 'pascalBernoulli',
-        'viscosity-pipe-flow': 'viscosityPipe'
+        'viscosity-pipe-flow': 'viscosityPipe',
+        'heat-transfer': 'heatTransfer'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
