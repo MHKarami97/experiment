@@ -7,11 +7,11 @@
       :mode="mode"
       :show-ruler="showRuler"
       :show-stopwatch="showStopwatch"
-      @toggle-running="togglePlay"
+      @toggle-play="togglePlay"
       @reset="resetSimulation"
       @step="stepSimulation"
-      @update:speed="setSpeed"
-      @update:mode="setMode"
+      @set-speed="setSpeed"
+      @set-mode="setMode"
       @toggle-ruler="showRuler = !showRuler"
       @toggle-stopwatch="showStopwatch = !showStopwatch"
       @open-export="showExportModal = true"
@@ -545,7 +545,6 @@ function stepSimulation() {
 }
 
 function resetSimulation() {
-  pauseSimulation();
   currentState.value = createViscosityModel(internalParams.value);
   series.t = [0];
   series.x = [0];
@@ -553,6 +552,9 @@ function resetSimulation() {
   series.vx = [0];
   series.vy = [0];
   series.v = [0];
+  if (isRunning.value && accumulator && !accumulator.getIsRunning()) {
+    accumulator.start();
+  }
 }
 
 function setSpeed(newSpeed: number) {
@@ -617,8 +619,8 @@ async function loadNotes() {
 }
 
 onMounted(() => {
-  initLoop();
   resetSimulation();
+  initLoop();
   loadNotes();
 });
 

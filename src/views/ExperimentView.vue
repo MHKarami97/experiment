@@ -63,14 +63,18 @@ async function loadPlugin() {
         'skate-park': 'skatePark',
         'work-power': 'workPower',
         'pressure-density': 'pressureDensity',
-        'buoyancy-archimedes': 'buoyancy'
+        'buoyancy-archimedes': 'buoyancy',
+        'pascal-bernoulli': 'pascalBernoulli',
+        'viscosity-pipe-flow': 'viscosityPipe'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
-        registerExperimentMessages('fa', ns, plugin.messages.fa);
+        const faMsgs = (plugin.messages.fa as any)[ns] || plugin.messages.fa;
+        registerExperimentMessages('fa', ns, faMsgs);
       }
       if (plugin.messages.en) {
-        registerExperimentMessages('en', ns, plugin.messages.en);
+        const enMsgs = (plugin.messages.en as any)[ns] || plugin.messages.en;
+        registerExperimentMessages('en', ns, enMsgs);
       }
     }
     activeComponent.value = plugin.component;

@@ -249,9 +249,9 @@ export function stepViscosityModel(
   // Advance and perturb dye particles based on regime
   const updatedDye = state.dyeParticles.map((p) => {
     const localV = getLocalVelocity(derived, p.y);
-    // Speed factor to animate nicely on screen
-    const speedRatio = Math.max(0.1, Math.min(3.0, derived.avgVelocity));
-    const advanceX = (localV / Math.max(0.01, derived.maxVelocity)) * speedRatio * 0.45 * dt;
+    // Speed factor to animate nicely on screen across all fluid viscosities
+    const visualSpeed = 0.35 + 0.25 * Math.min(3.0, derived.avgVelocity);
+    const advanceX = (localV / Math.max(0.001, derived.maxVelocity)) * visualSpeed * dt;
 
     let nextX = p.x + advanceX;
     let nextY = p.y;
