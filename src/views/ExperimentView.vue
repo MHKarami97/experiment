@@ -66,7 +66,8 @@ async function loadPlugin() {
         'buoyancy-archimedes': 'buoyancy',
         'pascal-bernoulli': 'pascalBernoulli',
         'viscosity-pipe-flow': 'viscosityPipe',
-        'heat-transfer': 'heatTransfer'
+        'heat-transfer': 'heatTransfer',
+        'calorimetry': 'calorimetry'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

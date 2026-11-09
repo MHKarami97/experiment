@@ -255,6 +255,10 @@ const globalMessages = {
       heatTransfer: {
         title: 'انتقال حرارت: رسانش، همرفت، تابش',
         description: 'بررسی قانون فوریه در جامدات، همرفت طبیعی و ستون‌های شناوری نیوتونی، قانون تابش استفان-بولتزمن و قانون وین'
+      },
+      calorimetry: {
+        title: 'گرماسنجی و ظرفیت گرمایی ویژه',
+        description: 'بررسی قانون تعادل گرمایی، اندازه‌گیری ظرفیت گرمایی ویژه فلزات، ارزش آب گرماسنج و گذار فاز ذوب یخ'
       }
     },
     experiment: {
@@ -489,6 +493,10 @@ const globalMessages = {
       heatTransfer: {
         title: "Heat Transfer: Conduction, Convection, Radiation",
         description: "Investigate Fourier conduction in solids, Newton convective plumes, Stefan-Boltzmann radiation, and Wien displacement law"
+      },
+      calorimetry: {
+        title: "Calorimetry & Specific Heat",
+        description: "Investigate thermal equilibrium, specific heat capacity of metals, calorimeter water equivalent, and latent heat of fusion"
       }
     },
     experiment: {

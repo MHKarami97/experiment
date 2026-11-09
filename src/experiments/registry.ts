@@ -565,6 +565,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/thermo/calorimetry',
+    subject: 'physics',
+    topic: 'thermo',
+    titleKey: 'experiments.calorimetry.title',
+    descKey: 'experiments.calorimetry.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/thermo/calorimetry/config'),
+        import('./physics/thermo/calorimetry/ui/Experiment.vue'),
+        import('./physics/thermo/calorimetry/i18n/fa.json'),
+        import('./physics/thermo/calorimetry/i18n/en.json')
+      ]);
+      return {
+        config: configModule.calorimetryConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 
