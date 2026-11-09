@@ -48,19 +48,21 @@
             @select="applyPreset"
           />
 
-          <!-- Solid Substance Selector -->
+          <!-- Solid Substance Selector Grid -->
           <div class="profile-selector-group">
             <label class="control-label">{{ $t('calorimetry.solidMaterial') }}</label>
-            <div class="profile-pill-list">
+            <div class="material-grid">
               <button
-                v-for="(matName, idx) in solidOptions"
-                :key="idx"
+                v-for="(item, idx) in solidMaterialsList"
+                :key="item.id"
                 type="button"
-                class="profile-pill-btn"
+                class="material-card-btn"
                 :class="{ active: uiParams.solidMaterialIndex === idx }"
                 @click="uiParams.solidMaterialIndex = idx; onParamChange()"
               >
-                {{ matName }}
+                <span class="mat-icon">{{ item.icon }}</span>
+                <span class="mat-name">{{ $t(item.nameKey) }}</span>
+                <span class="mat-c" dir="ltr">c={{ item.c }}</span>
               </button>
             </div>
           </div>
@@ -68,22 +70,24 @@
           <!-- Liquid Substance Selector -->
           <div class="profile-selector-group">
             <label class="control-label">{{ $t('calorimetry.liquidMedium') }}</label>
-            <div class="profile-pill-list">
+            <div class="liquid-pill-list">
               <button
-                v-for="(liqName, idx) in liquidOptions"
-                :key="idx"
+                v-for="(liqItem, idx) in liquidMaterialsList"
+                :key="liqItem.id"
                 type="button"
-                class="profile-pill-btn"
+                class="liquid-pill-btn"
                 :class="{ active: uiParams.liquidMediumIndex === idx }"
                 @click="uiParams.liquidMediumIndex = idx; onParamChange()"
               >
-                {{ liqName }}
+                <span class="liq-icon">{{ liqItem.icon }}</span>
+                <span class="liq-name">{{ $t(liqItem.nameKey) }}</span>
+                <span class="liq-c" dir="ltr">c={{ liqItem.c }}</span>
               </button>
             </div>
           </div>
 
-          <!-- Solid Properties -->
-          <VariableGroup :title="$t('calorimetry.solidMaterial')">
+          <!-- Solid Physical Properties -->
+          <VariableGroup :title="$t('calorimetry.solidPropsTitle')">
             <UnitSlider
               id="solidMass"
               v-model="uiParams.solidMassGrams"
@@ -107,7 +111,7 @@
           </VariableGroup>
 
           <!-- Liquid Properties -->
-          <VariableGroup :title="$t('calorimetry.liquidMedium')">
+          <VariableGroup :title="$t('calorimetry.liquidPropsTitle')">
             <UnitSlider
               id="liquidMass"
               v-model="uiParams.liquidMassGrams"
@@ -177,37 +181,41 @@
 
         <div class="profile-selector-group">
           <label class="control-label">{{ $t('calorimetry.solidMaterial') }}</label>
-          <div class="profile-pill-list">
+          <div class="material-grid">
             <button
-              v-for="(matName, idx) in solidOptions"
-              :key="idx"
+              v-for="(item, idx) in solidMaterialsList"
+              :key="item.id"
               type="button"
-              class="profile-pill-btn"
+              class="material-card-btn"
               :class="{ active: uiParams.solidMaterialIndex === idx }"
               @click="uiParams.solidMaterialIndex = idx; onParamChange()"
             >
-              {{ matName }}
+              <span class="mat-icon">{{ item.icon }}</span>
+              <span class="mat-name">{{ $t(item.nameKey) }}</span>
+              <span class="mat-c" dir="ltr">c={{ item.c }}</span>
             </button>
           </div>
         </div>
 
         <div class="profile-selector-group">
           <label class="control-label">{{ $t('calorimetry.liquidMedium') }}</label>
-          <div class="profile-pill-list">
+          <div class="liquid-pill-list">
             <button
-              v-for="(liqName, idx) in liquidOptions"
-              :key="idx"
+              v-for="(liqItem, idx) in liquidMaterialsList"
+              :key="liqItem.id"
               type="button"
-              class="profile-pill-btn"
+              class="liquid-pill-btn"
               :class="{ active: uiParams.liquidMediumIndex === idx }"
               @click="uiParams.liquidMediumIndex = idx; onParamChange()"
             >
-              {{ liqName }}
+              <span class="liq-icon">{{ liqItem.icon }}</span>
+              <span class="liq-name">{{ $t(liqItem.nameKey) }}</span>
+              <span class="liq-c" dir="ltr">c={{ liqItem.c }}</span>
             </button>
           </div>
         </div>
 
-        <VariableGroup :title="$t('calorimetry.solidMaterial')">
+        <VariableGroup :title="$t('calorimetry.solidPropsTitle')">
           <UnitSlider
             id="mSolidMass"
             v-model="uiParams.solidMassGrams"
@@ -230,7 +238,7 @@
           />
         </VariableGroup>
 
-        <VariableGroup :title="$t('calorimetry.liquidMedium')">
+        <VariableGroup :title="$t('calorimetry.liquidPropsTitle')">
           <UnitSlider
             id="mLiquidMass"
             v-model="uiParams.liquidMassGrams"
@@ -460,8 +468,8 @@ const store = useAppStore();
 
 const canvasViewRef = ref<InstanceType<typeof CalorimetryCanvas> | null>(null);
 
-// Simulation State
-const isRunning = ref(true);
+// Simulation State — Starts PAUSED by default, runs only when play is pressed
+const isRunning = ref(false);
 const speed = ref(1.0);
 const mode = ref<'ideal' | 'real'>('ideal');
 const showRuler = ref(false);
@@ -483,23 +491,23 @@ const uiParams = reactive<Record<string, number>>({
   stirrerActive: 1,
 });
 
+const solidMaterialsList = [
+  { id: 'copper', icon: '🟤', nameKey: 'calorimetry.copperName', c: 385 },
+  { id: 'aluminum', icon: '⚪', nameKey: 'calorimetry.aluminumName', c: 900 },
+  { id: 'iron', icon: '⚫', nameKey: 'calorimetry.ironName', c: 450 },
+  { id: 'lead', icon: '🔘', nameKey: 'calorimetry.leadName', c: 128 },
+  { id: 'glass', icon: '💎', nameKey: 'calorimetry.glassName', c: 840 },
+  { id: 'ice', icon: '🧊', nameKey: 'calorimetry.iceName', c: 2090 },
+];
+
+const liquidMaterialsList = [
+  { id: 'water', icon: '💧', nameKey: 'calorimetry.waterName', c: 4184 },
+  { id: 'ethanol', icon: '🧪', nameKey: 'calorimetry.ethanolName', c: 2440 },
+  { id: 'oil', icon: '🛢️', nameKey: 'calorimetry.oilName', c: 2000 },
+];
+
 const solidKeys: SolidMaterial[] = ['copper', 'aluminum', 'iron', 'lead', 'glass', 'ice'];
 const liquidKeys: LiquidMedium[] = ['water', 'ethanol', 'oil'];
-
-const solidOptions = computed(() => [
-  t('calorimetry.matCopper'),
-  t('calorimetry.matAluminum'),
-  t('calorimetry.matIron'),
-  t('calorimetry.matLead'),
-  t('calorimetry.matGlass'),
-  t('calorimetry.matIce'),
-]);
-
-const liquidOptions = computed(() => [
-  t('calorimetry.liqWater'),
-  t('calorimetry.liqEthanol'),
-  t('calorimetry.liqOil'),
-]);
 
 const presetOptions = computed<PresetOption[]>(() =>
   calorimetryConfig.presets.map((p: ExperimentPresetDef) => ({
@@ -561,10 +569,16 @@ const calculatedResults = computed<Record<string, number | string>>(() => ({
 }));
 
 const reportResultsRows = computed(() => [
-  { name: t('calorimetry.metricTeq'), simulated: `${currentState.value.derived.theoreticalEquilibriumTempC.toFixed(2)} °C` },
+  {
+    name: t('calorimetry.metricTeq'),
+    simulated: `${currentState.value.derived.theoreticalEquilibriumTempC.toFixed(2)} °C`,
+  },
   { name: t('calorimetry.metricSolidT'), simulated: `${currentState.value.solidTempC.toFixed(1)} °C` },
   { name: t('calorimetry.metricLiquidT'), simulated: `${currentState.value.liquidTempC.toFixed(1)} °C` },
-  { name: t('calorimetry.metricQ'), simulated: `${(currentState.value.derived.heatTransferredJoules / 1000).toFixed(2)} kJ` },
+  {
+    name: t('calorimetry.metricQ'),
+    simulated: `${(currentState.value.derived.heatTransferredJoules / 1000).toFixed(2)} kJ`,
+  },
 ]);
 
 const reportVariablesList = computed(() => [
@@ -595,7 +609,7 @@ function initLoop() {
       // view renders via reactive state
     },
   });
-  accumulator.start();
+  // Do NOT start accumulator here — wait until play is pressed
 }
 
 function recordDataPoint() {
@@ -628,6 +642,11 @@ function togglePlay() {
 }
 
 function resetSimulation() {
+  if (accumulator) {
+    accumulator.pause();
+    accumulator.resetAccumulator();
+  }
+  isRunning.value = false;
   currentState.value = createCalorimetryModel(internalParams.value);
   series.t = [0];
   series.x = [uiParams.solidInitialTempC];
@@ -636,9 +655,6 @@ function resetSimulation() {
   series.vy = [0];
   series.v = [Math.abs(uiParams.solidInitialTempC - uiParams.liquidInitialTempC)];
   sampleTimer = 0;
-  if (accumulator) {
-    accumulator.resetAccumulator();
-  }
 }
 
 function stepSimulation() {
@@ -731,8 +747,8 @@ async function loadNotes() {
 }
 
 onMounted(() => {
-  resetSimulation();
   initLoop();
+  resetSimulation();
   loadNotes();
 });
 
@@ -751,7 +767,7 @@ onBeforeUnmount(() => {
   min-height: 100%;
   gap: var(--space-md);
   padding: var(--space-md);
-  background: var(--surface-bg);
+  background: var(--bg-page);
   color: var(--text-primary);
 }
 
@@ -783,7 +799,7 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 520px;
   position: relative;
-  background: var(--surface-bg);
+  background: var(--bg-page);
 }
 
 .control-sidebar {
@@ -794,7 +810,7 @@ onBeforeUnmount(() => {
   border-radius: var(--radius-lg);
   padding: var(--space-md);
   gap: var(--space-sm);
-  max-height: 700px;
+  max-height: 720px;
   overflow: hidden;
 }
 
@@ -829,46 +845,124 @@ onBeforeUnmount(() => {
   color: var(--text-secondary);
 }
 
-.profile-pill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
+/* Enhanced 3-Column Solid Material Grid */
+.material-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
 }
 
-.profile-pill-btn {
-  flex: 1 1 calc(50% - var(--space-xs));
-  min-height: 38px;
-  padding: var(--space-xs) var(--space-sm);
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  color: var(--text-secondary);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.material-card-btn {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  padding: 8px 4px;
+  min-height: 60px;
+  background: var(--surface-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  gap: 2px;
 }
 
-.profile-pill-btn:hover {
+.material-card-btn:hover {
   background: var(--surface-hover);
+  border-color: #38bdf8;
+}
+
+.material-card-btn.active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+.mat-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.mat-name {
+  font-size: 11px;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
-.profile-pill-btn.active {
-  background: var(--brand-primary);
+.material-card-btn.active .mat-name {
   color: #ffffff;
+}
+
+.mat-c {
+  font-size: 10px;
+  font-family: monospace;
+  color: var(--text-secondary);
+}
+
+.material-card-btn.active .mat-c {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Liquid Pill List */
+.liquid-pill-list {
+  display: flex;
+  gap: 6px;
+}
+
+.liquid-pill-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  background: var(--surface-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  gap: 2px;
+}
+
+.liquid-pill-btn:hover {
+  background: var(--surface-hover);
+  border-color: #38bdf8;
+}
+
+.liquid-pill-btn.active {
+  background: var(--brand-primary);
   border-color: var(--brand-primary);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  color: #ffffff;
+}
+
+.liq-icon {
+  font-size: 14px;
+}
+
+.liq-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.liquid-pill-btn.active .liq-name {
+  color: #ffffff;
+}
+
+.liq-c {
+  font-size: 9px;
+  font-family: monospace;
+  color: var(--text-secondary);
+}
+
+.liquid-pill-btn.active .liq-c {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .btn-stirrer-toggle {
   width: 100%;
   padding: var(--space-sm);
-  background: var(--surface-card);
+  background: var(--surface-input);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   color: var(--text-primary);
@@ -946,7 +1040,7 @@ onBeforeUnmount(() => {
 
 .metric-chip {
   flex: 1 1 140px;
-  background: var(--surface-bg);
+  background: var(--surface-input);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-xs) var(--space-sm);
@@ -995,7 +1089,7 @@ onBeforeUnmount(() => {
 .notes-textarea {
   width: 100%;
   min-height: 140px;
-  background: var(--surface-bg);
+  background: var(--surface-input);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-sm);

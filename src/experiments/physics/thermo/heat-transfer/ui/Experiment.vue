@@ -442,7 +442,7 @@ const store = useAppStore();
 const canvasViewRef = ref<InstanceType<typeof HeatTransferCanvas> | null>(null);
 
 // Simulation State
-const isRunning = ref(true);
+const isRunning = ref(false);
 const speed = ref(1.0);
 const mode = ref<'ideal' | 'real'>('ideal');
 const showRuler = ref(false);
@@ -576,7 +576,6 @@ function initLoop() {
       // view renders via reactive state
     },
   });
-  accumulator.start();
 }
 
 function recordDataPoint() {
@@ -610,6 +609,11 @@ function togglePlay() {
 }
 
 function resetSimulation() {
+  if (accumulator) {
+    accumulator.pause();
+    accumulator.resetAccumulator();
+  }
+  isRunning.value = false;
   currentState.value = createHeatTransferModel(internalParams.value);
   series.t = [0];
   series.x = [0];
@@ -733,7 +737,7 @@ onBeforeUnmount(() => {
   min-height: 100%;
   gap: var(--space-md);
   padding: var(--space-md);
-  background: var(--surface-bg);
+  background: var(--bg-page);
   color: var(--text-primary);
 }
 
@@ -765,7 +769,7 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 520px;
   position: relative;
-  background: var(--surface-bg);
+  background: var(--bg-page);
 }
 
 .control-sidebar {
@@ -905,7 +909,7 @@ onBeforeUnmount(() => {
 
 .metric-chip {
   flex: 1 1 140px;
-  background: var(--surface-bg);
+  background: var(--surface-input);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-xs) var(--space-sm);
@@ -954,7 +958,7 @@ onBeforeUnmount(() => {
 .notes-textarea {
   width: 100%;
   min-height: 140px;
-  background: var(--surface-bg);
+  background: var(--surface-input);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-sm);

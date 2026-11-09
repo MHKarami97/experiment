@@ -397,7 +397,7 @@ const store = useAppStore();
 const canvasViewRef = ref<InstanceType<typeof PascalBernoulliCanvas> | null>(null);
 
 // Simulation Controls
-const isRunning = ref(true);
+const isRunning = ref(false);
 const speed = ref(1.0);
 const mode = ref<'ideal' | 'real'>('ideal');
 const showRuler = ref(false);

@@ -1,6 +1,8 @@
 {
   "solidMaterial": "جنس نمونه جامد",
   "solidMaterial_desc": "نوع فلز یا جسم مورد آزمایش برای سنجش ظرفیت گرمایی ویژه",
+  "solidPropsTitle": "مشخصات فیزیکی نمونه (جرم و دما)",
+  "liquidPropsTitle": "مشخصات مایع گرماسنج (جرم و دما)",
   "solidMass": "جرم نمونه جامد",
   "solidMass_desc": "جرم جسم غوطه‌ور بر حسب گرم",
   "solidTemp": "دمای اولیه نمونه",
@@ -13,6 +15,17 @@
   "liquidTemp_desc": "دمای اولیه مایع گرماسنج بر حسب سانتی‌گراد",
   "waterEquivalent": "ارزش آب گرماسنج",
   "waterEquivalent_desc": "جرم معادل آب برای ظرف و همزن (C_cal / c_w) در حالت واقعی",
+
+  "copperName": "مس",
+  "aluminumName": "آلومینیوم",
+  "ironName": "آهن",
+  "leadName": "سرب",
+  "glassName": "شیشه",
+  "iceName": "یخ",
+
+  "waterName": "آب",
+  "ethanolName": "اتانول",
+  "oilName": "روغن",
 
   "matCopper": "مس (c=385)",
   "matAluminum": "آلومینیوم (c=900)",
@@ -47,7 +60,7 @@
   "metricLiquidT": "دمای مایع",
   "metricIceRemaining": "یخ باقی‌مانده",
   "stirrer": "همزن آزمایشگاهی",
-  "stirrerActive": "همزن روشن (تبادل سریع‌تر)",
+  "stirrerActive": "همزن آزمایشگاهی",
 
   "tabGraph": "نمودار زنده دما - زمان",
   "tabTable": "جدول داده‌ها",

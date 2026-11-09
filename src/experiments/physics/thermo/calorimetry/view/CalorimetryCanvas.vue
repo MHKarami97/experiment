@@ -40,10 +40,10 @@ function render() {
   const isDark = store.theme === 'dark';
 
   // 1. Background
-  ctx.fillStyle = isDark ? '#0f172a' : '#f8fafc';
+  ctx.fillStyle = isDark ? '#0b1120' : '#f8fafc';
   ctx.fillRect(0, 0, w, h);
 
-  // Calorimeter vessel dimensions and placement (centered)
+  // Vessel dimensions & position
   const vesselW = Math.min(340, w * 0.65);
   const vesselH = Math.min(320, h * 0.62);
   const vesselX = (w - vesselW) / 2;
@@ -68,7 +68,7 @@ function render() {
   ctx.fillStyle = isDark ? '#334155' : '#cbd5e1';
   ctx.fillRect(vesselX + 4, vesselY + 8, vesselW - 8, vesselH - 12);
 
-  // 3. Inner Dewar Cup
+  // 3. Inner Dewar Vessel Cup
   ctx.fillStyle = isDark ? '#090d16' : '#ffffff';
   ctx.beginPath();
   ctx.roundRect(innerX, innerY, innerW, innerH, [0, 0, 16, 16]);
@@ -78,12 +78,10 @@ function render() {
   ctx.stroke();
 
   // 4. Liquid Bath inside Inner Cup
-  // Liquid height proportional to mass (100g -> ~40% full, 500g -> ~85% full)
   const liquidFillRatio = Math.min(0.85, Math.max(0.35, props.params.liquidMassGrams / 550));
   const liquidH = innerH * liquidFillRatio;
   const liquidY = innerY + innerH - liquidH;
 
-  // Liquid color tint based on medium and temperature
   let liquidColor = 'rgba(56, 189, 248, 0.45)'; // default water cyan
   if (props.params.liquidMedium === 'ethanol') {
     liquidColor = 'rgba(168, 85, 247, 0.35)'; // purple tint
@@ -91,7 +89,6 @@ function render() {
     liquidColor = 'rgba(234, 179, 8, 0.45)'; // amber oil
   }
 
-  // Liquid gradient
   const liqGrad = ctx.createLinearGradient(innerX, liquidY, innerX, innerY + innerH);
   liqGrad.addColorStop(0, liquidColor);
   liqGrad.addColorStop(1, liquidColor.replace('0.45', '0.7').replace('0.35', '0.6'));
@@ -101,7 +98,7 @@ function render() {
   ctx.roundRect(innerX + 2, liquidY, innerW - 4, liquidH - 2, [0, 0, 14, 14]);
   ctx.fill();
 
-  // Meniscus liquid surface with gentle ripple
+  // Meniscus wave ripples
   ctx.strokeStyle = isDark ? '#38bdf8' : '#0284c7';
   ctx.lineWidth = 2.5;
   ctx.beginPath();
@@ -114,12 +111,11 @@ function render() {
   }
   ctx.stroke();
 
-  // 5. Motorized Laboratory Stirrer (Left of center)
+  // 5. Motorized Laboratory Stirrer (Left)
   const stirrerX = innerX + innerW * 0.28;
   const stirrerTopY = vesselY - 35;
   const stirrerBottomY = innerY + innerH - 22;
 
-  // Vertical Stainless Steel Shaft
   ctx.strokeStyle = '#94a3b8';
   ctx.lineWidth = 4;
   ctx.beginPath();
@@ -127,7 +123,6 @@ function render() {
   ctx.lineTo(stirrerX, stirrerBottomY);
   ctx.stroke();
 
-  // Impeller paddles at bottom
   if (props.params.stirrerActive) {
     stirrerPhase += 0.08;
   }
@@ -137,7 +132,6 @@ function render() {
   ctx.ellipse(stirrerX, stirrerBottomY, Math.abs(paddleWidth), 5, 0, 0, Math.PI * 2);
   ctx.fill();
 
-  // Stirrer Motor Head at top
   ctx.fillStyle = '#475569';
   ctx.beginPath();
   ctx.roundRect(stirrerX - 16, stirrerTopY - 14, 32, 16, 4);
@@ -147,24 +141,28 @@ function render() {
   ctx.arc(stirrerX + 9, stirrerTopY - 6, 3, 0, Math.PI * 2);
   ctx.fill();
 
-  // 6. Submerged Sample Object (Centered in vessel)
+  // 6. Submerged or Floating Sample Object
   const sampleCenterX = innerX + innerW * 0.58;
-  const sampleCenterY = innerY + innerH - liquidH * 0.45;
+  // If ice, float near the meniscus surface (ice density < liquid); else submerged in lower middle
+  const isIce = props.params.solidMaterial === 'ice';
+  const sampleCenterY = isIce ? liquidY + 20 : innerY + innerH - liquidH * 0.45;
 
-  // Suspension thread
-  ctx.strokeStyle = isDark ? '#94a3b8' : '#64748b';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([3, 2]);
-  ctx.beginPath();
-  ctx.moveTo(sampleCenterX, vesselY - 30);
-  ctx.lineTo(sampleCenterX, sampleCenterY);
-  ctx.stroke();
-  ctx.setLineDash([]);
+  // Suspension thread from top beam
+  if (!isIce) {
+    ctx.strokeStyle = isDark ? '#94a3b8' : '#64748b';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 2]);
+    ctx.beginPath();
+    ctx.moveTo(sampleCenterX, vesselY - 35);
+    ctx.lineTo(sampleCenterX, sampleCenterY - 26);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
 
-  // Render Sample based on material type
-  renderSampleBlock(ctx, sampleCenterX, sampleCenterY, isDark);
+  // Render Sample with high-polish metallic / ice / glass shaders
+  renderSampleObject(ctx, sampleCenterX, sampleCenterY, isDark, isIce);
 
-  // 7. Precision Immersion Thermometer (Right of center)
+  // 7. Precision Immersion Thermometer (Right)
   const thermX = innerX + innerW * 0.85;
   const thermTopY = vesselY - 45;
   const thermBottomY = innerY + innerH - 18;
@@ -176,21 +174,26 @@ function render() {
   ctx.restore();
 }
 
-function renderSampleBlock(ctx: CanvasRenderingContext2D, cx: number, cy: number, isDark: boolean) {
+function renderSampleObject(
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  isDark: boolean,
+  isIce: boolean,
+) {
   const mat = props.params.solidMaterial;
   const massRatio = Math.min(1.4, Math.max(0.7, props.params.solidMassGrams / 180));
-  const baseSize = 46 * massRatio;
 
-  // Thermal glow ring around block indicating hot or cold
+  // Thermal glow halo around block indicating hot or cold
   const tempDiff = props.state.solidTempC - props.state.liquidTempC;
   if (Math.abs(tempDiff) > 1.0) {
-    const glowRadius = baseSize * 0.75 + Math.min(12, Math.abs(tempDiff) * 0.25);
-    const glowGrad = ctx.createRadialGradient(cx, cy, baseSize * 0.3, cx, cy, glowRadius);
+    const glowRadius = 38 * massRatio + Math.min(16, Math.abs(tempDiff) * 0.3);
+    const glowGrad = ctx.createRadialGradient(cx, cy, 15, cx, cy, glowRadius);
     if (tempDiff > 0) {
-      glowGrad.addColorStop(0, 'rgba(239, 68, 68, 0.45)'); // Hot red glow
+      glowGrad.addColorStop(0, 'rgba(239, 68, 68, 0.45)');
       glowGrad.addColorStop(1, 'rgba(239, 68, 68, 0)');
     } else {
-      glowGrad.addColorStop(0, 'rgba(59, 130, 246, 0.45)'); // Cold blue glow
+      glowGrad.addColorStop(0, 'rgba(59, 130, 246, 0.45)');
       glowGrad.addColorStop(1, 'rgba(59, 130, 246, 0)');
     }
     ctx.fillStyle = glowGrad;
@@ -199,82 +202,188 @@ function renderSampleBlock(ctx: CanvasRenderingContext2D, cx: number, cy: number
     ctx.fill();
   }
 
-  if (mat === 'ice') {
-    // Ice cubes that visibly shrink as they melt
-    const remainingFraction = Math.max(0.05, props.state.iceRemainingGrams / Math.max(1, props.params.solidMassGrams));
-    const iceSize = baseSize * Math.pow(remainingFraction, 1 / 3);
+  if (isIce) {
+    // Floating faceted ice cubes
+    const remainingFraction = Math.max(
+      0.05,
+      props.state.iceRemainingGrams / Math.max(1, props.params.solidMassGrams),
+    );
+    const cubeW = 54 * massRatio * Math.pow(remainingFraction, 1 / 3);
+    const cubeH = 42 * massRatio * Math.pow(remainingFraction, 1 / 3);
 
-    ctx.fillStyle = 'rgba(224, 242, 254, 0.85)';
-    ctx.strokeStyle = '#38bdf8';
+    // Ice cube body
+    const iceGrad = ctx.createLinearGradient(cx - cubeW / 2, cy - cubeH / 2, cx + cubeW / 2, cy + cubeH / 2);
+    iceGrad.addColorStop(0, 'rgba(224, 242, 254, 0.9)');
+    iceGrad.addColorStop(0.5, 'rgba(186, 230, 253, 0.8)');
+    iceGrad.addColorStop(1, 'rgba(125, 211, 252, 0.85)');
+
+    ctx.fillStyle = iceGrad;
+    ctx.strokeStyle = '#0284c7';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.roundRect(cx - iceSize / 2, cy - iceSize / 2, iceSize, iceSize, 6);
+    ctx.roundRect(cx - cubeW / 2, cy - cubeH / 2, cubeW, cubeH, 8);
     ctx.fill();
     ctx.stroke();
 
-    // Internal ice crystal facets
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+    // Internal crystalline facets
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(cx - iceSize * 0.3, cy - iceSize * 0.3);
-    ctx.lineTo(cx + iceSize * 0.2, cy + iceSize * 0.2);
-    ctx.moveTo(cx + iceSize * 0.3, cy - iceSize * 0.2);
-    ctx.lineTo(cx - iceSize * 0.1, cy + iceSize * 0.3);
+    ctx.moveTo(cx - cubeW * 0.35, cy - cubeH * 0.25);
+    ctx.lineTo(cx + cubeW * 0.2, cy + cubeH * 0.2);
+    ctx.moveTo(cx + cubeW * 0.25, cy - cubeH * 0.3);
+    ctx.lineTo(cx - cubeW * 0.1, cy + cubeH * 0.35);
     ctx.stroke();
 
-    ctx.fillStyle = isDark ? '#ffffff' : '#0369a1';
-    ctx.font = 'bold 11px system-ui';
-    ctx.textAlign = 'center';
-    ctx.fillText(`${props.state.iceRemainingGrams.toFixed(0)}g یخ`, cx, cy + 4);
+    // High contrast readable badge
+    renderLabelBadge(
+      ctx,
+      cx,
+      cy + cubeH / 2 + 15,
+      `🧊 ${props.state.iceRemainingGrams.toFixed(0)}g یخ`,
+      `${props.state.solidTempC.toFixed(1)}°C`,
+      isDark,
+    );
     return;
   }
 
-  // Metallic or Glass Block
-  let fillGradient = ctx.createLinearGradient(cx - baseSize / 2, cy - baseSize / 2, cx + baseSize / 2, cy + baseSize / 2);
+  // 3D Laboratory Cylinder Sample with Eyelet Ring
+  const radius = 24 * massRatio;
+  const cylinderHeight = 48 * massRatio;
+  const topY = cy - cylinderHeight / 2;
+  const bottomY = cy + cylinderHeight / 2;
+  const rx = radius;
+  const ry = radius * 0.38; // 3D perspective foreshortening
+
+  // 1. Suspension Eyelet / Brass Ring at the top
+  const ringY = topY - 8;
+  ctx.strokeStyle = mat === 'copper' ? '#ea580c' : '#94a3b8';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(cx, ringY, 6, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // 2. Cylinder Body with Metallic Specular Lighting
+  const bodyGrad = ctx.createLinearGradient(cx - rx, 0, cx + rx, 0);
   let strokeColor = '#475569';
 
   if (mat === 'copper') {
-    fillGradient.addColorStop(0, '#f97316');
-    fillGradient.addColorStop(0.5, '#ea580c');
-    fillGradient.addColorStop(1, '#9a3412');
+    bodyGrad.addColorStop(0.0, '#7c2d12');
+    bodyGrad.addColorStop(0.2, '#c2410c');
+    bodyGrad.addColorStop(0.5, '#fb923c'); // Specular sheen
+    bodyGrad.addColorStop(0.8, '#ea580c');
+    bodyGrad.addColorStop(1.0, '#9a3412');
     strokeColor = '#c2410c';
   } else if (mat === 'aluminum') {
-    fillGradient.addColorStop(0, '#f1f5f9');
-    fillGradient.addColorStop(0.5, '#cbd5e1');
-    fillGradient.addColorStop(1, '#94a3b8');
-    strokeColor = '#64748b';
+    bodyGrad.addColorStop(0.0, '#475569');
+    bodyGrad.addColorStop(0.2, '#94a3b8');
+    bodyGrad.addColorStop(0.45, '#ffffff'); // High specular white
+    bodyGrad.addColorStop(0.7, '#cbd5e1');
+    bodyGrad.addColorStop(1.0, '#64748b');
+    strokeColor = '#475569';
   } else if (mat === 'iron') {
-    fillGradient.addColorStop(0, '#64748b');
-    fillGradient.addColorStop(0.5, '#475569');
-    fillGradient.addColorStop(1, '#334155');
-    strokeColor = '#1e293b';
+    bodyGrad.addColorStop(0.0, '#1e293b');
+    bodyGrad.addColorStop(0.25, '#334155');
+    bodyGrad.addColorStop(0.5, '#64748b'); // Steel sheen
+    bodyGrad.addColorStop(0.75, '#475569');
+    bodyGrad.addColorStop(1.0, '#1e293b');
+    strokeColor = '#0f172a';
   } else if (mat === 'lead') {
-    fillGradient.addColorStop(0, '#94a3b8');
-    fillGradient.addColorStop(0.5, '#64748b');
-    fillGradient.addColorStop(1, '#475569');
-    strokeColor = '#334155';
+    bodyGrad.addColorStop(0.0, '#334155');
+    bodyGrad.addColorStop(0.3, '#475569');
+    bodyGrad.addColorStop(0.55, '#94a3b8');
+    bodyGrad.addColorStop(0.8, '#64748b');
+    bodyGrad.addColorStop(1.0, '#334155');
+    strokeColor = '#1e293b';
   } else if (mat === 'glass') {
-    fillGradient.addColorStop(0, 'rgba(186, 230, 253, 0.7)');
-    fillGradient.addColorStop(0.5, 'rgba(125, 211, 252, 0.5)');
-    fillGradient.addColorStop(1, 'rgba(56, 189, 248, 0.7)');
+    bodyGrad.addColorStop(0.0, 'rgba(56, 189, 248, 0.4)');
+    bodyGrad.addColorStop(0.3, 'rgba(186, 230, 253, 0.8)');
+    bodyGrad.addColorStop(0.6, 'rgba(255, 255, 255, 0.9)');
+    bodyGrad.addColorStop(1.0, 'rgba(2, 132, 199, 0.45)');
     strokeColor = '#0284c7';
   }
 
-  ctx.fillStyle = fillGradient;
-  ctx.strokeStyle = strokeColor;
-  ctx.lineWidth = 2;
+  // Draw Cylinder Main Hull
+  ctx.fillStyle = bodyGrad;
   ctx.beginPath();
-  ctx.roundRect(cx - baseSize / 2, cy - baseSize / 2, baseSize, baseSize, 6);
+  ctx.moveTo(cx - rx, topY);
+  ctx.lineTo(cx + rx, topY);
+  ctx.lineTo(cx + rx, bottomY);
+  ctx.ellipse(cx, bottomY, rx, ry, 0, 0, Math.PI, false);
+  ctx.lineTo(cx - rx, topY);
+  ctx.fill();
+
+  // Cylinder bottom stroke
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.ellipse(cx, bottomY, rx, ry, 0, 0, Math.PI, false);
+  ctx.stroke();
+
+  // Draw Cylinder Top Cap Ellipse
+  const topGrad = ctx.createRadialGradient(cx, topY, rx * 0.1, cx, topY, rx);
+  if (mat === 'copper') {
+    topGrad.addColorStop(0, '#fdba74');
+    topGrad.addColorStop(1, '#c2410c');
+  } else if (mat === 'aluminum') {
+    topGrad.addColorStop(0, '#ffffff');
+    topGrad.addColorStop(1, '#94a3b8');
+  } else if (mat === 'iron') {
+    topGrad.addColorStop(0, '#94a3b8');
+    topGrad.addColorStop(1, '#334155');
+  } else if (mat === 'lead') {
+    topGrad.addColorStop(0, '#cbd5e1');
+    topGrad.addColorStop(1, '#475569');
+  } else {
+    topGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+    topGrad.addColorStop(1, 'rgba(56, 189, 248, 0.6)');
+  }
+
+  ctx.fillStyle = topGrad;
+  ctx.beginPath();
+  ctx.ellipse(cx, topY, rx, ry, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = strokeColor;
+  ctx.stroke();
+
+  // Center High-Contrast Badge for mass and dynamic temperature
+  renderLabelBadge(
+    ctx,
+    cx,
+    cy,
+    `${props.params.solidMassGrams}g`,
+    `${props.state.solidTempC.toFixed(1)}°C`,
+    isDark,
+  );
+}
+
+function renderLabelBadge(
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  title: string,
+  sub: string,
+  isDark: boolean,
+) {
+  const badgeW = 68;
+  const badgeH = 34;
+
+  ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.88)' : 'rgba(255, 255, 255, 0.92)';
+  ctx.strokeStyle = isDark ? '#475569' : '#cbd5e1';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.roundRect(cx - badgeW / 2, cy - badgeH / 2, badgeW, badgeH, 6);
   ctx.fill();
   ctx.stroke();
 
-  // Material Label & Live Temperature on Block
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 11px system-ui';
   ctx.textAlign = 'center';
-  ctx.fillText(`${props.params.solidMassGrams}g`, cx, cy - 2);
+  ctx.fillStyle = isDark ? '#f8fafc' : '#0f172a';
+  ctx.font = 'bold 11px system-ui';
+  ctx.fillText(title, cx, cy - 2);
+
+  ctx.fillStyle = '#ef4444';
   ctx.font = 'bold 12px monospace';
-  ctx.fillText(`${props.state.solidTempC.toFixed(1)}°C`, cx, cy + 14);
+  ctx.fillText(sub, cx, cy + 12);
 }
 
 function renderThermometer(
@@ -287,7 +396,6 @@ function renderThermometer(
   const stemWidth = 10;
   const bulbRadius = 9;
 
-  // Glass stem background
   ctx.fillStyle = isDark ? '#1e293b' : '#f1f5f9';
   ctx.strokeStyle = '#94a3b8';
   ctx.lineWidth = 1.5;
@@ -296,7 +404,6 @@ function renderThermometer(
   ctx.fill();
   ctx.stroke();
 
-  // Bulb at bottom
   ctx.fillStyle = '#ef4444';
   ctx.beginPath();
   ctx.arc(tx, bottomY, bulbRadius, 0, Math.PI * 2);
@@ -304,7 +411,6 @@ function renderThermometer(
   ctx.strokeStyle = '#94a3b8';
   ctx.stroke();
 
-  // Red column height proportional to current liquid temperature (-10 to 110 °C)
   const tempClamped = Math.min(100, Math.max(0, props.state.liquidTempC));
   const columnH = (tempClamped / 100) * (bottomY - topY - 25);
 
@@ -313,7 +419,6 @@ function renderThermometer(
   ctx.rect(tx - stemWidth / 2 + 2, bottomY - columnH, stemWidth - 4, columnH);
   ctx.fill();
 
-  // Digital Temperature Badge above thermometer
   ctx.fillStyle = isDark ? '#1e293b' : '#ffffff';
   ctx.strokeStyle = isDark ? '#3b82f6' : '#60a5fa';
   ctx.lineWidth = 2;
@@ -329,7 +434,6 @@ function renderThermometer(
 }
 
 function renderHUD(ctx: CanvasRenderingContext2D, w: number, isDark: boolean) {
-  // Top Banner / Status Card
   const cardW = Math.min(480, w - 32);
   const cardH = 50;
   const cardX = (w - cardW) / 2;
@@ -343,7 +447,6 @@ function renderHUD(ctx: CanvasRenderingContext2D, w: number, isDark: boolean) {
   ctx.fill();
   ctx.stroke();
 
-  // Stats text
   ctx.textAlign = 'center';
   ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
   ctx.font = '11px system-ui';
@@ -352,7 +455,11 @@ function renderHUD(ctx: CanvasRenderingContext2D, w: number, isDark: boolean) {
 
   ctx.font = 'bold 15px monospace';
   ctx.fillStyle = '#10b981';
-  ctx.fillText(`${props.state.derived.theoreticalEquilibriumTempC.toFixed(2)} °C`, cardX + cardW * 0.25, cardY + 38);
+  ctx.fillText(
+    `${props.state.derived.theoreticalEquilibriumTempC.toFixed(2)} °C`,
+    cardX + cardW * 0.25,
+    cardY + 38,
+  );
 
   ctx.font = 'bold 13px system-ui';
   if (props.state.isEquilibrated) {

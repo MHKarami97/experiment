@@ -1,6 +1,8 @@
 {
   "solidMaterial": "Solid Sample Material",
   "solidMaterial_desc": "Substance type to measure specific heat capacity and thermal exchange",
+  "solidPropsTitle": "Sample Properties (Mass & Temp)",
+  "liquidPropsTitle": "Liquid Properties (Mass & Temp)",
   "solidMass": "Sample Mass",
   "solidMass_desc": "Mass of the submerged sample in grams",
   "solidTemp": "Sample Initial Temperature",
@@ -13,6 +15,17 @@
   "liquidTemp_desc": "Initial bath temperature in °C",
   "waterEquivalent": "Calorimeter Water Equivalent",
   "waterEquivalent_desc": "Equivalent water mass for cup & stirrer (C_cal / c_w) in real mode",
+
+  "copperName": "Copper",
+  "aluminumName": "Aluminum",
+  "ironName": "Iron",
+  "leadName": "Lead",
+  "glassName": "Glass",
+  "iceName": "Ice",
+
+  "waterName": "Water",
+  "ethanolName": "Ethanol",
+  "oilName": "Oil",
 
   "matCopper": "Copper (c=385)",
   "matAluminum": "Aluminum (c=900)",
@@ -47,7 +60,7 @@
   "metricLiquidT": "Liquid Temp",
   "metricIceRemaining": "Remaining Ice",
   "stirrer": "Laboratory Stirrer",
-  "stirrerActive": "Stirrer Active (Faster Mixing)",
+  "stirrerActive": "Laboratory Stirrer",
 
   "tabGraph": "Live Temperature - Time Graph",
   "tabTable": "Data Table",
