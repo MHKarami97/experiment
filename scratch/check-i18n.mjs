@@ -13,6 +13,8 @@ const inclinedPlaneFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/
 const inclinedPlaneEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/newton-inclined-plane/i18n/en.json'), 'utf8'));
 const pulleysLeversFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/pulleys-levers/i18n/fa.json'), 'utf8'));
 const pulleysLeversEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/pulleys-levers/i18n/en.json'), 'utf8'));
+const circularMotionFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/circular-motion/i18n/fa.json'), 'utf8'));
+const circularMotionEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/circular-motion/i18n/en.json'), 'utf8'));
 
 // Build dictionary of all available keys in fa and en
 function flattenKeys(obj, prefix = '') {
@@ -83,19 +85,21 @@ const faFlat = {
   ...flattenKeys(projectileFa, 'projectile'),
   ...flattenKeys(kinematicsFa, 'kinematics'),
   ...flattenKeys(inclinedPlaneFa, 'inclinedPlane'),
-  ...flattenKeys(pulleysLeversFa, 'pulleysLevers')
+  ...flattenKeys(pulleysLeversFa, 'pulleysLevers'),
+  ...flattenKeys(circularMotionFa, 'circularMotion')
 };
 
 const enFlat = {
   ...flattenKeys(projectileEn, 'projectile'),
   ...flattenKeys(kinematicsEn, 'kinematics'),
   ...flattenKeys(inclinedPlaneEn, 'inclinedPlane'),
-  ...flattenKeys(pulleysLeversEn, 'pulleysLevers')
+  ...flattenKeys(pulleysLeversEn, 'pulleysLevers'),
+  ...flattenKeys(circularMotionEn, 'circularMotion')
 };
 
 // Check used keys
 for (const [key, files] of usedKeys.entries()) {
-  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.')) {
+  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.') || key.startsWith('circularMotion.')) {
     if (!faFlat[key]) {
       console.log(`[MISSING FA]: "${key}" used in ${files[0]}`);
     }

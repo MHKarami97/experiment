@@ -187,6 +187,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/circular-motion',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.circularMotion.title',
+    descKey: 'experiments.circularMotion.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/circular-motion/config'),
+        import('./physics/motion/circular-motion/ui/Experiment.vue'),
+        import('./physics/motion/circular-motion/i18n/fa.json'),
+        import('./physics/motion/circular-motion/i18n/en.json')
+      ]);
+      return {
+        config: configModule.circularMotionConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

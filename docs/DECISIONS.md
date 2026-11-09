@@ -123,5 +123,19 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Removing tabs on mobile: Detrimental to pedagogical value and user notes.
 
+---
+
+### [2026-11-09] Decision 011: Circular Motion & Centripetal Force Architecture & Tangential Flight
+- **Context:** The fifth experiment "Circular Motion & Centripetal Force" requires accurate modeling of uniform circular kinematics ($v = \omega r$, $a_c = \omega^2 r$, $F_c = m \omega^2 r$), as well as physical behavior when string tension exceeds $T_{\text{max}}$ in Real mode (tether snapping).
+- **Decision:**
+  1. In Ideal mode: fixed angular velocity $\omega_0$ and rigid radius $r_0$ with instantaneous tracking and zero stretch.
+  2. In Real mode: elastic elongation governed by string stiffness $k$ ($\Delta r = F_c / k$), air drag torque, and mechanical rupture when $F_c \ge T_{\text{max}}$.
+  3. When the string breaks, the simulation transitions from tethered polar dynamics to free linear tangential flight governed by Newton's First Law ($v_x = -r \omega \sin\theta$, $v_y = r \omega \cos\theta$) with air drag deceleration, demonstrating that the object flies along the tangent rather than outward radially.
+  4. Polar concentric rings and angular ray grid rendered in Canvas with dynamic tension color coding on the tether string (blue -> orange -> red).
+- **Rationale:** High pedagogical value showing Newton's first law and rotational mechanics while meeting numerical accuracy tolerances $< 10^{-3}$.
+- **Alternatives Rejected:**
+  - Simulating only ideal uniform circular motion: Misses real-world cable breaking and elastic stretch phenomena.
+
+
 
 

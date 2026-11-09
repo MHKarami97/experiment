@@ -52,7 +52,8 @@ async function loadPlugin() {
         'projectile': 'projectile',
         '1d-2d-kinematics': 'kinematics',
         'newton-inclined-plane': 'inclinedPlane',
-        'pulleys-levers': 'pulleysLevers'
+        'pulleys-levers': 'pulleysLevers',
+        'circular-motion': 'circularMotion'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

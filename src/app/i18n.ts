@@ -7,6 +7,8 @@ import inclinedPlaneFa from '../experiments/physics/motion/newton-inclined-plane
 import inclinedPlaneEn from '../experiments/physics/motion/newton-inclined-plane/i18n/en.json';
 import pulleysLeversFa from '../experiments/physics/motion/pulleys-levers/i18n/fa.json';
 import pulleysLeversEn from '../experiments/physics/motion/pulleys-levers/i18n/en.json';
+import circularMotionFa from '../experiments/physics/motion/circular-motion/i18n/fa.json';
+import circularMotionEn from '../experiments/physics/motion/circular-motion/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -14,6 +16,7 @@ const globalMessages = {
     kinematics: kinematicsFa,
     inclinedPlane: inclinedPlaneFa,
     pulleysLevers: pulleysLeversFa,
+    circularMotion: circularMotionFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -165,6 +168,10 @@ const globalMessages = {
       pulleysLevers: {
         title: 'قرقره‌ها، اهرم‌ها و ماشین‌های ساده',
         description: 'بررسی ماشین آتوود، سیستم قرقره‌های مرکب، مزیت مکانیکی، بازده و تعادل اهرم‌ها'
+      },
+      circularMotion: {
+        title: 'حرکت دایره‌ای و نیروی مرکزگرا',
+        description: 'بررسی شتاب مرکزگرا، کشش ریسمان، بسامد و دوره دوران و پدیده پاره‌شدن نخ'
       }
     },
     experiment: {
@@ -180,6 +187,7 @@ const globalMessages = {
     kinematics: kinematicsEn,
     inclinedPlane: inclinedPlaneEn,
     pulleysLevers: pulleysLeversEn,
+    circularMotion: circularMotionEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -331,6 +339,10 @@ const globalMessages = {
       pulleysLevers: {
         title: 'Pulleys, Levers & Simple Machines',
         description: 'Explore the Atwood machine, block and tackle pulleys, mechanical advantage, efficiency, and lever equilibrium'
+      },
+      circularMotion: {
+        title: 'Circular Motion & Centripetal Force',
+        description: 'Investigate centripetal acceleration, string tension, orbital period, frequency, and tether snapping'
       }
     },
     experiment: {

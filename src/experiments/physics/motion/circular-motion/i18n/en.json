@@ -1,0 +1,76 @@
+{
+  "radius": "Circular Path Radius (r)",
+  "radius_desc": "Distance from rotation center or length of the tether string",
+  "mass": "Rotating Mass (m)",
+  "mass_desc": "Mass of the body in circular motion",
+  "angularVelocity": "Angular Velocity (ω)",
+  "angularVelocity_desc": "Rotational speed in radians per second",
+  "maxTension": "Max String Tension (T_max)",
+  "maxTension_desc": "Breaking strength threshold of the tether string",
+  "maxTension_real": "String snaps if tension exceeds threshold and object flies tangentially",
+  "stringStiffness": "String Elastic Stiffness (k)",
+  "stringStiffness_desc": "Spring constant governing elastic elongation under centripetal load",
+  "stringStiffness_real": "Path radius expands elastically proportional to centripetal force",
+  "dragCoeff": "Air Drag Coefficient (C_d)",
+  "dragCoeff_desc": "Aerodynamic resistance of surrounding medium",
+  "dragCoeff_real": "Tangential deceleration in the absence of driving motor torque",
+
+  "presets": {
+    "standardOrbit": "Standard Orbit (r=2m, m=1.5kg, ω=4rad/s)",
+    "highSpeed": "High Speed with High Centripetal Force",
+    "largeRadius": "Large Radius Gentle Spin",
+    "ropeSnap": "Rope Rupture & Tangential Flight"
+  },
+
+  "outputs": {
+    "speed": "Tangential Speed (v)",
+    "centripetalAcc": "Centripetal Acc (a_c)",
+    "tension": "Centripetal Force / Tension (F_c)",
+    "period": "Period (T)",
+    "frequency": "Frequency (f)",
+    "revolutions": "Completed Revolutions",
+    "status": "Tether Status",
+    "statusIntact": "Intact & Constrained",
+    "statusSnapped": "Snapped (Tangential Flight)"
+  },
+
+  "tabs": {
+    "graph": "Live Graphs",
+    "table": "Data Table",
+    "theory": "Theory & Formulas",
+    "notes": "Lab Notes",
+    "guided": "Guided Steps"
+  },
+
+  "controls": {
+    "groupMotion": "Circular Motion Parameters",
+    "groupString": "Tether Properties & Real Effects"
+  },
+
+  "formulas": {
+    "speedTitle": "Tangential & Angular Velocity",
+    "speedExpl": "Linear tangential velocity is directly proportional to angular speed and orbit radius.",
+    "centripetalAccTitle": "Centripetal (Radial) Acceleration",
+    "centripetalAccExpl": "Centripetal acceleration is directed toward the center and changes velocity vector direction.",
+    "centripetalForceTitle": "Centripetal Force & String Tension",
+    "centripetalForceExpl": "The net inward force supplied by string tension keeping the object in orbit.",
+    "periodFreqTitle": "Period of Revolution & Frequency",
+    "periodFreqExpl": "Time required for one complete orbit (T) and number of orbits per second (f)."
+  },
+
+  "steps": {
+    "step1Title": "Step 1: Investigate Acceleration vs Radius",
+    "step1Instr": "Keeping angular velocity at 4 rad/s, increase radius from 1m to 3m and observe centripetal acceleration.",
+    "step1Hint": "Acceleration scales linearly with radius: a_c = ω² * r.",
+    "step2Title": "Step 2: Effect of Angular Velocity on Tension",
+    "step2Instr": "Double the angular velocity (from 4 to 8 rad/s) and note how the string tension changes.",
+    "step2Hint": "Due to quadratic dependence (F_c ∝ ω²), doubling ω quadruples the required centripetal force.",
+    "step3Title": "Step 3: Tether Rupture & Newton's First Law",
+    "step3Instr": "Select the 'Rope Rupture' preset and press Play to witness the string snap.",
+    "step3Hint": "Notice the mass does not fly outwards radially, but follows a straight line tangent to the circle."
+  },
+
+  "runComparisonIdeal": "Ideal Orbit (r={r}m, ω={w}rad/s)",
+  "runComparisonReal": "Real Orbit (r={r}m, ω={w}rad/s)",
+  "notesSaved": "Circular motion lab notes saved successfully."
+}

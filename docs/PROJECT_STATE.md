@@ -1,8 +1,8 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 4 Experiments Built & Tested (16/16 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
-**Date:** 2026-10-28
+**Status:** 5 Experiments Built & Tested (21/21 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Date:** 2026-11-09
 
 ## What Exists & Has Been Built
 - **Project Foundation:** Vue 3 (Composition API, `<script setup>`, TypeScript), Vite, vite-plugin-pwa (Workbox), Pinia, Vue Router (HashHistory), vue-i18n, Dexie 4.0, uPlot, KaTeX, Vitest.
@@ -23,9 +23,10 @@
   2. `physics/motion/1d-2d-kinematics`: Rectilinear motion, constant acceleration, Torricelli equations, 2D vector kinematics, stopping distance, interactive motion graphs.
   3. `physics/motion/newton-inclined-plane`: Newton's laws, incline angle, static/kinetic friction, pull force, live free-body diagram (FBD), critical angle determination.
   4. `physics/motion/pulleys-levers`: Atwood machine, block-and-tackle pulley systems, ideal & real rotational inertia of pulley, axle friction, mechanical advantage (IMA & AMA), and lever equilibrium.
+  5. `physics/motion/circular-motion`: Uniform & non-uniform circular motion, centripetal force ($F_c = m\omega^2 r$), tangential speed ($v = \omega r$), centripetal acceleration ($a_c = \omega^2 r$), elastic string compliance, tensile breaking threshold with Newton's 1st law tangential release.
 - **Quality & Localization Verification:**
-  - 16/16 Unit Tests Passing with analytical error $< 10^{-3}$.
-  - 0 missing i18n keys across 344 keys scanned in all components and configurations.
+  - 21/21 Unit Tests Passing with analytical error $< 10^{-3}$.
+  - 0 missing i18n keys across 392 keys scanned in all components and configurations.
   - Complete Mobile Responsiveness Overhaul: Fixed `.subject-chips` flexbox expansion bug, ensured `grid-template-columns: 1fr` on mobile for `.experiments-grid` and `.planned-grid`, wrapped `.badges` and `.card-meta`, added `max-width: 100vw; overflow-x: hidden; box-sizing: border-box;` on `html`, `body`, `.app-root`, `.app-main`, and `.home-view` to guarantee 0 overflow down to 320px screens.
 
 ## Folder Map
@@ -41,9 +42,9 @@
 - `src/views/` — `HomeView`, `ExperimentView`, `SettingsView`
 
 ## How to Run & Test
-- Unit tests: `pnpm run test` (16 passed)
+- Unit tests: `pnpm run test` (21 passed)
 - Type check: `pnpm run type-check` (0 errors)
-- Production build: `pnpm run build` (PWA SW generated in ~6.5s)
+- Production build: `pnpm run build` (PWA SW generated in ~7.4s)
 - Playwright tests: `pnpm exec playwright test`
 - Preview server: `pnpm run preview`
 
@@ -53,14 +54,12 @@
 - [Resolved] Fixed variable control sidebar flex squashing (`flex-shrink: 0`) and enabled typing editability with Persian digits in `UnitSlider.vue` (Decision 007).
 - [Resolved] Full bilingual i18n parity verified in both fa and en across all views, controls, HUD, presets, tools, and settings (Decision 008).
 
-## Current Phase: Phase 2 (Continuous Experiment Implementation)
-**Status:** In Progress
-**Date:** 2026-10-28
-
 ## Completed Experiments
 1. `physics/motion/projectile` (tested) — Reference experiment: 2D projectile kinematics, gravity presets, aerodynamic drag, wind.
 2. `physics/motion/1d-2d-kinematics` (tested) — 1D/2D motion: constant velocity/acceleration, Torricelli time-independent relation, surface friction $\mu_k$, quadratic aerodynamic drag, RK4 integrator.
 3. `physics/motion/newton-inclined-plane` (tested) — Newton's laws & friction on inclined plane (angle $\theta$, static & kinetic friction $\mu_s, \mu_k$, applied pulling force, free body diagram FBD, critical angle threshold).
+4. `physics/motion/pulleys-levers` (tested) — Pulleys, levers & simple machines (mechanical advantage, Atwood machine, ideal vs real efficiency with pulley mass/friction).
+5. `physics/motion/circular-motion` (tested) — Circular motion & centripetal force ($F_c = m\omega^2 r$, string elasticity, rupture threshold, tangential release).
 
 ## Next Experiment
-- `physics/motion/pulleys-levers` — Pulleys, levers & simple machines (mechanical advantage, Atwood machine, ideal vs real efficiency with pulley mass/friction).
+- `physics/motion/collisions-momentum` — Elastic & inelastic collisions, conservation of linear momentum ($p = mv$) and kinetic energy, coefficient of restitution ($e$), real-world deformation energy loss.
