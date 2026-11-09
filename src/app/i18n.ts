@@ -259,6 +259,10 @@ const globalMessages = {
       calorimetry: {
         title: 'گرماسنجی و ظرفیت گرمایی ویژه',
         description: 'بررسی قانون تعادل گرمایی، اندازه‌گیری ظرفیت گرمایی ویژه فلزات، ارزش آب گرماسنج و گذار فاز ذوب یخ'
+      },
+      gasLaws: {
+        title: 'قوانین گازها و سینتیک مولکولی',
+        description: 'بررسی معادله گاز آرمانی، قوانین بویل، شارل، گیلوساک، توزیع سرعت ماکسول-بولتزمن و گازهای واقعی وان‌دروالس'
       }
     },
     experiment: {
@@ -497,6 +501,10 @@ const globalMessages = {
       calorimetry: {
         title: "Calorimetry & Specific Heat",
         description: "Investigate thermal equilibrium, specific heat capacity of metals, calorimeter water equivalent, and latent heat of fusion"
+      },
+      gasLaws: {
+        title: "Gas Laws & Molecular Kinetics",
+        description: "Investigate ideal gas equation, Boyle, Charles, Gay-Lussac laws, Maxwell-Boltzmann velocity distribution, and Van der Waals real gases"
       }
     },
     experiment: {

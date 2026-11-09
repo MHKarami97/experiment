@@ -592,6 +592,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/thermo/gas-laws',
+    subject: 'physics',
+    topic: 'thermo',
+    titleKey: 'experiments.gasLaws.title',
+    descKey: 'experiments.gasLaws.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/thermo/gas-laws/config'),
+        import('./physics/thermo/gas-laws/ui/Experiment.vue'),
+        import('./physics/thermo/gas-laws/i18n/fa.json'),
+        import('./physics/thermo/gas-laws/i18n/en.json')
+      ]);
+      return {
+        config: configModule.gasLawsConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

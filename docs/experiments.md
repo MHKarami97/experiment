@@ -27,7 +27,7 @@ Status definitions:
 | Physics | Fluids | `physics/fluids/viscosity-pipe-flow` | گرانروی (ویسکوزیته) و جریان لوله‌ها | Viscosity & Pipe Flow | tested |
 | Physics | Heat & Thermodynamics | `physics/thermo/heat-transfer` | انتقال حرارت (رسانش، همرفت، تابش) | Heat Transfer Mechanisms | tested |
 | Physics | Heat & Thermodynamics | `physics/thermo/calorimetry` | گرماسنجی و ظرفیت گرمایی ویژه | Calorimetry & Specific Heat | tested |
-| Physics | Heat & Thermodynamics | `physics/thermo/gas-laws` | قوانین گازها (بویل، شارل، گیلوساک) | Gas Laws & Molecular Kinetics | planned |
+| Physics | Heat & Thermodynamics | `physics/thermo/gas-laws` | قوانین گازها (بویل، شارل، گیلوساک) | Gas Laws & Molecular Kinetics | tested |
 | Physics | Heat & Thermodynamics | `physics/thermo/thermal-expansion` | انبساط گرمایی اجسام | Thermal Expansion | planned |
 | Physics | Heat & Thermodynamics | `physics/thermo/heat-engines` | چرخه‌های ترمودینامیکی (کارنو و اتو) | Thermodynamic Heat Cycles | planned |
 | Physics | Waves & Sound | `physics/waves/wave-interference` | امواج طولی و عرضی و تداخل | Wave Superposition & Interference | planned |

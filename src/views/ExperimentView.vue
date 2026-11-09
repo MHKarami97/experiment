@@ -67,7 +67,8 @@ async function loadPlugin() {
         'pascal-bernoulli': 'pascalBernoulli',
         'viscosity-pipe-flow': 'viscosityPipe',
         'heat-transfer': 'heatTransfer',
-        'calorimetry': 'calorimetry'
+        'calorimetry': 'calorimetry',
+        'gas-laws': 'gasLaws'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
