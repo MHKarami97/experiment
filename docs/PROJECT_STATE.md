@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 13 Experiments Built & Tested (57/57 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 14 Experiments Built & Tested (63/63 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -73,6 +73,7 @@
 11. `physics/motion/rotational-dynamics` (tested) — Rigid body rotation & gyroscope (moments of inertia for disk, hoop, sphere, rod, $\tau = I\alpha$, falling weight acceleration $a = \frac{mg}{m + I/r^2}$, energy conservation, bearing friction).
 12. `physics/energy/skate-park` (tested) — Conservation of energy (Lagrangian curved track ODE, Torricelli speed $v = \sqrt{2g\Delta y}$, thermal dissipation work, live energy bar chart, U-ramp, double dip coaster, slope).
 13. `physics/energy/work-power` (tested) — Work & Power ($W_{\text{net}} = \Delta K$, trapezoidal work integral $\int F \cos\theta dx$, instantaneous $P = \vec{F}\cdot\vec{v}$ and average power, electro-mechanical motor efficiency, FBD vector overlays).
+14. `physics/fluids/pressure-density` (tested) — Fluid Pressure & Density (hydrostatic pressure $P = P_0 + \rho g h$, U-tube manometer equilibrium $\rho_1 h_1 = \rho_2 h_2$, thermal volumetric expansion, gauge vs absolute pressure, sensor transducer noise).
 
 ## Next Experiment
-- `physics/fluids/pressure-density` — Fluid Pressure & Density (hydrostatic pressure $P = P_0 + \rho g h$, U-tube manometer, immiscible multi-fluid layering, atmospheric depth barometer).
+- `physics/fluids/buoyancy-archimedes` — Buoyancy & Archimedes' Principle ($F_b = \rho_{\text{fluid}} V_{\text{disp}} g$, floating equilibrium, apparent weight $W_{\text{app}} = W - F_b$, hydrometer, sunken vs floating bodies).

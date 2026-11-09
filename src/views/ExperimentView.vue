@@ -61,7 +61,8 @@ async function loadPlugin() {
         'orbital-gravity': 'orbitalGravity',
         'rotational-dynamics': 'rotationalDynamics',
         'skate-park': 'skatePark',
-        'work-power': 'workPower'
+        'work-power': 'workPower',
+        'pressure-density': 'pressureDensity'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

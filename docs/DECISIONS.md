@@ -243,6 +243,22 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Forward Euler work accumulation: Leads to integration drift between $W_{\text{net}}$ and $\Delta K$; trapezoidal integration maintains strict parity.
 
+---
+
+### [2026-11-09] Decision 020: Fluid Pressure & Density (Hydrostatics & Manometer) Architecture
+- **Context:** Experiment 14 "Fluid Pressure & Density" (`physics/fluids/pressure-density`) starts the Fluids topic. It models hydrostatic pressure variation with depth ($P = P_0 + \rho g h$), gauge vs absolute pressure, immiscible fluid column equilibrium in a U-tube manometer ($\rho_1 h_1 = \rho_2 h_2$), and volumetric thermal expansion of liquids ($\rho(T) = \frac{\rho_0}{1 + \beta \Delta T}$).
+- **Decision:**
+  1. Analytical hydrostatic pressure formulation with continuous depth tracking:
+     $$P_{\text{gauge}} = \rho(T) \cdot g \cdot h, \quad P_{\text{abs}} = P_0 + P_{\text{gauge}}$$
+     and exact U-tube manometer interface equilibrium $h_2 = h_1 \frac{\rho_1}{\rho_2}$.
+  2. Dual chamber modes: (a) Cylindrical open fluid tank with submersible pressure transducer probe, isotropic pressure force vector arrows (omnidirectional transmission in liquids), depth graduated ruler, and fluid color shading by density (water, gasoline, seawater, honey, mercury); (b) Two-fluid U-tube manometer with immiscible fluid column balance and horizontal datum line.
+  3. Real mode models liquid volumetric thermal expansion ($\beta = 2.1 \times 10^{-4}\text{ K}^{-1}$) and transducer sensor instrument noise ($120\text{ Pa}$ uncertainty).
+  4. Real-time depth vs pressure telemetry and data series plotting, with full lab report export (PDF, PNG, CSV, JSON).
+- **Rationale:** Strict SI numerical accuracy ($< 10^{-4}$ tolerance vs analytical solution) and clear visual pedagogy demonstrating Pascal's principle and hydrostatic column balance.
+- **Alternatives Rejected:**
+  - Discrete grid-based Navier-Stokes fluid sim: Excessively heavy for static pressure measurements; analytical hydrostatic formulations provide exact physics with zero performance overhead.
+
+
 
 
 

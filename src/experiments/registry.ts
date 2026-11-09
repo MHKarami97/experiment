@@ -430,6 +430,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/fluids/pressure-density',
+    subject: 'physics',
+    topic: 'fluids',
+    titleKey: 'experiments.pressureDensity.title',
+    descKey: 'experiments.pressureDensity.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'easy',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/fluids/pressure-density/config'),
+        import('./physics/fluids/pressure-density/ui/Experiment.vue'),
+        import('./physics/fluids/pressure-density/i18n/fa.json'),
+        import('./physics/fluids/pressure-density/i18n/en.json')
+      ]);
+      return {
+        config: configModule.fluidPressureConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

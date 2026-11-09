@@ -25,6 +25,8 @@ import skateParkFa from '../experiments/physics/energy/skate-park/i18n/fa.json';
 import skateParkEn from '../experiments/physics/energy/skate-park/i18n/en.json';
 import workPowerFa from '../experiments/physics/energy/work-power/i18n/fa.json';
 import workPowerEn from '../experiments/physics/energy/work-power/i18n/en.json';
+import pressureDensityFa from '../experiments/physics/fluids/pressure-density/i18n/fa.json';
+import pressureDensityEn from '../experiments/physics/fluids/pressure-density/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -41,6 +43,7 @@ const globalMessages = {
     rotationalDynamics: rotationalFa,
     skatePark: skateParkFa,
     workPower: workPowerFa,
+    pressureDensity: pressureDensityFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -123,6 +126,7 @@ const globalMessages = {
       rotateCw: 'چرخش ساعتگرد',
       slotNumber: 'جایگاه {num}',
       empty: 'خالی',
+      time: 'زمان',
       save: 'ذخیره',
       load: 'بازیابی',
       slotSaved: 'وضعیت در جایگاه {num} ذخیره شد.',
@@ -228,6 +232,10 @@ const globalMessages = {
       workPower: {
         title: 'کار و توان مکانیکی',
         description: 'بررسی قضیه کار و انرژی، انتگرال کار نیروی متغیر، توان لحظه‌ای و میانگین، و راندمان الکترومکانیکی موتور'
+      },
+      pressureDensity: {
+        title: 'فشار شاره‌ها و چگالی',
+        description: 'بررسی فشار هیدرواستاتیک در عمق، مقایسه فشار مطلق و پیمانه‌ای، مانومتر U شکل و تأثیر انبساط حرارتی بر چگالی'
       }
     },
     experiment: {
@@ -252,6 +260,7 @@ const globalMessages = {
     rotationalDynamics: rotationalEn,
     skatePark: skateParkEn,
     workPower: workPowerEn,
+    pressureDensity: pressureDensityEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -334,6 +343,7 @@ const globalMessages = {
       rotateCw: 'Rotate Clockwise',
       slotNumber: 'Slot {num}',
       empty: 'Empty',
+      time: 'Time',
       save: 'Save',
       load: 'Load',
       slotSaved: 'State saved to slot {num}.',
@@ -439,6 +449,10 @@ const globalMessages = {
       workPower: {
         title: 'Work & Power',
         description: 'Investigate the work-energy theorem, variable force work integrals, instantaneous vs average power, and motor mechanical efficiency'
+      },
+      pressureDensity: {
+        title: 'Fluid Pressure & Density',
+        description: 'Investigate hydrostatic pressure with depth, gauge vs absolute pressure, U-tube manometers, and thermal expansion of fluids'
       }
     },
     experiment: {
