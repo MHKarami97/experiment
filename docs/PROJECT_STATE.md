@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 12 Experiments Built & Tested (53/53 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 13 Experiments Built & Tested (57/57 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -47,9 +47,9 @@
 - `src/views/` — `HomeView`, `ExperimentView`, `SettingsView`
 
 ## How to Run & Test
-- Unit tests: `pnpm run test` (53 passed)
+- Unit tests: `pnpm run test` (57 passed)
 - Type check: `pnpm run type-check` (0 errors)
-- Production build: `pnpm run build` (PWA SW generated in ~8.8s)
+- Production build: `pnpm run build` (PWA SW generated in ~6.4s)
 - Playwright tests: `pnpm exec playwright test`
 - Preview server: `pnpm run preview`
 
@@ -72,6 +72,7 @@
 10. `physics/motion/orbital-gravity` (tested) — 2-body Newtonian gravity, Kepler's laws, Vis-Viva orbital speed, LEO/GEO/Molniya orbits, atmospheric drag perturbation, and Velocity-Verlet symplectic integrator.
 11. `physics/motion/rotational-dynamics` (tested) — Rigid body rotation & gyroscope (moments of inertia for disk, hoop, sphere, rod, $\tau = I\alpha$, falling weight acceleration $a = \frac{mg}{m + I/r^2}$, energy conservation, bearing friction).
 12. `physics/energy/skate-park` (tested) — Conservation of energy (Lagrangian curved track ODE, Torricelli speed $v = \sqrt{2g\Delta y}$, thermal dissipation work, live energy bar chart, U-ramp, double dip coaster, slope).
+13. `physics/energy/work-power` (tested) — Work & Power ($W_{\text{net}} = \Delta K$, trapezoidal work integral $\int F \cos\theta dx$, instantaneous $P = \vec{F}\cdot\vec{v}$ and average power, electro-mechanical motor efficiency, FBD vector overlays).
 
 ## Next Experiment
-- `physics/energy/work-power` — Work & Power (work-energy theorem $W_{\text{net}} = \Delta K$, force vs displacement integration $\int F dx$, instantaneous power $P = \vec{F}\cdot\vec{v}$, winch/motor lifting, mechanical efficiency).
+- `physics/fluids/pressure-density` — Fluid Pressure & Density (hydrostatic pressure $P = P_0 + \rho g h$, U-tube manometer, immiscible multi-fluid layering, atmospheric depth barometer).

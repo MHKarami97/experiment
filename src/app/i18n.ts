@@ -23,6 +23,8 @@ import rotationalFa from '../experiments/physics/motion/rotational-dynamics/i18n
 import rotationalEn from '../experiments/physics/motion/rotational-dynamics/i18n/en.json';
 import skateParkFa from '../experiments/physics/energy/skate-park/i18n/fa.json';
 import skateParkEn from '../experiments/physics/energy/skate-park/i18n/en.json';
+import workPowerFa from '../experiments/physics/energy/work-power/i18n/fa.json';
+import workPowerEn from '../experiments/physics/energy/work-power/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -38,6 +40,7 @@ const globalMessages = {
     orbitalGravity: orbitalFa,
     rotationalDynamics: rotationalFa,
     skatePark: skateParkFa,
+    workPower: workPowerFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -221,6 +224,10 @@ const globalMessages = {
       skatePark: {
         title: 'پایستگی انرژی (پیست اسکیت)',
         description: 'بررسی پایستگی انرژی مکانیکی، تبدیل انرژی پتانسیل گرانشی به جنبشی، اتلاف اصطکاکی گرمایی و پیست‌های U و موجی'
+      },
+      workPower: {
+        title: 'کار و توان مکانیکی',
+        description: 'بررسی قضیه کار و انرژی، انتگرال کار نیروی متغیر، توان لحظه‌ای و میانگین، و راندمان الکترومکانیکی موتور'
       }
     },
     experiment: {
@@ -244,6 +251,7 @@ const globalMessages = {
     orbitalGravity: orbitalEn,
     rotationalDynamics: rotationalEn,
     skatePark: skateParkEn,
+    workPower: workPowerEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -427,6 +435,10 @@ const globalMessages = {
       skatePark: {
         title: 'Conservation of Energy (Skate Park)',
         description: 'Investigate conservation of mechanical energy, potential to kinetic energy conversion, thermal friction dissipation, and curved tracks'
+      },
+      workPower: {
+        title: 'Work & Power',
+        description: 'Investigate the work-energy theorem, variable force work integrals, instantaneous vs average power, and motor mechanical efficiency'
       }
     },
     experiment: {

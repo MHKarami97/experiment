@@ -403,6 +403,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/energy/work-power',
+    subject: 'physics',
+    topic: 'energy',
+    titleKey: 'experiments.workPower.title',
+    descKey: 'experiments.workPower.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'easy',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/energy/work-power/config'),
+        import('./physics/energy/work-power/ui/Experiment.vue'),
+        import('./physics/energy/work-power/i18n/fa.json'),
+        import('./physics/energy/work-power/i18n/en.json')
+      ]);
+      return {
+        config: configModule.workPowerConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

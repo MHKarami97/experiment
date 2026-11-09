@@ -1,0 +1,168 @@
+import type { ExperimentConfig } from '@/experiments/registry';
+
+export const workPowerConfig: ExperimentConfig = {
+  id: 'physics/energy/work-power',
+  subject: 'physics',
+  topic: 'energy',
+  titleKey: 'experiments.workPower.title',
+  descKey: 'experiments.workPower.description',
+  gradeTags: ['middle-school', 'high-school', 'university'],
+  difficulty: 'easy',
+  engine: 'canvas2d',
+
+  variables: [
+    {
+      id: 'forceProfileIndex',
+      labelKey: 'workPower.forceProfile',
+      unit: '',
+      min: 0,
+      max: 3,
+      step: 1,
+      default: 0,
+      descKey: 'workPower.forceProfile_desc',
+      realModeEffect: null,
+    },
+    {
+      id: 'appliedForceMax',
+      labelKey: 'workPower.appliedForce',
+      unit: 'N',
+      min: 10,
+      max: 300,
+      step: 5,
+      default: 100,
+      descKey: 'workPower.appliedForce_desc',
+      realModeEffect: null,
+    },
+    {
+      id: 'forceAngle',
+      labelKey: 'workPower.forceAngle',
+      unit: '°',
+      min: 0,
+      max: 60,
+      step: 5,
+      default: 20,
+      descKey: 'workPower.forceAngle_desc',
+      realModeEffect: null,
+    },
+    {
+      id: 'payloadMass',
+      labelKey: 'workPower.payloadMass',
+      unit: 'kg',
+      min: 5,
+      max: 100,
+      step: 1,
+      default: 25,
+      descKey: 'workPower.payloadMass_desc',
+      realModeEffect: null,
+    },
+    {
+      id: 'surfaceFrictionMu',
+      labelKey: 'workPower.surfaceFriction',
+      unit: '',
+      min: 0.0,
+      max: 0.4,
+      step: 0.02,
+      default: 0.12,
+      descKey: 'workPower.surfaceFriction_desc',
+      realModeEffect: 'workPower.surfaceFriction_real',
+    },
+    {
+      id: 'motorEfficiency',
+      labelKey: 'workPower.motorEfficiency',
+      unit: '%',
+      min: 50,
+      max: 100,
+      step: 5,
+      default: 85,
+      descKey: 'workPower.motorEfficiency_desc',
+      realModeEffect: 'workPower.motorEfficiency_real',
+    },
+  ],
+
+  presets: [
+    {
+      id: 'horizontalPull',
+      labelKey: 'workPower.preset_horizontalPull',
+      params: {
+        forceProfileIndex: 0,
+        appliedForceMax: 120,
+        forceAngle: 0,
+        payloadMass: 25,
+        surfaceFrictionMu: 0.1,
+        motorEfficiency: 85,
+      },
+    },
+    {
+      id: 'angledTow',
+      labelKey: 'workPower.preset_angledTow',
+      params: {
+        forceProfileIndex: 0,
+        appliedForceMax: 140,
+        forceAngle: 30,
+        payloadMass: 30,
+        surfaceFrictionMu: 0.15,
+        motorEfficiency: 80,
+      },
+    },
+    {
+      id: 'variableRamp',
+      labelKey: 'workPower.preset_variableRamp',
+      params: {
+        forceProfileIndex: 1,
+        appliedForceMax: 180,
+        forceAngle: 15,
+        payloadMass: 20,
+        surfaceFrictionMu: 0.08,
+        motorEfficiency: 90,
+      },
+    },
+    {
+      id: 'efficientElectricWinch',
+      labelKey: 'workPower.preset_efficientElectricWinch',
+      params: {
+        forceProfileIndex: 0,
+        appliedForceMax: 200,
+        forceAngle: 45,
+        payloadMass: 35,
+        surfaceFrictionMu: 0.05,
+        motorEfficiency: 95,
+      },
+    },
+  ],
+
+  tools: [
+    {
+      id: 'ruler',
+      nameKey: 'common.ruler',
+      icon: '📏',
+    },
+    {
+      id: 'stopwatch',
+      nameKey: 'common.stopwatch',
+      icon: '⏱️',
+    },
+  ],
+
+  formulas: [
+    {
+      titleKey: 'workPower.formula_workEnergy',
+      latex: 'W_{\\text{net}} = \\Delta K = \\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2',
+      explanationKey: 'workPower.workEnergyExpl',
+    },
+    {
+      titleKey: 'workPower.formula_workIntegral',
+      latex: 'W = \\int \\vec{F} \\cdot d\\vec{r} = \\int F(x) \\cos\\theta \\, dx',
+      explanationKey: 'workPower.workIntegralExpl',
+    },
+    {
+      titleKey: 'workPower.formula_instantPower',
+      latex: 'P(t) = \\vec{F} \\cdot \\vec{v} = F v \\cos\\theta',
+      explanationKey: 'workPower.instantPowerExpl',
+    },
+    {
+      titleKey: 'workPower.formula_efficiency',
+      latex: '\\eta = \\frac{P_{\\text{out}}}{P_{\\text{in}}} = \\frac{W_{\\text{useful}}}{E_{\\text{input}}}',
+      explanationKey: 'workPower.efficiencyExpl',
+    },
+  ],
+};

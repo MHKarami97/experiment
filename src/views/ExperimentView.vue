@@ -60,7 +60,8 @@ async function loadPlugin() {
         'spring-shm': 'springShm',
         'orbital-gravity': 'orbitalGravity',
         'rotational-dynamics': 'rotationalDynamics',
-        'skate-park': 'skatePark'
+        'skate-park': 'skatePark',
+        'work-power': 'workPower'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

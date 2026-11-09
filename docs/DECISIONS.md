@@ -228,6 +228,21 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Euler arc-length parameterization: Suffers from accumulated geometric chord error ($> 0.1\%$). Exact Lagrangian ODE with RK4 ensures zero energy drift.
 
+---
+
+### [2026-11-09] Decision 019: Work & Power Architecture
+- **Context:** Experiment 13 "Work & Power" (`physics/energy/work-power`) models the Work-Energy Theorem ($W_{\text{net}} = \Delta K$), the integral definition of mechanical work ($W = \int \vec{F} \cdot d\vec{r}$), instantaneous mechanical power ($P = \vec{F} \cdot \vec{v}$), and motor electro-mechanical efficiency ($\eta = \frac{W_{\text{useful}}}{E_{\text{input}}}$).
+- **Decision:**
+  1. Velocity-Verlet symplectic numerical integration with trapezoidal work integration:
+     $$dW = \frac{F_0 + F_1}{2} \cos\theta \, dx$$
+     guaranteeing exact numerical equivalence between net work and kinetic energy ($|W_{\text{net}} - \Delta K| / K < 10^{-3}$).
+  2. Four force profiles supported: Constant, linear ramp $F(x) \propto x$, restoring spring, and pulsed motor.
+  3. Real mode models surface friction work $W_f = -\mu_k N x$ (with normal force relief $N = mg - F\sin\theta$) and motor efficiency $\eta < 100\%$.
+  4. Canvas view features sliding cargo crate with mass label, angled winch pulling cable and motor drum, full FBD force vectors ($\vec{F}, \vec{f}_k, \vec{v}$), and a live $F(x)$ mini integral graph showing the shaded area under the curve representing work.
+- **Rationale:** Completes the "Work & Energy" topic with strict mathematical accuracy and intuitive visual representation of work as an area under the force curve.
+- **Alternatives Rejected:**
+  - Forward Euler work accumulation: Leads to integration drift between $W_{\text{net}}$ and $\Delta K$; trapezoidal integration maintains strict parity.
+
 
 
 

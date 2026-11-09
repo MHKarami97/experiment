@@ -29,6 +29,8 @@ const rotationalFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/exp
 const rotationalEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/rotational-dynamics/i18n/en.json'), 'utf8'));
 const skateParkFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/energy/skate-park/i18n/fa.json'), 'utf8'));
 const skateParkEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/energy/skate-park/i18n/en.json'), 'utf8'));
+const workPowerFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/energy/work-power/i18n/fa.json'), 'utf8'));
+const workPowerEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/energy/work-power/i18n/en.json'), 'utf8'));
 
 // Build dictionary of all available keys in fa and en
 function flattenKeys(obj, prefix = '') {
@@ -107,7 +109,8 @@ const faFlat = {
   ...flattenKeys(springFa, 'springShm'),
   ...flattenKeys(orbitalFa, 'orbitalGravity'),
   ...flattenKeys(rotationalFa, 'rotationalDynamics'),
-  ...flattenKeys(skateParkFa, 'skatePark')
+  ...flattenKeys(skateParkFa, 'skatePark'),
+  ...flattenKeys(workPowerFa, 'workPower')
 };
 
 const enFlat = {
@@ -122,12 +125,13 @@ const enFlat = {
   ...flattenKeys(springEn, 'springShm'),
   ...flattenKeys(orbitalEn, 'orbitalGravity'),
   ...flattenKeys(rotationalEn, 'rotationalDynamics'),
-  ...flattenKeys(skateParkEn, 'skatePark')
+  ...flattenKeys(skateParkEn, 'skatePark'),
+  ...flattenKeys(workPowerEn, 'workPower')
 };
 
 // Check used keys
 for (const [key, files] of usedKeys.entries()) {
-  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.') || key.startsWith('circularMotion.') || key.startsWith('collisionsMomentum.') || key.startsWith('torqueEquilibrium.') || key.startsWith('pendulums.') || key.startsWith('springShm.') || key.startsWith('orbitalGravity.') || key.startsWith('rotationalDynamics.') || key.startsWith('skatePark.')) {
+  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.') || key.startsWith('circularMotion.') || key.startsWith('collisionsMomentum.') || key.startsWith('torqueEquilibrium.') || key.startsWith('pendulums.') || key.startsWith('springShm.') || key.startsWith('orbitalGravity.') || key.startsWith('rotationalDynamics.') || key.startsWith('skatePark.') || key.startsWith('workPower.')) {
     if (!faFlat[key]) {
       console.log(`[MISSING FA]: "${key}" used in ${files[0]}`);
     }
