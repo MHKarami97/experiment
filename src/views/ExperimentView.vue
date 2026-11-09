@@ -59,7 +59,8 @@ async function loadPlugin() {
         'pendulums': 'pendulums',
         'spring-shm': 'springShm',
         'orbital-gravity': 'orbitalGravity',
-        'rotational-dynamics': 'rotationalDynamics'
+        'rotational-dynamics': 'rotationalDynamics',
+        'skate-park': 'skatePark'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

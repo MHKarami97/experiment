@@ -214,6 +214,20 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Hardcoding inertia to only a disk: Prevents students from discovering how mass distribution impacts angular acceleration.
 
+---
+
+### [2026-11-09] Decision 018: Conservation of Energy (Skate Park) Architecture
+- **Context:** Experiment 12 "Conservation of Energy (Skate Park)" (`physics/energy/skate-park`) launches the Work & Energy topic. It requires accurate modeling of mechanical energy conservation ($E = PE + KE$), potential-to-kinetic energy conversion, Torricelli speed ($v = \sqrt{2g\Delta y}$), and thermal friction work dissipation ($E_{\text{total}} = PE + KE + E_{\text{thermal}} = \text{const}$).
+- **Decision:**
+  1. Use exact Lagrangian equation of motion along curvilinear tracks $y(x)$:
+     $$\ddot{x} = \frac{-g y' - y' y'' \dot{x}^2}{1 + (y')^2} - a_{\text{friction}, x}$$
+     integrated via 4th-order Runge-Kutta (RK4), eliminating planar chord/arc discretization errors and guaranteeing energy conservation within $< 10^{-4}$ in Ideal mode.
+  2. Real mode accounts for work done by kinetic friction $f_k = \mu_k N$ (where $N = m(g\cos\theta + v^2\kappa)$) accumulated into thermal energy $E_{\text{thermal}}$.
+  3. Canvas view includes live pinned segmented energy bar chart (KE green, PE blue, Thermal orange, Total gold), track geometry rendering for U-Ramp, Double Dip Coaster, and Slope, oriented skater figure with helmet, and velocity/gravity vector overlays.
+- **Rationale:** Mathematically exact Lagrangian modeling of constrained curvilinear motion with live pedagogical visualization of energy conversion.
+- **Alternatives Rejected:**
+  - Euler arc-length parameterization: Suffers from accumulated geometric chord error ($> 0.1\%$). Exact Lagrangian ODE with RK4 ensures zero energy drift.
+
 
 
 

@@ -376,6 +376,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/energy/skate-park',
+    subject: 'physics',
+    topic: 'energy',
+    titleKey: 'experiments.skatePark.title',
+    descKey: 'experiments.skatePark.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'easy',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/energy/skate-park/config'),
+        import('./physics/energy/skate-park/ui/Experiment.vue'),
+        import('./physics/energy/skate-park/i18n/fa.json'),
+        import('./physics/energy/skate-park/i18n/en.json')
+      ]);
+      return {
+        config: configModule.skateParkConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

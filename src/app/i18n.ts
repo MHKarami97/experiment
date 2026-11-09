@@ -21,6 +21,8 @@ import orbitalFa from '../experiments/physics/motion/orbital-gravity/i18n/fa.jso
 import orbitalEn from '../experiments/physics/motion/orbital-gravity/i18n/en.json';
 import rotationalFa from '../experiments/physics/motion/rotational-dynamics/i18n/fa.json';
 import rotationalEn from '../experiments/physics/motion/rotational-dynamics/i18n/en.json';
+import skateParkFa from '../experiments/physics/energy/skate-park/i18n/fa.json';
+import skateParkEn from '../experiments/physics/energy/skate-park/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -35,6 +37,7 @@ const globalMessages = {
     springShm: springFa,
     orbitalGravity: orbitalFa,
     rotationalDynamics: rotationalFa,
+    skatePark: skateParkFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -214,6 +217,10 @@ const globalMessages = {
       rotationalDynamics: {
         title: 'دینامیک دوران و ژیروسکوپ',
         description: 'بررسی گشتاور لختی اشکال مختلف، رابطه گشتاور و شتاب زاویه‌ای، انرژی جنبشی دورانی و اصطکاک یاتاقان'
+      },
+      skatePark: {
+        title: 'پایستگی انرژی (پیست اسکیت)',
+        description: 'بررسی پایستگی انرژی مکانیکی، تبدیل انرژی پتانسیل گرانشی به جنبشی، اتلاف اصطکاکی گرمایی و پیست‌های U و موجی'
       }
     },
     experiment: {
@@ -236,6 +243,7 @@ const globalMessages = {
     springShm: springEn,
     orbitalGravity: orbitalEn,
     rotationalDynamics: rotationalEn,
+    skatePark: skateParkEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -415,6 +423,10 @@ const globalMessages = {
       rotationalDynamics: {
         title: 'Rigid Body Rotation & Gyroscope',
         description: 'Simulate moments of inertia for standard shapes, torque vs angular acceleration, rotational kinetic energy, and bearing friction'
+      },
+      skatePark: {
+        title: 'Conservation of Energy (Skate Park)',
+        description: 'Investigate conservation of mechanical energy, potential to kinetic energy conversion, thermal friction dissipation, and curved tracks'
       }
     },
     experiment: {
