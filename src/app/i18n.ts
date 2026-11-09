@@ -27,6 +27,8 @@ import workPowerFa from '../experiments/physics/energy/work-power/i18n/fa.json';
 import workPowerEn from '../experiments/physics/energy/work-power/i18n/en.json';
 import pressureDensityFa from '../experiments/physics/fluids/pressure-density/i18n/fa.json';
 import pressureDensityEn from '../experiments/physics/fluids/pressure-density/i18n/en.json';
+import buoyancyFa from '../experiments/physics/fluids/buoyancy-archimedes/i18n/fa.json';
+import buoyancyEn from '../experiments/physics/fluids/buoyancy-archimedes/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -44,6 +46,7 @@ const globalMessages = {
     skatePark: skateParkFa,
     workPower: workPowerFa,
     pressureDensity: pressureDensityFa,
+    buoyancy: buoyancyFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -236,6 +239,10 @@ const globalMessages = {
       pressureDensity: {
         title: 'فشار شاره‌ها و چگالی',
         description: 'بررسی فشار هیدرواستاتیک در عمق، مقایسه فشار مطلق و پیمانه‌ای، مانومتر U شکل و تأثیر انبساط حرارتی بر چگالی'
+      },
+      buoyancy: {
+        title: 'شناوری و اصل ارشمیدس',
+        description: 'بررسی نیروی شناوری ارشمیدس، کسر حجم فرورفته در تعادل شناوری، ترازوی فنری و وزن ظاهری، و استوانه شاره جابه‌جا شده'
       }
     },
     experiment: {
@@ -261,6 +268,7 @@ const globalMessages = {
     skatePark: skateParkEn,
     workPower: workPowerEn,
     pressureDensity: pressureDensityEn,
+    buoyancy: buoyancyEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -453,6 +461,10 @@ const globalMessages = {
       pressureDensity: {
         title: 'Fluid Pressure & Density',
         description: 'Investigate hydrostatic pressure with depth, gauge vs absolute pressure, U-tube manometers, and thermal expansion of fluids'
+      },
+      buoyancy: {
+        title: "Buoyancy & Archimedes' Principle",
+        description: "Investigate Archimedes' buoyant force, equilibrium submerged volume fraction, spring balance apparent weight, and displaced liquid volume"
       }
     },
     experiment: {

@@ -457,6 +457,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/fluids/buoyancy-archimedes',
+    subject: 'physics',
+    topic: 'fluids',
+    titleKey: 'experiments.buoyancy.title',
+    descKey: 'experiments.buoyancy.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'easy',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/fluids/buoyancy-archimedes/config'),
+        import('./physics/fluids/buoyancy-archimedes/ui/Experiment.vue'),
+        import('./physics/fluids/buoyancy-archimedes/i18n/fa.json'),
+        import('./physics/fluids/buoyancy-archimedes/i18n/en.json')
+      ]);
+      return {
+        config: configModule.buoyancyConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

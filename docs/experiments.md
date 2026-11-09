@@ -22,7 +22,7 @@ Status definitions:
 | Physics | Work & Energy | `physics/energy/skate-park` | پایستگی انرژی (پیست اسکیت) | Energy Skate Park | tested |
 | Physics | Work & Energy | `physics/energy/work-power` | کار و توان | Work & Power | tested |
 | Physics | Fluids | `physics/fluids/pressure-density` | فشار شاره‌ها و چگالی | Fluid Pressure & Density | tested |
-| Physics | Fluids | `physics/fluids/buoyancy-archimedes` | شناوری و اصل ارشمیدس | Buoyancy & Archimedes' Principle | planned |
+| Physics | Fluids | `physics/fluids/buoyancy-archimedes` | شناوری و اصل ارشمیدس | Buoyancy & Archimedes' Principle | tested |
 | Physics | Fluids | `physics/fluids/pascal-bernoulli` | اصل پاسکال و معادله برنولی | Pascal's Principle & Bernoulli | planned |
 | Physics | Fluids | `physics/fluids/viscosity-pipe-flow` | گرانروی (ویسکوزیته) و جریان لوله‌ها | Viscosity & Pipe Flow | planned |
 | Physics | Heat & Thermodynamics | `physics/thermo/heat-transfer` | انتقال حرارت (رسانش، همرفت، تابش) | Heat Transfer Mechanisms | planned |

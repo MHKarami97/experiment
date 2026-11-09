@@ -62,7 +62,8 @@ async function loadPlugin() {
         'rotational-dynamics': 'rotationalDynamics',
         'skate-park': 'skatePark',
         'work-power': 'workPower',
-        'pressure-density': 'pressureDensity'
+        'pressure-density': 'pressureDensity',
+        'buoyancy-archimedes': 'buoyancy'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

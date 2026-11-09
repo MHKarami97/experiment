@@ -258,6 +258,22 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Discrete grid-based Navier-Stokes fluid sim: Excessively heavy for static pressure measurements; analytical hydrostatic formulations provide exact physics with zero performance overhead.
 
+---
+
+### [2026-11-09] Decision 021: Buoyancy & Archimedes' Principle Architecture
+- **Context:** Experiment 15 "Buoyancy & Archimedes' Principle" (`physics/fluids/buoyancy-archimedes`) models the fundamental law of buoyancy ($F_b = \rho_{\text{fluid}} V_{\text{sub}} g$), floating volumetric equilibrium ($\frac{V_{\text{sub}}}{V} = \frac{\rho_{\text{block}}}{\rho_{\text{fluid}}}$), apparent weight on a spring balance ($W_{\text{apparent}} = W - F_b$), and overflow liquid displacement.
+- **Decision:**
+  1. Exact Archimedes formulation with piece-wise continuous submersion kinematics and floor contact normal force $N = W - F_b$.
+  2. Dual apparatus operational modes:
+     - Free floating / dynamic damped bobbing oscillation under fluid drag $F_d = -b v$;
+     - Overhead spring balance suspension at adjustable immersion depth $h$, showing real-time tension reduction and apparent weight readout on the scale digital dial.
+  3. Canvas rendering features glass tank with depth graduations, overflow spout, calibrated collection graduated cylinder (showing exact volume and mass of displaced liquid), and free-body diagram force vectors ($\vec{F}_b, \vec{W}, \vec{N}$).
+  4. 6 solid materials (Balsa, Pine, Ice, Aluminum, Iron, Lead) and 5 fluids (Water, Gasoline, Seawater, Honey, Mercury), highlighting physical phenomena like iron floating on mercury ($7870 < 13600\text{ kg/m}^3$) and iceberg equilibrium ($91.7\%$ submerged).
+- **Rationale:** Strict SI numerical accuracy ($< 10^{-4}$ tolerance vs analytical solution) and clear visual proof that buoyant force equals displaced fluid weight.
+- **Alternatives Rejected:**
+  - Static-only geometric calculator without physics loop: Misses dynamic bobbing oscillation, viscous drag damping, and live telemetry.
+
+
 
 
 
