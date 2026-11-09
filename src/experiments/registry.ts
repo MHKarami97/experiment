@@ -349,6 +349,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/rotational-dynamics',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.rotationalDynamics.title',
+    descKey: 'experiments.rotationalDynamics.description',
+    gradeTags: ['high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/rotational-dynamics/config'),
+        import('./physics/motion/rotational-dynamics/ui/Experiment.vue'),
+        import('./physics/motion/rotational-dynamics/i18n/fa.json'),
+        import('./physics/motion/rotational-dynamics/i18n/en.json')
+      ]);
+      return {
+        config: configModule.rotationalDynamicsConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

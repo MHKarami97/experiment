@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 10 Experiments Built & Tested (44/44 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 11 Experiments Built & Tested (49/49 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -47,9 +47,9 @@
 - `src/views/` — `HomeView`, `ExperimentView`, `SettingsView`
 
 ## How to Run & Test
-- Unit tests: `pnpm run test` (44 passed)
+- Unit tests: `pnpm run test` (49 passed)
 - Type check: `pnpm run type-check` (0 errors)
-- Production build: `pnpm run build` (PWA SW generated in ~7.7s)
+- Production build: `pnpm run build` (PWA SW generated in ~6.4s)
 - Playwright tests: `pnpm exec playwright test`
 - Preview server: `pnpm run preview`
 
@@ -70,6 +70,7 @@
 8. `physics/motion/pendulums` (tested) — Simple & double pendulum, harmonic period isochronism, Borda amplitude correction, Lagrangian coupled RK4 dynamics, and chaotic sensitivity.
 9. `physics/motion/spring-shm` (tested) — Spring & simple harmonic motion, Hooke's law, natural period ($T_0 = 2\pi\sqrt{m/k}$), viscous damping, and periodic forced resonance.
 10. `physics/motion/orbital-gravity` (tested) — 2-body Newtonian gravity, Kepler's laws, Vis-Viva orbital speed, LEO/GEO/Molniya orbits, atmospheric drag perturbation, and Velocity-Verlet symplectic integrator.
+11. `physics/motion/rotational-dynamics` (tested) — Rigid body rotation & gyroscope (moments of inertia for disk, hoop, sphere, rod, $\tau = I\alpha$, falling weight acceleration $a = \frac{mg}{m + I/r^2}$, energy conservation, bearing friction).
 
 ## Next Experiment
-- `physics/motion/rotational-dynamics` — Rigid body rotation & gyroscope (moment of inertia, rotational kinetic energy, angular acceleration, precession, gyroscopic stability).
+- `physics/energy/skate-park` — Conservation of energy in skate park (kinetic, potential, thermal friction, curved track, bar chart energy tracking).

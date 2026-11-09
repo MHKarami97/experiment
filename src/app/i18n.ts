@@ -19,6 +19,8 @@ import springFa from '../experiments/physics/motion/spring-shm/i18n/fa.json';
 import springEn from '../experiments/physics/motion/spring-shm/i18n/en.json';
 import orbitalFa from '../experiments/physics/motion/orbital-gravity/i18n/fa.json';
 import orbitalEn from '../experiments/physics/motion/orbital-gravity/i18n/en.json';
+import rotationalFa from '../experiments/physics/motion/rotational-dynamics/i18n/fa.json';
+import rotationalEn from '../experiments/physics/motion/rotational-dynamics/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -32,6 +34,7 @@ const globalMessages = {
     pendulums: pendulumsFa,
     springShm: springFa,
     orbitalGravity: orbitalFa,
+    rotationalDynamics: rotationalFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -207,6 +210,10 @@ const globalMessages = {
       orbitalGravity: {
         title: 'گرانش و مدارهای سیاره‌ای (کپلر)',
         description: 'بررسی قوانین کپلر، سرعت مداری ویس-ویوا، خروج از مرکز مدار، پایداری مدارهای LEO/GEO و افت مداری'
+      },
+      rotationalDynamics: {
+        title: 'دینامیک دوران و ژیروسکوپ',
+        description: 'بررسی گشتاور لختی اشکال مختلف، رابطه گشتاور و شتاب زاویه‌ای، انرژی جنبشی دورانی و اصطکاک یاتاقان'
       }
     },
     experiment: {
@@ -228,6 +235,7 @@ const globalMessages = {
     pendulums: pendulumsEn,
     springShm: springEn,
     orbitalGravity: orbitalEn,
+    rotationalDynamics: rotationalEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -403,6 +411,10 @@ const globalMessages = {
       orbitalGravity: {
         title: 'Gravity & Planetary Orbits (Kepler)',
         description: 'Simulate Kepler\'s laws, Vis-Viva orbital speed, orbital eccentricity, LEO/GEO stability, and atmospheric decay'
+      },
+      rotationalDynamics: {
+        title: 'Rigid Body Rotation & Gyroscope',
+        description: 'Simulate moments of inertia for standard shapes, torque vs angular acceleration, rotational kinetic energy, and bearing friction'
       }
     },
     experiment: {

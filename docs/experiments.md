@@ -18,7 +18,7 @@ Status definitions:
 | Physics | Motion & Mechanics | `physics/motion/pendulums` | آونگ ساده و آونگ دوگانه (آشوب) | Simple & Double Pendulum | tested |
 | Physics | Motion & Mechanics | `physics/motion/spring-shm` | فنر و نوسان هماهنگ ساده (رزونانس) | Spring & Simple Harmonic Motion | tested |
 | Physics | Motion & Mechanics | `physics/motion/orbital-gravity` | گرانش و مدارهای سیاره‌ای (کپلر) | Gravity & Planetary Orbits | tested |
-| Physics | Motion & Mechanics | `physics/motion/rotational-dynamics` | دینامیک دوران و ژیروسکوپ | Rigid Body Rotation & Gyroscope | planned |
+| Physics | Motion & Mechanics | `physics/motion/rotational-dynamics` | دینامیک دوران و ژیروسکوپ | Rigid Body Rotation & Gyroscope | tested |
 | Physics | Work & Energy | `physics/energy/skate-park` | پایستگی انرژی (پیست اسکیت) | Energy Skate Park | planned |
 | Physics | Work & Energy | `physics/energy/work-power` | کار و توان | Work & Power | planned |
 | Physics | Fluids | `physics/fluids/pressure-density` | فشار شاره‌ها و چگالی | Fluid Pressure & Density | planned |

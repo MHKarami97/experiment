@@ -201,6 +201,19 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Standard forward Euler or RK2: Causes unbounded orbital energy expansion (unphysical spiraling outwards). Symplectic Verlet is essential for Hamiltonian orbital mechanics.
 
+---
+
+### [2026-11-09] Decision 017: Rigid Body Rotation & Gyroscopic Dynamics Architecture
+- **Context:** Experiment 11 "Rigid Body Rotation & Gyroscope" (`physics/motion/rotational-dynamics`) completes the Motion & Mechanics topic. It models moments of inertia ($I$) for various geometric shapes (solid disk $\frac{1}{2}MR^2$, thin hoop $MR^2$, solid sphere $\frac{2}{5}MR^2$, centered rod $\frac{1}{12}ML^2$), torque-induced angular acceleration ($\tau = I\alpha$), unspooling falling mass acceleration ($a = \frac{mg}{m + I/r^2}$), and bearing friction in Real mode.
+- **Decision:**
+  1. Pure TypeScript model calculates exact theoretical moments of inertia and linear/angular acceleration ($< 10^{-3}$ tolerance vs analytical solution).
+  2. Conservation of mechanical energy strictly verified in Ideal mode ($E = K_{\text{rot}} + K_{\text{trans}} + U_{\text{grav}} = \text{const}$).
+  3. Real mode models Coulomb dry bearing friction torque ($\tau_f = \text{sgn}(\omega)\mu_b$) and aerodynamic viscous drag ($c_v \omega$), simulating realistic deceleration and stop when the hanging mass hits the bench.
+  4. Dynamic canvas rendering features realistic brushed metal disk / hoop spokes / shaded 3D sphere / centered rod, wound string coil on spindle, guide pulley, falling mass hanger, and curved angular velocity $\vec{\omega}$ and tension $\vec{T}$ vector overlays.
+- **Rationale:** Completes the 11-experiment Motion & Mechanics syllabus with high physical fidelity, responsive design, and bilingual localization.
+- **Alternatives Rejected:**
+  - Hardcoding inertia to only a disk: Prevents students from discovering how mass distribution impacts angular acceleration.
+
 
 
 

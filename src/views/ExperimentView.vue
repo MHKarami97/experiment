@@ -58,7 +58,8 @@ async function loadPlugin() {
         'torque-equilibrium': 'torqueEquilibrium',
         'pendulums': 'pendulums',
         'spring-shm': 'springShm',
-        'orbital-gravity': 'orbitalGravity'
+        'orbital-gravity': 'orbitalGravity',
+        'rotational-dynamics': 'rotationalDynamics'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
