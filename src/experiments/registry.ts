@@ -700,6 +700,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/waves/standing-waves',
+    subject: 'physics',
+    topic: 'waves',
+    titleKey: 'experiments.standingWaves.title',
+    descKey: 'experiments.standingWaves.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/waves/standing-waves/config'),
+        import('./physics/waves/standing-waves/ui/Experiment.vue'),
+        import('./physics/waves/standing-waves/i18n/fa.json'),
+        import('./physics/waves/standing-waves/i18n/en.json')
+      ]);
+      return {
+        config: configModule.standingWavesConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

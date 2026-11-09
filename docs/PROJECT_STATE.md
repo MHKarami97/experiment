@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 23 Experiments Built & Tested (118/118 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 24 Experiments Built & Tested (124/124 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -83,6 +83,7 @@
 21. `physics/thermo/thermal-expansion` (tested) — Thermal Expansion (linear $\Delta L = \alpha L_0 \Delta T$ with micrometer dial and optical zoom, bimetallic strip Timoshenko deflection and thermostat switch, water 4°C density maximum and anomaly dilatometer flask).
 22. `physics/thermo/heat-engines` (tested) — Thermodynamic Heat Cycles & Heat Engines (Carnot, Otto, Diesel, and Stirling cycles, continuous trajectory $V(\theta), P(\theta)$, indicator $PV$ and $TS$ diagrams, mechanical power $P = W_{\text{net}} \times \frac{\text{RPM}}{60}$, First & Second law energy balance, and real mode losses).
 23. `physics/waves/wave-interference` (tested) — Wave Superposition & Interference (Principle of linear superposition $y_{\text{tot}} = y_1 + y_2$, 2D ripple tank two-source interference with drag-and-drop probe, constructive $\Delta r = m\lambda$ and destructive $\Delta r = (m+0.5)\lambda$ nodal lines, 1D transverse string wave, and 1D longitudinal sound compression/rarefaction).
+24. `physics/waves/standing-waves` (tested) — Standing Waves on Strings & Air Columns (Wave speed $v = \sqrt{T/\mu}$ on strings and sound speed $v$ in air columns, boundary conditions for fixed strings, open-open pipes, and open-closed pipes, harmonic series $f_n = n \frac{v}{2L}$ and $f_n = (2n-1) \frac{v}{4L}$, node/antinode markers, Kundt's tube acoustic dust clustering, acoustic end correction in real mode).
 
 ## Next Experiment
-- `physics/waves/standing-waves` — Standing Waves on a String & Air Columns (امواج ایستاده در سیم و لوله، هارمونیک‌ها، گره‌ها و شکم‌ها، رزونانس و فرکانس‌های ویژه).
+- `physics/waves/doppler-effect` — Doppler Effect (اثر دوپلر صوتی، انتقال بسامد، مخروط ماخ، موج شوک و حرکت چشمه و ناظر).

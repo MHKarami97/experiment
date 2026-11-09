@@ -31,7 +31,7 @@ Status definitions:
 | Physics | Heat & Thermodynamics | `physics/thermo/thermal-expansion` | انبساط گرمایی اجسام | Thermal Expansion | tested |
 | Physics | Heat & Thermodynamics | `physics/thermo/heat-engines` | چرخه‌های ترمودینامیکی (کارنو و اتو) | Thermodynamic Heat Cycles | tested |
 | Physics | Waves & Sound | `physics/waves/wave-interference` | امواج طولی و عرضی و تداخل | Wave Superposition & Interference | tested |
-| Physics | Waves & Sound | `physics/waves/standing-waves` | امواج ایستاده در سیم و لوله | Standing Waves on a String | planned |
+| Physics | Waves & Sound | `physics/waves/standing-waves` | امواج ایستاده در سیم و لوله | Standing Waves on a String | tested |
 | Physics | Waves & Sound | `physics/waves/doppler-effect` | اثر دوپلر صوتی | Doppler Effect | planned |
 | Physics | Waves & Sound | `physics/waves/beats-fourier` | ضربان صوتی و تجزیه فوریه | Beats & Fourier Analysis | planned |
 | Physics | Waves & Sound | `physics/waves/resonance-tubes` | لوله‌های صوتی و تشدید | Resonance Tubes | planned |

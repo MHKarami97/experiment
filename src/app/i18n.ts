@@ -275,6 +275,10 @@ const globalMessages = {
       waveInterference: {
         title: 'امواج طولی و عرضی و تداخل',
         description: 'بررسی اصل برهم‌نهی امواج، تداخل دو منبعی در تشت موج، خطوط گرهی و پادگرهی، و امواج طولی و عرضی'
+      },
+      standingWaves: {
+        title: 'امواج ایستاده در سیم و لوله صوتی',
+        description: 'بررسی امواج ساکن در تار مرتعش با دو سر ثابت، لوله‌های صوتی باز و بسته، هماهنگ‌ها، گره‌ها و شکم‌ها، و لوله کوندت'
       }
     },
     experiment: {
@@ -529,6 +533,10 @@ const globalMessages = {
       waveInterference: {
         title: "Wave Superposition & Interference",
         description: "Explore the principle of linear superposition, 2D two-source ripple tank interference fringes, nodal lines, and 1D transverse/longitudinal waves"
+      },
+      standingWaves: {
+        title: "Standing Waves on Strings & Air Columns",
+        description: "Explore standing waves on fixed tensioned strings, open and closed acoustic pipes, harmonics, nodes and antinodes, and Kundt dust patterns"
       }
     },
     experiment: {

@@ -71,7 +71,8 @@ async function loadPlugin() {
         'gas-laws': 'gasLaws',
         'thermal-expansion': 'thermalExpansion',
         'heat-engines': 'heatEngines',
-        'wave-interference': 'waveInterference'
+        'wave-interference': 'waveInterference',
+        'standing-waves': 'standingWaves'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
