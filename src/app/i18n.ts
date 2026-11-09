@@ -17,6 +17,8 @@ import pendulumsFa from '../experiments/physics/motion/pendulums/i18n/fa.json';
 import pendulumsEn from '../experiments/physics/motion/pendulums/i18n/en.json';
 import springFa from '../experiments/physics/motion/spring-shm/i18n/fa.json';
 import springEn from '../experiments/physics/motion/spring-shm/i18n/en.json';
+import orbitalFa from '../experiments/physics/motion/orbital-gravity/i18n/fa.json';
+import orbitalEn from '../experiments/physics/motion/orbital-gravity/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -29,6 +31,7 @@ const globalMessages = {
     torqueEquilibrium: torqueFa,
     pendulums: pendulumsFa,
     springShm: springFa,
+    orbitalGravity: orbitalFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -200,6 +203,10 @@ const globalMessages = {
       springShm: {
         title: 'فنر و نوسان هماهنگ ساده (رزونانس)',
         description: 'بررسی قانون هوک، نوسانگر جرم و فنر، دوره‌های نوسان طبیعی، میرایی و پدیده تشدید'
+      },
+      orbitalGravity: {
+        title: 'گرانش و مدارهای سیاره‌ای (کپلر)',
+        description: 'بررسی قوانین کپلر، سرعت مداری ویس-ویوا، خروج از مرکز مدار، پایداری مدارهای LEO/GEO و افت مداری'
       }
     },
     experiment: {
@@ -220,6 +227,7 @@ const globalMessages = {
     torqueEquilibrium: torqueEn,
     pendulums: pendulumsEn,
     springShm: springEn,
+    orbitalGravity: orbitalEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -391,6 +399,10 @@ const globalMessages = {
       springShm: {
         title: 'Spring & Simple Harmonic Motion (Resonance)',
         description: 'Investigate Hooke\'s law, mass-spring harmonic oscillation, natural frequencies, damping regimes, and mechanical resonance'
+      },
+      orbitalGravity: {
+        title: 'Gravity & Planetary Orbits (Kepler)',
+        description: 'Simulate Kepler\'s laws, Vis-Viva orbital speed, orbital eccentricity, LEO/GEO stability, and atmospheric decay'
       }
     },
     experiment: {

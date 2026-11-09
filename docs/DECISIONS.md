@@ -188,6 +188,19 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Approximating spring with static line: Poor visual intuition for compression and elongation.
 
+---
+
+### [2026-11-09] Decision 016: Gravity & Planetary Orbits (Kepler) Architecture
+- **Context:** Experiment 10 "Gravity & Planetary Orbits (Kepler)" (`physics/motion/orbital-gravity`) simulates 2-body Newtonian gravitation, Kepler's laws, Vis-Viva orbital speed, and satellite trajectories (LEO, GEO, Molniya).
+- **Decision:**
+  1. Symplectic Velocity-Verlet numerical integrator used to guarantee strict long-term conservation of specific orbital energy $\epsilon = \frac{v^2}{2} - \frac{\mu}{r}$ and specific angular momentum $h = |\vec{r} \times \vec{v}|$ ($< 10^{-4}$ drift per full orbit revolution).
+  2. SI units internally (meters, kg, seconds, $G = 6.6743 \times 10^{-11}\text{ m}^3\text{kg}^{-1}\text{s}^{-2}$, $M_\oplus = 5.972 \times 10^{24}\text{ kg}$), converted to km, hours, km/s at the UI boundary.
+  3. Real mode models upper atmospheric trace drag causing orbital decay and perigee/apogee shrinkage.
+  4. Interactive pan/zoom canvas rendering central planet (Earth with atmospheric glow), predicted elliptical trajectory path, line of apsides with Periapsis (P) and Apoapsis (A) markers, solar-panel satellite craft with heading orientation, and directional $\vec{v}$ and $\vec{F}_g$ vectors.
+- **Rationale:** Symplectic preservation of Keplerian geometry and Vis-Viva speeds with $< 10^{-4}$ analytical error.
+- **Alternatives Rejected:**
+  - Standard forward Euler or RK2: Causes unbounded orbital energy expansion (unphysical spiraling outwards). Symplectic Verlet is essential for Hamiltonian orbital mechanics.
+
 
 
 

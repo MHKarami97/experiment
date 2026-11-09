@@ -322,6 +322,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/orbital-gravity',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.orbitalGravity.title',
+    descKey: 'experiments.orbitalGravity.description',
+    gradeTags: ['high-school', 'university'],
+    difficulty: 'advanced',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/orbital-gravity/config'),
+        import('./physics/motion/orbital-gravity/ui/Experiment.vue'),
+        import('./physics/motion/orbital-gravity/i18n/fa.json'),
+        import('./physics/motion/orbital-gravity/i18n/en.json')
+      ]);
+      return {
+        config: configModule.orbitalGravityConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 
