@@ -781,6 +781,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/waves/resonance-tubes',
+    subject: 'physics',
+    topic: 'waves',
+    titleKey: 'experiments.resonanceTubes.title',
+    descKey: 'experiments.resonanceTubes.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/waves/resonance-tubes/config'),
+        import('./physics/waves/resonance-tubes/ui/Experiment.vue'),
+        import('./physics/waves/resonance-tubes/i18n/fa.json'),
+        import('./physics/waves/resonance-tubes/i18n/en.json')
+      ]);
+      return {
+        config: configModule.resonanceTubesConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

@@ -1,0 +1,56 @@
+{
+  "systemType": "Acoustic System Type",
+  "system_water_column": "Water-Column Resonance Tube (Speed of Sound Apparatus)",
+  "system_helmholtz": "Helmholtz Resonator (Acoustic Cavity)",
+
+  "frequency": "Acoustic Frequency / Tuning Fork (f)",
+  "frequency_desc": "Excitation frequency of tuning fork or speaker at tube mouth in Hz",
+  "columnLength": "Air Column Length (L)",
+  "columnLength_desc": "Distance from water surface to the open mouth of the glass tube in meters",
+  "temperatureC": "Ambient Air Temperature (T)",
+  "temperatureC_desc": "Temperature of the air column in degrees Celsius",
+  "tubeRadius": "Tube Inner Radius (r)",
+  "tubeRadius_desc": "Inner radius of the cylindrical tube for end correction calculations in mm",
+  "humidity": "Relative Humidity (RH)",
+  "humidity_desc": "Percentage of water vapor humidity in the laboratory air",
+
+  "real_humidity_effect": "In real mode, humidity slightly reduces average air molar mass, subtly raising sound speed",
+
+  "preset_first_resonance": "1st Resonance (Quarter-Wave L₁)",
+  "preset_second_resonance": "2nd Resonance (Three-Quarter-Wave L₂)",
+  "preset_third_resonance": "3rd Resonance (Five-Quarter-Wave L₃)",
+  "preset_speed_of_sound_exp": "Experimental Speed of Sound (L₂ - L₁ Difference)",
+  "preset_helmholtz_cavity": "Helmholtz Resonator (Acoustic Cavity)",
+
+  "tool_splMeter": "Decibel Sound Level Meter (SPL)",
+  "tool_audioProbe": "Listen to Acoustic Resonance",
+
+  "formula_closedTube": "Closed-Pipe Resonance Condition",
+  "formula_closedTube_desc": "Effective air column length must be an odd multiple of quarter-wavelength",
+  "formula_speedElimination": "Speed of Sound via End-Correction Elimination",
+  "formula_speedElimination_desc": "Subtracting two consecutive resonant lengths eliminates end-correction errors: L2 - L1 = λ/2",
+  "formula_endCorrection": "Acoustic End Correction (Flanged / Unflanged)",
+  "formula_endCorrection_desc": "Acoustic waves reflect slightly beyond the physical rim, extending effective length by 0.61r",
+  "formula_speedTemperature": "Temperature Dependence of Sound Speed",
+  "formula_speedTemperature_desc": "Speed of sound is proportional to the square root of absolute temperature in Kelvin",
+
+  "telemetryTitle": "Resonance Telemetry & Measurements",
+  "soundSpeed": "Sound Speed in Air (v)",
+  "wavelength": "Sound Wavelength (λ)",
+  "endCorrection": "End Correction (ΔL)",
+  "effectiveLength": "Effective Length (L + ΔL)",
+  "splLevel": "Sound Pressure Level (SPL)",
+  "resonanceState": "Acoustic Resonance State",
+  "measuredSpeed": "Experimental Speed of Sound (v_exp)",
+  "peakResonance": "Peak Resonance (Maximum Loudness)",
+  "nearResonance": "Near Resonance",
+  "offResonance": "Off Resonance (Faint Sound)",
+  "waterLevel": "Water Surface Level",
+  "mouthLabel": "Open Mouth (Displacement Antinode)",
+  "surfaceLabel": "Water Surface (Displacement Node)",
+
+  "theoryTitle": "Physics of Resonance Tubes & Speed of Sound",
+  "theoryP1": "A resonance tube apparatus is a vertical glass cylinder partially filled with water, where the air column length above the water is controlled by raising or lowering an external reservoir. The water surface acts as an acoustic closed boundary where air molecules cannot displace (displacement node, pressure antinode), while the open mouth acts as a pressure release surface (displacement antinode, pressure node).",
+  "theoryP2": "Because the air streamlines flare outward at the mouth, sound waves reflect slightly beyond the physical top edge. This extra distance is the acoustic end correction (ΔL ≈ 0.61r). By measuring the difference between two successive resonant lengths L1 and L2, the distance is exactly half a wavelength (λ/2), allowing speed of sound v = 2f(L2 - L1) to be determined free of end-correction error.",
+  "theoryP3": "A Helmholtz resonator consists of a rigid cavity of volume V with an open neck. The slug of air in the neck behaves like an oscillating mass on a spring formed by the compressible air volume in the cavity."
+}

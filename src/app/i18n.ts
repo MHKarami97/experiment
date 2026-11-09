@@ -287,6 +287,10 @@ const globalMessages = {
       beatsFourier: {
         title: 'ضربان صوتی و تجزیه فوریه',
         description: 'بررسی برهم‌نهی دو موج با بسامدهای نزدیک، مدولاسیون دامنه ضربان، کوک سازها، و سنتز هارمونیک‌های فوریه (موج مربعی، دندانه‌اره‌ای و مثلثی)'
+      },
+      resonanceTubes: {
+        title: 'لوله‌های صوتی، تشدید و تندی صوت',
+        description: 'بررسی تشدید آکوستیک در لوله صوتی با ستون آب متغیر، اندازه‌گیری تندی صوت با حذف تصحیح انتها، و تشدیدگر هلمهولتز'
       }
     },
     experiment: {
@@ -553,6 +557,10 @@ const globalMessages = {
       beatsFourier: {
         title: "Acoustic Beats & Fourier Analysis",
         description: "Explore superposition of slightly detuned audio tones, amplitude envelope beating, musical instrument tuning, and Fourier harmonic synthesis"
+      },
+      resonanceTubes: {
+        title: "Resonance Tubes & Speed of Sound",
+        description: "Investigate acoustic resonance in variable-length water columns, determine speed of sound eliminating end correction, and explore Helmholtz resonance"
       }
     },
     experiment: {

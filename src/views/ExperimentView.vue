@@ -74,7 +74,8 @@ async function loadPlugin() {
         'wave-interference': 'waveInterference',
         'standing-waves': 'standingWaves',
         'doppler-effect': 'dopplerEffect',
-        'beats-fourier': 'beatsFourier'
+        'beats-fourier': 'beatsFourier',
+        'resonance-tubes': 'resonanceTubes'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

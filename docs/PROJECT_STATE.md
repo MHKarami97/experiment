@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 26 Experiments Built & Tested (136/136 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 27 Experiments Built & Tested (142/142 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -86,6 +86,7 @@
 24. `physics/waves/standing-waves` (tested) — Standing Waves on Strings & Air Columns (Wave speed $v = \sqrt{T/\mu}$ on strings and sound speed $v$ in air columns, boundary conditions for fixed strings, open-open pipes, and open-closed pipes, harmonic series $f_n = n \frac{v}{2L}$ and $f_n = (2n-1) \frac{v}{4L}$, node/antinode markers, Kundt's tube acoustic dust clustering, acoustic end correction in real mode).
 25. `physics/waves/doppler-effect` (tested) — Doppler Effect & Shock Waves (Doppler pitch shift $f' = f_0 \frac{v \pm v_o}{v \mp v_s}$, 2D line-of-sight directional frequency at draggable listener probe, wavefront compression/expansion, sonic barrier $M = 1$, supersonic flight with Mach cone shockwaves $\sin\mu = 1/M$, sonic boom envelope, live Web Audio pitch synthesis, real-mode wind drift).
 26. `physics/waves/beats-fourier` (tested) — Beats & Fourier Analysis (Two-tone acoustic beats $f_{\text{beat}} = |f_1 - f_2|$, modulation envelope, carrier frequency, fine instrument tuning, Fourier series synthesis of square, sawtooth, and triangle waves, Gibbs phenomenon, and live discrete FFT magnitude spectrum).
+27. `physics/waves/resonance-tubes` (tested) — Resonance Tubes & Speed of Sound (Closed-pipe water column resonance $L_n + \Delta L = (2n-1)\frac{\lambda}{4}$, acoustic end correction $\Delta L = 0.61 r$, end-correction elimination formula $v = 2f(L_{n+1}-L_n)$, temperature & humidity sound speed $v(T) = 331.3\sqrt{1+T/273.15}$, Helmholtz resonator cavity frequency, interactive leveling reservoir bottle, and Web Audio resonance tone synthesis).
 
 ## Next Experiment
-- `physics/waves/resonance-tubes` — Resonance Tubes & Speed of Sound (لوله‌های صوتی، تشدید تشدیدگرهای هلمهولتز و اندازه‌گیری تندی صوت).
+- `physics/optics/snell-refraction` — Reflection & Snell's Law of Refraction (قانون بازتاب نور، شکست در دیوپتر مسطح و منشور، قانون اسنل-دکارت و زاویه حد).
