@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 27 Experiments Built & Tested (142/142 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 28 Experiments Built & Tested (149/149 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -87,6 +87,7 @@
 25. `physics/waves/doppler-effect` (tested) — Doppler Effect & Shock Waves (Doppler pitch shift $f' = f_0 \frac{v \pm v_o}{v \mp v_s}$, 2D line-of-sight directional frequency at draggable listener probe, wavefront compression/expansion, sonic barrier $M = 1$, supersonic flight with Mach cone shockwaves $\sin\mu = 1/M$, sonic boom envelope, live Web Audio pitch synthesis, real-mode wind drift).
 26. `physics/waves/beats-fourier` (tested) — Beats & Fourier Analysis (Two-tone acoustic beats $f_{\text{beat}} = |f_1 - f_2|$, modulation envelope, carrier frequency, fine instrument tuning, Fourier series synthesis of square, sawtooth, and triangle waves, Gibbs phenomenon, and live discrete FFT magnitude spectrum).
 27. `physics/waves/resonance-tubes` (tested) — Resonance Tubes & Speed of Sound (Closed-pipe water column resonance $L_n + \Delta L = (2n-1)\frac{\lambda}{4}$, acoustic end correction $\Delta L = 0.61 r$, end-correction elimination formula $v = 2f(L_{n+1}-L_n)$, temperature & humidity sound speed $v(T) = 331.3\sqrt{1+T/273.15}$, Helmholtz resonator cavity frequency, interactive leveling reservoir bottle, and Web Audio resonance tone synthesis).
+28. `physics/optics/snell-refraction` (tested) — Reflection & Snell's Law of Refraction (Law of reflection $\theta_r = \theta_i$, Snell's law $n_1 \sin\theta_1 = n_2 \sin\theta_2$, critical angle and Total Internal Reflection $\theta_c = \arcsin(n_2/n_1)$, Brewster's angle $\theta_B = \arctan(n_2/n_1)$, Fresnel reflectance/transmittance, Cauchy chromatic dispersion $n(\lambda) = n_0 + B/\lambda^2$, interactive laser protractor, and semicircular optical block).
 
 ## Next Experiment
-- `physics/optics/snell-refraction` — Reflection & Snell's Law of Refraction (قانون بازتاب نور، شکست در دیوپتر مسطح و منشور، قانون اسنل-دکارت و زاویه حد).
+- `physics/optics/geometric-optics` — Geometric Optics: Lenses & Curved Mirrors (عدسی‌های همگرا و واگرا، آینه‌های مقعر و محدب، فرمول گاوس و تشکیل تصویر حقیقی و مجازی).

@@ -808,6 +808,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/optics/snell-refraction',
+    subject: 'physics',
+    topic: 'optics',
+    titleKey: 'experiments.snellRefraction.title',
+    descKey: 'experiments.snellRefraction.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/optics/snell-refraction/config'),
+        import('./physics/optics/snell-refraction/ui/Experiment.vue'),
+        import('./physics/optics/snell-refraction/i18n/fa.json'),
+        import('./physics/optics/snell-refraction/i18n/en.json')
+      ]);
+      return {
+        config: configModule.snellRefractionConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

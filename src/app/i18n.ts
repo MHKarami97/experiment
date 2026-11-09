@@ -291,6 +291,10 @@ const globalMessages = {
       resonanceTubes: {
         title: 'لوله‌های صوتی، تشدید و تندی صوت',
         description: 'بررسی تشدید آکوستیک در لوله صوتی با ستون آب متغیر، اندازه‌گیری تندی صوت با حذف تصحیح انتها، و تشدیدگر هلمهولتز'
+      },
+      snellRefraction: {
+        title: 'شکست نور و قانون اسنل-دکارت',
+        description: 'بررسی بازتاب و شکست نور در مرز دو محیط، قانون اسنل، زاویه حد و بازتاب کلی (TIR)، زاویه بروستر، و پاشندگی رنگین‌کمانی'
       }
     },
     experiment: {
@@ -561,6 +565,10 @@ const globalMessages = {
       resonanceTubes: {
         title: "Resonance Tubes & Speed of Sound",
         description: "Investigate acoustic resonance in variable-length water columns, determine speed of sound eliminating end correction, and explore Helmholtz resonance"
+      },
+      snellRefraction: {
+        title: "Reflection & Snell's Law of Refraction",
+        description: "Investigate reflection and refraction at optical interfaces, Snell's law, critical angle and Total Internal Reflection (TIR), Brewster angle, and rainbow chromatic dispersion"
       }
     },
     experiment: {

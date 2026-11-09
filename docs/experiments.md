@@ -35,7 +35,7 @@ Status definitions:
 | Physics | Waves & Sound | `physics/waves/doppler-effect` | اثر دوپلر صوتی | Doppler Effect | tested |
 | Physics | Waves & Sound | `physics/waves/beats-fourier` | ضربان صوتی و تجزیه فوریه | Beats & Fourier Analysis | tested |
 | Physics | Waves & Sound | `physics/waves/resonance-tubes` | لوله‌های صوتی و تشدید | Resonance Tubes | tested |
-| Physics | Optics | `physics/optics/snell-refraction` | شکست نور و قانون اسنل | Reflection & Snell's Law | planned |
+| Physics | Optics | `physics/optics/snell-refraction` | شکست نور و قانون اسنل | Reflection & Snell's Law | tested |
 | Physics | Optics | `physics/optics/geometric-optics` | عدسی‌ها و آینه‌ها (تشکیل تصویر) | Lenses & Curved Mirrors | planned |
 | Physics | Optics | `physics/optics/double-slit` | آزمایش دوشکاف یانگ | Young's Double Slit Experiment | planned |
 | Physics | Optics | `physics/optics/diffraction-polarization` | پراش نور و قطبش | Light Diffraction & Polarization | planned |
