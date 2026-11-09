@@ -72,7 +72,8 @@ async function loadPlugin() {
         'thermal-expansion': 'thermalExpansion',
         'heat-engines': 'heatEngines',
         'wave-interference': 'waveInterference',
-        'standing-waves': 'standingWaves'
+        'standing-waves': 'standingWaves',
+        'doppler-effect': 'dopplerEffect'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

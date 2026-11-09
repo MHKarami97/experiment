@@ -279,6 +279,10 @@ const globalMessages = {
       standingWaves: {
         title: 'امواج ایستاده در سیم و لوله صوتی',
         description: 'بررسی امواج ساکن در تار مرتعش با دو سر ثابت، لوله‌های صوتی باز و بسته، هماهنگ‌ها، گره‌ها و شکم‌ها، و لوله کوندت'
+      },
+      dopplerEffect: {
+        title: 'اثر دوپلر صوتی و مخروط ماخ',
+        description: 'بررسی تغییر بسامد صوتی در حرکت نسبی چشمه و ناظر، فشردگی جبهه‌های موج، دیوار صوتی، مخروط ماخ و امواج شوک مافوق صوت'
       }
     },
     experiment: {
@@ -537,6 +541,10 @@ const globalMessages = {
       standingWaves: {
         title: "Standing Waves on Strings & Air Columns",
         description: "Explore standing waves on fixed tensioned strings, open and closed acoustic pipes, harmonics, nodes and antinodes, and Kundt dust patterns"
+      },
+      dopplerEffect: {
+        title: "Doppler Effect & Mach Shockwaves",
+        description: "Investigate Doppler pitch shift with moving source and observer, wavefront compression, sound barrier, Mach cone, and supersonic sonic booms"
       }
     },
     experiment: {

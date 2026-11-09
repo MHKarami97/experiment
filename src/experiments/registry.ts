@@ -727,6 +727,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/waves/doppler-effect',
+    subject: 'physics',
+    topic: 'waves',
+    titleKey: 'experiments.dopplerEffect.title',
+    descKey: 'experiments.dopplerEffect.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/waves/doppler-effect/config'),
+        import('./physics/waves/doppler-effect/ui/Experiment.vue'),
+        import('./physics/waves/doppler-effect/i18n/fa.json'),
+        import('./physics/waves/doppler-effect/i18n/en.json')
+      ]);
+      return {
+        config: configModule.dopplerEffectConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 
