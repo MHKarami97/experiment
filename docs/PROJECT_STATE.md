@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 8 Experiments Built & Tested (36/36 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 9 Experiments Built & Tested (40/40 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -27,9 +27,10 @@
   6. `physics/motion/collisions-momentum`: 1D collisions on air track, conservation of linear momentum ($P_{\text{tot}} = \text{const}$), coefficient of restitution $e \in [0, 1]$, elastic vs inelastic mechanical energy dissipation, velocity vectors & collision flash effects.
   7. `physics/motion/torque-equilibrium`: Torque, lever arm, principle of moments ($m_1 |x_1| = m_2 x_2$), seesaw rotational dynamics around fulcrum, self-weight torque of offset beam, and ground bumper contact.
   8. `physics/motion/pendulums`: Simple pendulum & double pendulum, small-angle isochronism, Borda amplitude correction, Lagrangian coupled RK4 dynamics, and chaotic fractal-like trajectory trails.
+  9. `physics/motion/spring-shm`: Spring & simple harmonic motion, Hooke's law, natural period ($T_0 = 2\pi\sqrt{m/k}$), viscous damping, and periodic forced resonance.
 - **Quality & Localization Verification:**
-  - 36/36 Unit Tests Passing with analytical error $< 10^{-3}$.
-  - 0 missing i18n keys across 500 keys scanned in all components and configurations.
+  - 40/40 Unit Tests Passing with analytical error $< 10^{-3}$.
+  - 0 missing i18n keys across 532 keys scanned in all components and configurations.
   - Complete Mobile Responsiveness Overhaul: Fixed `.subject-chips` flexbox expansion bug, ensured `grid-template-columns: 1fr` on mobile for `.experiments-grid` and `.planned-grid`, wrapped `.badges` and `.card-meta`, added `max-width: 100vw; overflow-x: hidden; box-sizing: border-box;` on `html`, `body`, `.app-root`, `.app-main`, and `.home-view` to guarantee 0 overflow down to 320px screens.
 
 ## Folder Map
@@ -45,9 +46,9 @@
 - `src/views/` — `HomeView`, `ExperimentView`, `SettingsView`
 
 ## How to Run & Test
-- Unit tests: `pnpm run test` (36 passed)
+- Unit tests: `pnpm run test` (40 passed)
 - Type check: `pnpm run type-check` (0 errors)
-- Production build: `pnpm run build` (PWA SW generated in ~5.8s)
+- Production build: `pnpm run build` (PWA SW generated in ~8.6s)
 - Playwright tests: `pnpm exec playwright test`
 - Preview server: `pnpm run preview`
 
@@ -66,6 +67,7 @@
 6. `physics/motion/collisions-momentum` (tested) — 1D collisions on linear air track, coefficient of restitution $e$, momentum conservation, and kinetic energy dissipation.
 7. `physics/motion/torque-equilibrium` (tested) — Torque & static equilibrium, Archimedes' law of the lever ($m_1 |x_1| = m_2 x_2$), seesaw tilt dynamics, and fulcrum support reaction force.
 8. `physics/motion/pendulums` (tested) — Simple & double pendulum, harmonic period isochronism, Borda amplitude correction, Lagrangian coupled RK4 dynamics, and chaotic sensitivity.
+9. `physics/motion/spring-shm` (tested) — Spring & simple harmonic motion, Hooke's law, natural period ($T_0 = 2\pi\sqrt{m/k}$), viscous damping, and periodic forced resonance.
 
 ## Next Experiment
-- `physics/motion/spring-shm` — Spring & simple harmonic motion (Hooke's law, resonance, damped forced harmonic oscillator).
+- `physics/motion/orbital-gravity` — Gravity & planetary orbits (Kepler's laws, satellite orbits, escape velocity, planetary gravitational field).

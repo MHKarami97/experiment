@@ -15,6 +15,8 @@ import torqueFa from '../experiments/physics/motion/torque-equilibrium/i18n/fa.j
 import torqueEn from '../experiments/physics/motion/torque-equilibrium/i18n/en.json';
 import pendulumsFa from '../experiments/physics/motion/pendulums/i18n/fa.json';
 import pendulumsEn from '../experiments/physics/motion/pendulums/i18n/en.json';
+import springFa from '../experiments/physics/motion/spring-shm/i18n/fa.json';
+import springEn from '../experiments/physics/motion/spring-shm/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -26,6 +28,7 @@ const globalMessages = {
     collisionsMomentum: collisionsFa,
     torqueEquilibrium: torqueFa,
     pendulums: pendulumsFa,
+    springShm: springFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -193,6 +196,10 @@ const globalMessages = {
       pendulums: {
         title: 'آونگ ساده و آونگ دوگانه (آشوب)',
         description: 'شبیه‌سازی نوسان هماهنگ ساده، وابستگی دوره به دامنه، پایستگی انرژی و دینامیک آشوبناک آونگ دوگانه'
+      },
+      springShm: {
+        title: 'فنر و نوسان هماهنگ ساده (رزونانس)',
+        description: 'بررسی قانون هوک، نوسانگر جرم و فنر، دوره‌های نوسان طبیعی، میرایی و پدیده تشدید'
       }
     },
     experiment: {
@@ -212,6 +219,7 @@ const globalMessages = {
     collisionsMomentum: collisionsEn,
     torqueEquilibrium: torqueEn,
     pendulums: pendulumsEn,
+    springShm: springEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -379,6 +387,10 @@ const globalMessages = {
       pendulums: {
         title: 'Simple & Double Pendulum (Chaos)',
         description: 'Simulate simple harmonic oscillation, amplitude-period dependence, energy conservation, and chaotic double pendulum dynamics'
+      },
+      springShm: {
+        title: 'Spring & Simple Harmonic Motion (Resonance)',
+        description: 'Investigate Hooke\'s law, mass-spring harmonic oscillation, natural frequencies, damping regimes, and mechanical resonance'
       }
     },
     experiment: {

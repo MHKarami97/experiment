@@ -175,6 +175,20 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Euler/Verlet integration: Produces severe energy explosion in double pendulums over long runs; RK4 with sub-stepping is stable and energy-conserving.
 
+---
+
+### [2026-11-09] Decision 015: Spring & Simple Harmonic Motion (Resonance) Architecture
+- **Context:** Experiment 9 "Spring & Simple Harmonic Motion (Resonance)" (`physics/motion/spring-shm`) models mass-spring oscillators, natural frequencies ($\omega_0 = \sqrt{k/m}$), damping regimes, and external periodic harmonic resonance.
+- **Decision:**
+  1. Second-order differential equation $m x'' + c x' + k x = F_0 \cos(\omega_d t)$ integrated via Runge-Kutta 4th order (RK4).
+  2. Analytical verification of natural period $T_0 = 2\pi\sqrt{m/k}$ within $< 10^{-3}$ tolerance.
+  3. Energy tracking: elastic potential energy $U_s = \frac{1}{2} k x^2$, kinetic energy $K = \frac{1}{2} m v^2$, total mechanical energy strictly conserved ($< 10^{-4}$ error) in Ideal mode ($c = 0, F_0 = 0$).
+  4. Interactive canvas with dynamic helical spring rendering (coils stretch and compress realistically), equilibrium line reference ($x = 0$), weight block, and restoring/velocity force vectors.
+- **Rationale:** Provides rigorous mathematical fidelity for harmonic oscillators, under/overdamping, and resonant frequency response.
+- **Alternatives Rejected:**
+  - Approximating spring with static line: Poor visual intuition for compression and elongation.
+
+
 
 
 

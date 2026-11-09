@@ -1,0 +1,55 @@
+{
+  "title": "Spring & Simple Harmonic Motion (Resonance)",
+  "description": "Investigate Hooke's law, mass-spring harmonic oscillation, natural frequencies, damping regimes, and mechanical resonance",
+  "variables": {
+    "mass": "Attached Mass (m)",
+    "massDesc": "Mass attached to the end of the spring in kilograms",
+    "k": "Spring Constant (k)",
+    "kDesc": "Stiffness rating and restoring force per unit length in N/m",
+    "initialX": "Initial Displacement (x₀)",
+    "initialXDesc": "Initial stretch or compression from equilibrium position",
+    "damping": "Damping Coefficient (c)",
+    "dampingDesc": "Fluid viscosity and friction dissipating kinetic energy",
+    "driveAmp": "Periodic Driving Amplitude (F₀)",
+    "driveAmpDesc": "External periodic driving force applied to study resonance",
+    "driveFreq": "Driving Frequency (f_drive)",
+    "driveFreqDesc": "Frequency of external harmonic driver in Hertz"
+  },
+  "presets": {
+    "undampedSimple": "Undamped Simple Harmonic",
+    "undampedSimpleDesc": "Ideal frictionless oscillation with constant amplitude and mechanical energy conservation",
+    "underdamped": "Underdamped Decay",
+    "underdampedDesc": "Exponential amplitude envelope decay due to viscous drag in real mode",
+    "resonance": "Resonance Peak",
+    "resonanceDesc": "Matching driving frequency to natural frequency causing massive amplitude amplification",
+    "critical": "Critically Damped",
+    "criticalDesc": "Fastest return to equilibrium without oscillating"
+  },
+  "formulas": {
+    "hookeLaw": "Hooke's law for elastic spring restoring force",
+    "periodFormula": "Natural period and angular frequency of a mass-spring system",
+    "energy": "Total mechanical energy (elastic potential + kinetic)",
+    "resonanceEq": "Steady-state amplitude response curve for driven harmonic oscillator"
+  },
+  "realMode": {
+    "dampingLoss": "Mechanical energy dissipation into thermal heat via viscous fluid resistance"
+  },
+  "hud": {
+    "displacement": "Displacement (x)",
+    "velocity": "Velocity (v)",
+    "omega0": "Natural Frequency (ω₀)",
+    "freq0": "Natural Frequency (f₀)",
+    "energy": "Total Energy (E)",
+    "pe": "Potential (U_s)",
+    "ke": "Kinetic (K)",
+    "status": "Oscillator State"
+  },
+  "guided": {
+    "step1Title": "Step 1: Verify Mass and Stiffness Dependence",
+    "step1Desc": "Run with default values. Notice how increasing mass lengthens period T₀ while increasing k shortens it.",
+    "step2Title": "Step 2: Damping and Exponential Decay",
+    "step2Desc": "Select 'Underdamped Decay'. Observe how the oscillation envelope decays according to e^(-γt).",
+    "step3Title": "Step 3: Discover Mechanical Resonance",
+    "step3Desc": "Select 'Resonance Peak'. Because f_drive matches f₀ = 1.0 Hz, watch the mass build up large amplitude."
+  }
+}

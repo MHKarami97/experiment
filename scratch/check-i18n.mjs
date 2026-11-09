@@ -21,6 +21,8 @@ const torqueFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experim
 const torqueEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/torque-equilibrium/i18n/en.json'), 'utf8'));
 const pendulumsFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/pendulums/i18n/fa.json'), 'utf8'));
 const pendulumsEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/pendulums/i18n/en.json'), 'utf8'));
+const springFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/spring-shm/i18n/fa.json'), 'utf8'));
+const springEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/motion/spring-shm/i18n/en.json'), 'utf8'));
 
 // Build dictionary of all available keys in fa and en
 function flattenKeys(obj, prefix = '') {
@@ -95,7 +97,8 @@ const faFlat = {
   ...flattenKeys(circularMotionFa, 'circularMotion'),
   ...flattenKeys(collisionsFa, 'collisionsMomentum'),
   ...flattenKeys(torqueFa, 'torqueEquilibrium'),
-  ...flattenKeys(pendulumsFa, 'pendulums')
+  ...flattenKeys(pendulumsFa, 'pendulums'),
+  ...flattenKeys(springFa, 'springShm')
 };
 
 const enFlat = {
@@ -106,12 +109,13 @@ const enFlat = {
   ...flattenKeys(circularMotionEn, 'circularMotion'),
   ...flattenKeys(collisionsEn, 'collisionsMomentum'),
   ...flattenKeys(torqueEn, 'torqueEquilibrium'),
-  ...flattenKeys(pendulumsEn, 'pendulums')
+  ...flattenKeys(pendulumsEn, 'pendulums'),
+  ...flattenKeys(springEn, 'springShm')
 };
 
 // Check used keys
 for (const [key, files] of usedKeys.entries()) {
-  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.') || key.startsWith('circularMotion.') || key.startsWith('collisionsMomentum.') || key.startsWith('torqueEquilibrium.') || key.startsWith('pendulums.')) {
+  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.') || key.startsWith('circularMotion.') || key.startsWith('collisionsMomentum.') || key.startsWith('torqueEquilibrium.') || key.startsWith('pendulums.') || key.startsWith('springShm.')) {
     if (!faFlat[key]) {
       console.log(`[MISSING FA]: "${key}" used in ${files[0]}`);
     }

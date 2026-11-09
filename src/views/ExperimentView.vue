@@ -56,7 +56,8 @@ async function loadPlugin() {
         'circular-motion': 'circularMotion',
         'collisions-momentum': 'collisionsMomentum',
         'torque-equilibrium': 'torqueEquilibrium',
-        'pendulums': 'pendulums'
+        'pendulums': 'pendulums',
+        'spring-shm': 'springShm'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

@@ -295,6 +295,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/spring-shm',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.springShm.title',
+    descKey: 'experiments.springShm.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/spring-shm/config'),
+        import('./physics/motion/spring-shm/ui/Experiment.vue'),
+        import('./physics/motion/spring-shm/i18n/fa.json'),
+        import('./physics/motion/spring-shm/i18n/en.json')
+      ]);
+      return {
+        config: configModule.springShmConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 
