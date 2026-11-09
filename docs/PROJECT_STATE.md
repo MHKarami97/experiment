@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 21 Experiments Built & Tested (106/106 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 22 Experiments Built & Tested (112/112 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -81,6 +81,7 @@
 19. `physics/thermo/calorimetry` (tested) — Calorimetry & Specific Heat (thermal energy conservation $\sum Q = 0$, analytical equilibrium $T_{\text{eq}}$, specific heat capacities for copper/aluminum/iron/lead/glass, calorimeter water equivalent $C_{\text{cal}}$, latent heat of fusion $L_f$ for ice with 0°C thermal plateau, and motorized lab stirrer).
 20. `physics/thermo/gas-laws` (tested) — Gas Laws & Molecular Kinetics (Ideal gas equation $PV = nRT$, Boyle isothermal compression, Charles isobaric thermal expansion, Gay-Lussac isochoric heating, Maxwell-Boltzmann RMS molecular speed $v_{\text{rms}} = \sqrt{3RT/M}$, Van der Waals real gas correction, movable piston with volume ruler, and Bourdon dial manometer).
 21. `physics/thermo/thermal-expansion` (tested) — Thermal Expansion (linear $\Delta L = \alpha L_0 \Delta T$ with micrometer dial and optical zoom, bimetallic strip Timoshenko deflection and thermostat switch, water 4°C density maximum and anomaly dilatometer flask).
+22. `physics/thermo/heat-engines` (tested) — Thermodynamic Heat Cycles & Heat Engines (Carnot, Otto, Diesel, and Stirling cycles, continuous trajectory $V(\theta), P(\theta)$, indicator $PV$ and $TS$ diagrams, mechanical power $P = W_{\text{net}} \times \frac{\text{RPM}}{60}$, First & Second law energy balance, and real mode losses).
 
 ## Next Experiment
-- `physics/thermo/heat-engines` — Thermodynamic Heat Cycles & Heat Engines (Carnot, Otto, Diesel, Stirling cycles, PV and TS diagrams, mechanical work $W = \oint P dV$, heat transfers $Q_H, Q_C$, and thermal efficiency $\eta$).
+- `physics/waves/wave-interference` — Wave Superposition & Interference (transverse & longitudinal waves, constructive & destructive superposition $\Delta \phi$, two-source ripple wave interference, wave speed $v = \lambda f$, boundary reflection).

@@ -267,6 +267,10 @@ const globalMessages = {
       thermalExpansion: {
         title: 'انبساط گرمایی اجسام',
         description: 'بررسی انبساط طولی میله‌ها با میکرومتر ساعتی، خمش تیغه دوفلزه در کلید ترموستات و رفتار ناهنجار انبساط آب در ۴ درجه'
+      },
+      heatEngines: {
+        title: 'چرخه‌های ترمودینامیکی و موتورهای گرمایی',
+        description: 'بررسی جامع چرخه‌های کارنو، اتو، دیزل و استرلینگ، دیاگرام‌های فشار-حجم (PV) و دما-آنتروپی (TS)، محاسبه کار خالص و راندمان حرارتی'
       }
     },
     experiment: {
@@ -513,6 +517,10 @@ const globalMessages = {
       thermalExpansion: {
         title: "Thermal Expansion",
         description: "Investigate linear rod expansion with micrometer dial, bimetallic strip thermostat deflection, and water 4°C density anomaly"
+      },
+      heatEngines: {
+        title: "Thermodynamic Heat Cycles & Heat Engines",
+        description: "Comprehensive simulation of Carnot, Otto, Diesel, and Stirling heat cycles, featuring live PV and TS indicator diagrams, net work, and thermal efficiency"
       }
     },
     experiment: {

@@ -69,7 +69,8 @@ async function loadPlugin() {
         'heat-transfer': 'heatTransfer',
         'calorimetry': 'calorimetry',
         'gas-laws': 'gasLaws',
-        'thermal-expansion': 'thermalExpansion'
+        'thermal-expansion': 'thermalExpansion',
+        'heat-engines': 'heatEngines'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

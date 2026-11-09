@@ -29,7 +29,7 @@ Status definitions:
 | Physics | Heat & Thermodynamics | `physics/thermo/calorimetry` | گرماسنجی و ظرفیت گرمایی ویژه | Calorimetry & Specific Heat | tested |
 | Physics | Heat & Thermodynamics | `physics/thermo/gas-laws` | قوانین گازها (بویل، شارل، گیلوساک) | Gas Laws & Molecular Kinetics | tested |
 | Physics | Heat & Thermodynamics | `physics/thermo/thermal-expansion` | انبساط گرمایی اجسام | Thermal Expansion | tested |
-| Physics | Heat & Thermodynamics | `physics/thermo/heat-engines` | چرخه‌های ترمودینامیکی (کارنو و اتو) | Thermodynamic Heat Cycles | planned |
+| Physics | Heat & Thermodynamics | `physics/thermo/heat-engines` | چرخه‌های ترمودینامیکی (کارنو و اتو) | Thermodynamic Heat Cycles | tested |
 | Physics | Waves & Sound | `physics/waves/wave-interference` | امواج طولی و عرضی و تداخل | Wave Superposition & Interference | planned |
 | Physics | Waves & Sound | `physics/waves/standing-waves` | امواج ایستاده در سیم و لوله | Standing Waves on a String | planned |
 | Physics | Waves & Sound | `physics/waves/doppler-effect` | اثر دوپلر صوتی | Doppler Effect | planned |

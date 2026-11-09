@@ -646,6 +646,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/thermo/heat-engines',
+    subject: 'physics',
+    topic: 'thermo',
+    titleKey: 'experiments.heatEngines.title',
+    descKey: 'experiments.heatEngines.description',
+    gradeTags: ['high-school', 'university'],
+    difficulty: 'advanced',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/thermo/heat-engines/config'),
+        import('./physics/thermo/heat-engines/ui/Experiment.vue'),
+        import('./physics/thermo/heat-engines/i18n/fa.json'),
+        import('./physics/thermo/heat-engines/i18n/en.json')
+      ]);
+      return {
+        config: configModule.heatEnginesConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 
