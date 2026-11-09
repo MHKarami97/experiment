@@ -243,6 +243,10 @@ const globalMessages = {
       buoyancy: {
         title: 'شناوری و اصل ارشمیدس',
         description: 'بررسی نیروی شناوری ارشمیدس، کسر حجم فرورفته در تعادل شناوری، ترازوی فنری و وزن ظاهری، و استوانه شاره جابه‌جا شده'
+      },
+      pascalBernoulli: {
+        title: 'اصل پاسکال و معادله برنولی',
+        description: 'بررسی انتقال همه‌جانبه فشار در بالابر هیدرولیکی (اصل پاسکال) و رابطه معکوس سرعت و فشار در لوله ونتوری (معادله برنولی)'
       }
     },
     experiment: {
@@ -465,6 +469,10 @@ const globalMessages = {
       buoyancy: {
         title: "Buoyancy & Archimedes' Principle",
         description: "Investigate Archimedes' buoyant force, equilibrium submerged volume fraction, spring balance apparent weight, and displaced liquid volume"
+      },
+      pascalBernoulli: {
+        title: "Pascal's Principle & Bernoulli's Equation",
+        description: "Explore isotropic pressure transmission in a hydraulic lift (Pascal) and inverse pressure-velocity relationship in a Venturi tube (Bernoulli)"
       }
     },
     experiment: {

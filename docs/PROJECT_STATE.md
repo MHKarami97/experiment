@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 15 Experiments Built & Tested (68/68 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 16 Experiments Built & Tested (75/75 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -75,6 +75,7 @@
 13. `physics/energy/work-power` (tested) — Work & Power ($W_{\text{net}} = \Delta K$, trapezoidal work integral $\int F \cos\theta dx$, instantaneous $P = \vec{F}\cdot\vec{v}$ and average power, electro-mechanical motor efficiency, FBD vector overlays).
 14. `physics/fluids/pressure-density` (tested) — Fluid Pressure & Density (hydrostatic pressure $P = P_0 + \rho g h$, U-tube manometer equilibrium $\rho_1 h_1 = \rho_2 h_2$, thermal volumetric expansion, gauge vs absolute pressure, sensor transducer noise).
 15. `physics/fluids/buoyancy-archimedes` (tested) — Buoyancy & Archimedes' Principle ($F_b = \rho_{\text{fluid}} V_{\text{disp}} g$, floating equilibrium fraction $\frac{V_{\text{sub}}}{V} = \frac{\rho_b}{\rho_f}$, spring balance apparent weight $W_{\text{app}} = W - F_b$, overflow displacement cylinder, iron on mercury).
+16. `physics/fluids/pascal-bernoulli` (tested) — Pascal's Principle & Bernoulli ($P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2$, Venturi tube with differential manometers and streamline particle flow, hydraulic lift press $F_1 / A_1 = F_2 / A_2$ with mechanical advantage, displacement conservation $A_1 d_1 = A_2 d_2$, and work efficiency).
 
 ## Next Experiment
-- `physics/fluids/pascal-bernoulli` — Pascal's Principle & Bernoulli ($P_1 + \frac{1}{2}\rho v_1^2 + \rho g y_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho g y_2$, hydraulic lift $F_1 / A_1 = F_2 / A_2$, Venturi constriction tube with differential manometer columns).
+- `physics/fluids/viscosity-pipe-flow` — Viscosity & Pipe Flow (Poiseuille's law, Reynolds number, laminar vs turbulent flow, Darcy friction factor).

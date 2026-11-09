@@ -484,6 +484,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/fluids/pascal-bernoulli',
+    subject: 'physics',
+    topic: 'fluids',
+    titleKey: 'experiments.pascalBernoulli.title',
+    descKey: 'experiments.pascalBernoulli.description',
+    gradeTags: ['high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/fluids/pascal-bernoulli/config'),
+        import('./physics/fluids/pascal-bernoulli/ui/Experiment.vue'),
+        import('./physics/fluids/pascal-bernoulli/i18n/fa.json'),
+        import('./physics/fluids/pascal-bernoulli/i18n/en.json')
+      ]);
+      return {
+        config: configModule.pascalBernoulliConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

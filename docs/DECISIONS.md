@@ -260,18 +260,16 @@ This is an append-only log. Every design choice is documented with date, context
 
 ---
 
-### [2026-11-09] Decision 021: Buoyancy & Archimedes' Principle Architecture
-- **Context:** Experiment 15 "Buoyancy & Archimedes' Principle" (`physics/fluids/buoyancy-archimedes`) models the fundamental law of buoyancy ($F_b = \rho_{\text{fluid}} V_{\text{sub}} g$), floating volumetric equilibrium ($\frac{V_{\text{sub}}}{V} = \frac{\rho_{\text{block}}}{\rho_{\text{fluid}}}$), apparent weight on a spring balance ($W_{\text{apparent}} = W - F_b$), and overflow liquid displacement.
+### [2026-11-09] Decision 022: Pascal's Principle & Bernoulli's Equation Architecture & Fluid UI Polish
+- **Context:** Experiment 16 "Pascal's Principle & Bernoulli's Equation" (`physics/fluids/pascal-bernoulli`) models isotropic hydraulic pressure transmission ($F_1/A_1 = F_2/A_2$) and the Venturi effect along horizontal streamlines ($P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2$). In addition, users reported that fluid experiment apparatuses were positioned too low and required scrolling down, and dark mode sidebars in several earlier experiments used incorrect color fallbacks.
 - **Decision:**
-  1. Exact Archimedes formulation with piece-wise continuous submersion kinematics and floor contact normal force $N = W - F_b$.
-  2. Dual apparatus operational modes:
-     - Free floating / dynamic damped bobbing oscillation under fluid drag $F_d = -b v$;
-     - Overhead spring balance suspension at adjustable immersion depth $h$, showing real-time tension reduction and apparent weight readout on the scale digital dial.
-  3. Canvas rendering features glass tank with depth graduations, overflow spout, calibrated collection graduated cylinder (showing exact volume and mass of displaced liquid), and free-body diagram force vectors ($\vec{F}_b, \vec{W}, \vec{N}$).
-  4. 6 solid materials (Balsa, Pine, Ice, Aluminum, Iron, Lead) and 5 fluids (Water, Gasoline, Seawater, Honey, Mercury), highlighting physical phenomena like iron floating on mercury ($7870 < 13600\text{ kg/m}^3$) and iceberg equilibrium ($91.7\%$ submerged).
-- **Rationale:** Strict SI numerical accuracy ($< 10^{-4}$ tolerance vs analytical solution) and clear visual proof that buoyant force equals displaced fluid weight.
-- **Alternatives Rejected:**
-  - Static-only geometric calculator without physics loop: Misses dynamic bobbing oscillation, viscous drag damping, and live telemetry.
+  1. Top-align apparatuses in fluid experiments (`PressureCanvas.vue`, `BuoyancyCanvas.vue`, `PascalBernoulliCanvas.vue`) at $y \approx 55-85\text{px}$ so the complete scene is immediately visible without scrolling. Standardize workspace grid layout (`grid-template-columns: 1fr 340px;`) with fixed `520px` canvas mount.
+  2. Restore official CSS tokens (`--surface-card`, `--border-subtle`, `--text-primary`, `--text-secondary`, `--surface-hover`, `--surface-input`) across dark mode sidebars in `orbital-gravity`, `rotational-dynamics`, `skate-park`, `work-power`, and all fluid experiments.
+  3. Dual apparatus modes for Experiment 16:
+     - Venturi Tube Flow: Smooth bezier constriction, streamline tracer particle animation speeding up through the throat, differential manometer riser tubes showing live static pressures ($P_1, P_2, P_3$) and meniscus levels, and velocity vector overlays.
+     - Hydraulic Lift Press: Closed fluid chamber with input and output pistons, force multiplication ($MA = A_2/A_1$), stroke displacement conservation ($A_1 d_1 = A_2 d_2$), real-world seal efficiency ($\eta \approx 91\%$), internal pressure gauge, and lifted cargo mass.
+- **Rationale:** Satisfies both high pedagogical value and WCAG AA dark/light mode token compliance with zero UI layout scrolling issues.
+
 
 
 
