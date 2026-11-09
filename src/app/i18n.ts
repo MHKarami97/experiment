@@ -247,6 +247,10 @@ const globalMessages = {
       pascalBernoulli: {
         title: 'اصل پاسکال و معادله برنولی',
         description: 'بررسی انتقال همه‌جانبه فشار در بالابر هیدرولیکی (اصل پاسکال) و رابطه معکوس سرعت و فشار در لوله ونتوری (معادله برنولی)'
+      },
+      viscosityPipe: {
+        title: 'گرانروی (ویسکوزیته) و جریان لوله‌ها',
+        description: 'بررسی قانون پوازوی در جریان لامینار، پروفیل سهموی سرعت، آزمایش تزریق جوهر رینولدز و گذار از جریان آرام به متلاطم'
       }
     },
     experiment: {
@@ -473,6 +477,10 @@ const globalMessages = {
       pascalBernoulli: {
         title: "Pascal's Principle & Bernoulli's Equation",
         description: "Explore isotropic pressure transmission in a hydraulic lift (Pascal) and inverse pressure-velocity relationship in a Venturi tube (Bernoulli)"
+      },
+      viscosityPipe: {
+        title: "Viscosity & Pipe Flow",
+        description: "Investigate Poiseuille's law in laminar flow, parabolic velocity profile, Reynolds dye streak experiment, and transition to turbulence"
       }
     },
     experiment: {

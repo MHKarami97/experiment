@@ -1,7 +1,7 @@
 # Virtual Science Lab — Project State
 
 ## Current Phase: Phase 2 (Physics Experiments Batch) — IN PROGRESS
-**Status:** 16 Experiments Built & Tested (75/75 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
+**Status:** 17 Experiments Built & Tested (82/82 Unit Tests Pass, 0 Missing i18n Keys, 100% Mobile Responsive)
 **Date:** 2026-11-09
 
 ## What Exists & Has Been Built
@@ -76,6 +76,7 @@
 14. `physics/fluids/pressure-density` (tested) — Fluid Pressure & Density (hydrostatic pressure $P = P_0 + \rho g h$, U-tube manometer equilibrium $\rho_1 h_1 = \rho_2 h_2$, thermal volumetric expansion, gauge vs absolute pressure, sensor transducer noise).
 15. `physics/fluids/buoyancy-archimedes` (tested) — Buoyancy & Archimedes' Principle ($F_b = \rho_{\text{fluid}} V_{\text{disp}} g$, floating equilibrium fraction $\frac{V_{\text{sub}}}{V} = \frac{\rho_b}{\rho_f}$, spring balance apparent weight $W_{\text{app}} = W - F_b$, overflow displacement cylinder, iron on mercury).
 16. `physics/fluids/pascal-bernoulli` (tested) — Pascal's Principle & Bernoulli ($P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2$, Venturi tube with differential manometers and streamline particle flow, hydraulic lift press $F_1 / A_1 = F_2 / A_2$ with mechanical advantage, displacement conservation $A_1 d_1 = A_2 d_2$, and work efficiency).
+17. `physics/fluids/viscosity-pipe-flow` (tested) — Viscosity & Pipe Flow (Poiseuille's law $Q = \frac{\pi R^4 \Delta P}{8 \eta L}$, Reynolds number $Re = \rho v D / \eta$, Reynolds dye streak experiment, parabolic laminar velocity profile $v(r) = v_{\max}(1 - r^2/R^2)$, no-slip wall boundary condition, transition & turbulent eddies, Andrade exponential temperature viscosity dependence).
 
 ## Next Experiment
-- `physics/fluids/viscosity-pipe-flow` — Viscosity & Pipe Flow (Poiseuille's law, Reynolds number, laminar vs turbulent flow, Darcy friction factor).
+- `physics/thermo/heat-transfer` — Heat Transfer Mechanisms (conduction, convection, radiation, Fourier's law, Stefan-Boltzmann radiation, Newton's law of cooling).

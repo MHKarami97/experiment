@@ -270,6 +270,21 @@ This is an append-only log. Every design choice is documented with date, context
      - Hydraulic Lift Press: Closed fluid chamber with input and output pistons, force multiplication ($MA = A_2/A_1$), stroke displacement conservation ($A_1 d_1 = A_2 d_2$), real-world seal efficiency ($\eta \approx 91\%$), internal pressure gauge, and lifted cargo mass.
 - **Rationale:** Satisfies both high pedagogical value and WCAG AA dark/light mode token compliance with zero UI layout scrolling issues.
 
+---
+
+### [2026-11-09] Decision 023: Viscosity & Pipe Flow Architecture (Poiseuille & Reynolds Dye Experiment)
+- **Context:** Experiment 17 "Viscosity & Pipe Flow" (`physics/fluids/viscosity-pipe-flow`) requires simulation of Poiseuille's law ($Q = \frac{\pi R^4 \Delta P}{8 \eta L}$), no-slip wall boundary conditions, radial velocity distribution $v(r)$, and Reynolds number regime classification ($Re < 2300$ laminar, $2300 \le Re \le 4000$ transition, $Re > 4000$ turbulent).
+- **Decision:**
+  1. Implement exact Poiseuille analytical flow rate for laminar conditions with parabolic profile $v(r) = v_{\max}(1 - r^2/R^2)$ where $v_{\max} = 2 v_{\text{avg}}$. In turbulent regime, switch to Darcy-Weisbach head loss using Haaland's explicit friction factor formula and 1/7th power blunted velocity profile.
+  2. Avoid artificial clamping on Reynolds number in $f = 64/Re$ (use `Math.max(1e-6, Re)` instead of `Math.max(1, Re)`) to accurately support creeping Stokes/Poiseuille viscous flow ($Re \ll 1$).
+  3. Visualize Osborne Reynolds' classic dye filament injection experiment:
+     - Needle at entrance injecting colorful dye particles;
+     - For $Re < 2300$: razor-sharp straight filament showing laminar streamline regularity;
+     - For transition: sinuous wavy perturbation and vortex shedding;
+     - For turbulent: chaotic eddy dispersion across the entire diameter.
+  4. Model exponential liquid viscosity decrease with temperature via Andrade's activation equation ($\eta(T) = \eta_0 \exp(B(1/T - 1/T_0))$), demonstrating why heated motor oil and glycerin flow exponentially faster.
+- **Rationale:** Seamlessly integrates fundamental fluid dynamics theory with historical visual experiments (Reynolds dye streak) and strict numerical accuracy.
+
 
 
 

@@ -511,6 +511,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/fluids/viscosity-pipe-flow',
+    subject: 'physics',
+    topic: 'fluids',
+    titleKey: 'experiments.viscosityPipe.title',
+    descKey: 'experiments.viscosityPipe.description',
+    gradeTags: ['high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/fluids/viscosity-pipe-flow/config'),
+        import('./physics/fluids/viscosity-pipe-flow/ui/Experiment.vue'),
+        import('./physics/fluids/viscosity-pipe-flow/i18n/fa.json'),
+        import('./physics/fluids/viscosity-pipe-flow/i18n/en.json')
+      ]);
+      return {
+        config: configModule.viscosityPipeConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

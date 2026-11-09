@@ -1,0 +1,43 @@
+{
+  "experiments": {
+    "viscosityPipe": {
+      "title": "Viscosity & Pipe Flow",
+      "description": "Investigate Poiseuille's law in laminar flow, parabolic velocity profile, Reynolds dye streak experiment, and transition to turbulence."
+    }
+  },
+  "viscosityPipe": {
+    "tabTheory": "Theoretical Principles & Governing Equations",
+    "theoryContent": "Poiseuille's Law:\nFor steady, laminar, incompressible flow of a Newtonian fluid through a cylindrical pipe, volumetric flow rate scales with the fourth power of pipe radius and pressure drop, inversely proportional to dynamic viscosity and length:\nQ = (π R⁴ ΔP) / (8 η L)\n\nParabolic Velocity Profile & No-Slip Condition:\nDue to intermolecular viscous shear at boundaries, fluid velocity equals zero at the pipe wall (no-slip condition) and rises parabolically to a centerline maximum (v_max = 2 v_avg).\n\nReynolds Number & Regimes:\nThe dimensionless Reynolds number quantifies the ratio of inertial to viscous forces: Re = ρ v D / η.\n- Re < 2300: Laminar flow (smooth parallel streamlines, razor-sharp Reynolds dye filament).\n- 2300 ≤ Re ≤ 4000: Transition flow (wavy streak, vortex shedding onset).\n- Re > 4000: Turbulent flow (chaotic eddies, rapid mixing, blunted velocity profile).\n\nTemperature Dependence of Viscosity:\nIncreasing liquid temperature weakens intermolecular cohesion, exponentially decreasing dynamic viscosity.",
+    "fluidType": "Working Fluid",
+    "fluidType_desc": "Select fluid to compare intrinsic density and dynamic viscosity",
+    "fluidWater": "Water (1.0 mPa·s)",
+    "fluidMotorOil": "Motor Oil SAE 30 (290 mPa·s)",
+    "fluidGlycerin": "Pure Glycerin (1412 mPa·s)",
+    "fluidHoney": "Thick Honey (8500 mPa·s)",
+    "fluidAir": "Air (0.018 mPa·s)",
+    "pressureDiff": "Pressure Drop (ΔP)",
+    "pressureDiff_desc": "Driving hydraulic pressure drop across the pipe length",
+    "pipeDiameter": "Pipe Diameter (D)",
+    "pipeDiameter_desc": "Internal diameter of the cylindrical tube",
+    "pipeLength": "Pipe Length (L)",
+    "pipeLength_desc": "Total longitudinal travel distance of the fluid",
+    "temperature": "Fluid Temperature (T)",
+    "temperature_desc": "Fluid temperature affecting molecular viscosity",
+    "temperature_real": "Exponential viscosity decline via Andrade temperature equation",
+    "wallRoughness": "Pipe Wall Roughness (ε)",
+    "wallRoughness_desc": "Microscopic roughness of internal pipe surface",
+    "wallRoughness_real": "Increases Darcy-Weisbach friction factor in turbulent flow",
+    "preset_glycerinLaminar": "Highly Viscous Glycerin Laminar Flow",
+    "preset_waterTransition": "Narrow Pipe Water Transition Flow",
+    "preset_turbulentWaterHigh": "High-Pressure Turbulent Water Eddies",
+    "preset_hotOilEngine": "Hot Engine Oil in Cylinder Passage",
+    "formula_poiseuille": "Poiseuille's Law",
+    "poiseuilleExpl": "Volumetric flow rate fourth-power radius scaling in laminar flow",
+    "formula_reynolds": "Reynolds Number",
+    "reynoldsExpl": "Ratio of inertial forces to viscous forces in pipe flow",
+    "formula_velocityProfile": "Parabolic Velocity Profile",
+    "velocityProfileExpl": "Radial velocity distribution with no-slip wall boundary",
+    "formula_wallStress": "Wall Shear Stress",
+    "wallStressExpl": "Viscous friction shear stress exerted on pipe boundary"
+  }
+}
