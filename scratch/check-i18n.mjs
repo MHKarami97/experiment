@@ -33,6 +33,8 @@ const workPowerFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/expe
 const workPowerEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/energy/work-power/i18n/en.json'), 'utf8'));
 const pressureDensityFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/fluids/pressure-density/i18n/fa.json'), 'utf8'));
 const pressureDensityEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/fluids/pressure-density/i18n/en.json'), 'utf8'));
+const buoyancyFa = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/fluids/buoyancy-archimedes/i18n/fa.json'), 'utf8'));
+const buoyancyEn = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/experiments/physics/fluids/buoyancy-archimedes/i18n/en.json'), 'utf8'));
 
 // Build dictionary of all available keys in fa and en
 function flattenKeys(obj, prefix = '') {
@@ -113,7 +115,8 @@ const faFlat = {
   ...flattenKeys(rotationalFa, 'rotationalDynamics'),
   ...flattenKeys(skateParkFa, 'skatePark'),
   ...flattenKeys(workPowerFa, 'workPower'),
-  ...flattenKeys(pressureDensityFa, 'pressureDensity')
+  ...flattenKeys(pressureDensityFa, 'pressureDensity'),
+  ...flattenKeys(buoyancyFa, 'buoyancy')
 };
 
 const enFlat = {
@@ -130,12 +133,13 @@ const enFlat = {
   ...flattenKeys(rotationalEn, 'rotationalDynamics'),
   ...flattenKeys(skateParkEn, 'skatePark'),
   ...flattenKeys(workPowerEn, 'workPower'),
-  ...flattenKeys(pressureDensityEn, 'pressureDensity')
+  ...flattenKeys(pressureDensityEn, 'pressureDensity'),
+  ...flattenKeys(buoyancyEn, 'buoyancy')
 };
 
 // Check used keys
 for (const [key, files] of usedKeys.entries()) {
-  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.') || key.startsWith('circularMotion.') || key.startsWith('collisionsMomentum.') || key.startsWith('torqueEquilibrium.') || key.startsWith('pendulums.') || key.startsWith('springShm.') || key.startsWith('orbitalGravity.') || key.startsWith('rotationalDynamics.') || key.startsWith('skatePark.') || key.startsWith('workPower.') || key.startsWith('pressureDensity.')) {
+  if (key.startsWith('projectile.') || key.startsWith('kinematics.') || key.startsWith('inclinedPlane.') || key.startsWith('pulleysLevers.') || key.startsWith('circularMotion.') || key.startsWith('collisionsMomentum.') || key.startsWith('torqueEquilibrium.') || key.startsWith('pendulums.') || key.startsWith('springShm.') || key.startsWith('orbitalGravity.') || key.startsWith('rotationalDynamics.') || key.startsWith('skatePark.') || key.startsWith('workPower.') || key.startsWith('pressureDensity.') || key.startsWith('buoyancy.')) {
     if (!faFlat[key]) {
       console.log(`[MISSING FA]: "${key}" used in ${files[0]}`);
     }
