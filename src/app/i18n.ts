@@ -13,6 +13,8 @@ import collisionsFa from '../experiments/physics/motion/collisions-momentum/i18n
 import collisionsEn from '../experiments/physics/motion/collisions-momentum/i18n/en.json';
 import torqueFa from '../experiments/physics/motion/torque-equilibrium/i18n/fa.json';
 import torqueEn from '../experiments/physics/motion/torque-equilibrium/i18n/en.json';
+import pendulumsFa from '../experiments/physics/motion/pendulums/i18n/fa.json';
+import pendulumsEn from '../experiments/physics/motion/pendulums/i18n/en.json';
 
 const globalMessages = {
   fa: {
@@ -23,6 +25,7 @@ const globalMessages = {
     circularMotion: circularMotionFa,
     collisionsMomentum: collisionsFa,
     torqueEquilibrium: torqueFa,
+    pendulums: pendulumsFa,
     app: {
       title: 'آزمایشگاه مجازی علوم',
       subtitle: 'شبیه‌سازی‌های علمی تعاملی، دقیق و بدون نیاز به اینترنت',
@@ -186,6 +189,10 @@ const globalMessages = {
       torqueEquilibrium: {
         title: 'گشتاور و تعادل ایستا (الاکلنگ)',
         description: 'بررسی بازوی محرک و مقاوم، قانون گشتاورها، تعادل چرخشی اهرم و الاکلنگ و مرکز ثقل تیرک'
+      },
+      pendulums: {
+        title: 'آونگ ساده و آونگ دوگانه (آشوب)',
+        description: 'شبیه‌سازی نوسان هماهنگ ساده، وابستگی دوره به دامنه، پایستگی انرژی و دینامیک آشوبناک آونگ دوگانه'
       }
     },
     experiment: {
@@ -204,6 +211,7 @@ const globalMessages = {
     circularMotion: circularMotionEn,
     collisionsMomentum: collisionsEn,
     torqueEquilibrium: torqueEn,
+    pendulums: pendulumsEn,
     app: {
       title: 'Virtual Science Lab',
       subtitle: 'Interactive, accurate, and offline-first scientific simulations',
@@ -367,6 +375,10 @@ const globalMessages = {
       torqueEquilibrium: {
         title: 'Torque & Static Equilibrium',
         description: 'Investigate lever arms, principle of moments, rotational equilibrium of a seesaw, and center of gravity'
+      },
+      pendulums: {
+        title: 'Simple & Double Pendulum (Chaos)',
+        description: 'Simulate simple harmonic oscillation, amplitude-period dependence, energy conservation, and chaotic double pendulum dynamics'
       }
     },
     experiment: {

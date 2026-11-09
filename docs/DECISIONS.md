@@ -162,6 +162,20 @@ This is an append-only log. Every design choice is documented with date, context
 - **Alternatives Rejected:**
   - Static-only diagram without tilt dynamics: Fails to show mechanical instability and rotational acceleration when torques are unbalanced.
 
+---
+
+### [2026-11-09] Decision 014: Simple & Double Pendulum (Chaos) Architecture
+- **Context:** Experiment 8 "Simple & Double Pendulum (Chaos)" (`physics/motion/pendulums`) models both classical simple harmonic motion and the non-linear chaotic dynamics of a double pendulum.
+- **Decision:**
+  1. Dual-mode support: `simple` (single arm with small-angle isochronism and Borda large-angle period expansion) and `double` (Lagrangian coupled two-bob chaotic motion).
+  2. 4th-order Runge-Kutta (RK4) numerical integrator with 4 sub-steps per frame to ensure zero energy drift ($< 0.1\%$) in Ideal mode while exhibiting authentic Lyapunov divergence ($> 0.05\text{ m}$ macroscopic separation) from tiny initial perturbations.
+  3. Potential energy reference defined at downward vertical equilibrium ($U = m_1 g L_1 (1 - \cos\theta_1) + m_2 g (L_1(1 - \cos\theta_1) + L_2(1 - \cos\theta_2))$) guaranteeing positive-definite mechanical energy.
+  4. Real-time multi-color rainbow trail displaying fractal-like chaotic phase curves on the second bob.
+- **Rationale:** Pedagogically demonstrates both linear harmonic physics and deterministic chaos with rigorous mathematical fidelity.
+- **Alternatives Rejected:**
+  - Euler/Verlet integration: Produces severe energy explosion in double pendulums over long runs; RK4 with sub-stepping is stable and energy-conserving.
+
+
 
 
 

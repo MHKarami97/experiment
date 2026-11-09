@@ -268,6 +268,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/motion/pendulums',
+    subject: 'physics',
+    topic: 'motion',
+    titleKey: 'experiments.pendulums.title',
+    descKey: 'experiments.pendulums.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/motion/pendulums/config'),
+        import('./physics/motion/pendulums/ui/Experiment.vue'),
+        import('./physics/motion/pendulums/i18n/fa.json'),
+        import('./physics/motion/pendulums/i18n/en.json')
+      ]);
+      return {
+        config: configModule.pendulumsConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

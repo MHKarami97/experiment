@@ -1,0 +1,58 @@
+{
+  "title": "Simple & Double Pendulum (Chaos)",
+  "description": "Simulate simple harmonic oscillation, amplitude-period dependence, mechanical energy conservation, and chaotic double pendulum dynamics",
+  "variables": {
+    "l1": "Arm 1 Length (L₁)",
+    "l1Desc": "Length of the first pendulum rod or string",
+    "m1": "Bob 1 Mass (m₁)",
+    "m1Desc": "Mass of the first pendulum bob",
+    "theta1": "Bob 1 Initial Angle (θ₁)",
+    "theta1Desc": "Initial release angle relative to the downward vertical in degrees",
+    "l2": "Arm 2 Length (L₂)",
+    "l2Desc": "Length of the second pendulum rod (double pendulum mode)",
+    "m2": "Bob 2 Mass (m₂)",
+    "m2Desc": "Mass of the second pendulum bob (double pendulum mode)",
+    "theta2": "Bob 2 Initial Angle (θ₂)",
+    "theta2Desc": "Initial release angle of the second bob relative to the vertical",
+    "damping": "Air Damping & Friction",
+    "dampingDesc": "Viscous air drag and pivot bearing resistance in real mode"
+  },
+  "presets": {
+    "simpleHarmonic": "Simple Harmonic Motion (Small 15° Angle)",
+    "simpleHarmonicDesc": "Small angle approximation where period is independent of amplitude",
+    "largeAmplitude": "Large Amplitude Pendulum (80° Angle)",
+    "largeAmplitudeDesc": "Anharmonic motion and Borda series period correction",
+    "doubleChaos": "Double Pendulum Chaos (Horizontal 90° Release)",
+    "doubleChaosDesc": "Highly nonlinear deterministic chaos with extreme sensitivity to initial conditions",
+    "invertedInstability": "Near-Inverted Instability (165° Release)",
+    "invertedInstabilityDesc": "High-energy chaotic motion with full 360-degree irregular rotations"
+  },
+  "formulas": {
+    "simplePeriod": "Natural period of a simple pendulum in small angle regime",
+    "bordaPeriod": "Borda's series formula correcting period for large amplitudes",
+    "energy": "Conservation of total mechanical energy (potential + kinetic)",
+    "lagrangian": "Euler-Lagrange equations of motion for coupled rotational systems"
+  },
+  "realMode": {
+    "airFriction": "Gradual amplitude decay due to aerodynamic drag and pivot friction"
+  },
+  "hud": {
+    "modeType": "Pendulum Mode",
+    "simple": "Simple Pendulum",
+    "double": "Double Pendulum (Chaos)",
+    "theta1": "Angle 1",
+    "theta2": "Angle 2",
+    "period": "Analytical Period",
+    "energy": "Total Energy",
+    "pe": "Potential (U)",
+    "ke": "Kinetic (K)"
+  },
+  "guided": {
+    "step1Title": "Step 1: Test Small-Angle Isochronism",
+    "step1Desc": "Run with 15° release. Observe how period precisely matches the classical 2π√(L/g) formula.",
+    "step2Title": "Step 2: Large-Angle Amplitude Dependence",
+    "step2Desc": "Increase angle to 80° and examine how the true period lengthens beyond the harmonic approximation.",
+    "step3Title": "Step 3: Double Pendulum Deterministic Chaos",
+    "step3Desc": "Switch to Double Pendulum mode and observe the colorful fractal-like trajectory trail of the second bob."
+  }
+}

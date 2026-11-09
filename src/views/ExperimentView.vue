@@ -55,7 +55,8 @@ async function loadPlugin() {
         'pulleys-levers': 'pulleysLevers',
         'circular-motion': 'circularMotion',
         'collisions-momentum': 'collisionsMomentum',
-        'torque-equilibrium': 'torqueEquilibrium'
+        'torque-equilibrium': 'torqueEquilibrium',
+        'pendulums': 'pendulums'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {
