@@ -68,7 +68,8 @@ async function loadPlugin() {
         'viscosity-pipe-flow': 'viscosityPipe',
         'heat-transfer': 'heatTransfer',
         'calorimetry': 'calorimetry',
-        'gas-laws': 'gasLaws'
+        'gas-laws': 'gasLaws',
+        'thermal-expansion': 'thermalExpansion'
       };
       const ns = nsMap[id as string] || (id as string);
       if (plugin.messages.fa) {

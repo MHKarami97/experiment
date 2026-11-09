@@ -619,6 +619,33 @@ export const EXPERIMENT_CATALOG: ExperimentCatalogItem[] = [
         }
       };
     }
+  },
+  {
+    id: 'physics/thermo/thermal-expansion',
+    subject: 'physics',
+    topic: 'thermo',
+    titleKey: 'experiments.thermalExpansion.title',
+    descKey: 'experiments.thermalExpansion.description',
+    gradeTags: ['middle-school', 'high-school', 'university'],
+    difficulty: 'medium',
+    engine: 'canvas2d',
+    status: 'tested',
+    load: async () => {
+      const [configModule, uiModule, faModule, enModule] = await Promise.all([
+        import('./physics/thermo/thermal-expansion/config'),
+        import('./physics/thermo/thermal-expansion/ui/Experiment.vue'),
+        import('./physics/thermo/thermal-expansion/i18n/fa.json'),
+        import('./physics/thermo/thermal-expansion/i18n/en.json')
+      ]);
+      return {
+        config: configModule.thermalExpansionConfig,
+        component: uiModule.default,
+        messages: {
+          fa: faModule.default,
+          en: enModule.default
+        }
+      };
+    }
   }
 ];
 

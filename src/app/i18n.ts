@@ -263,6 +263,10 @@ const globalMessages = {
       gasLaws: {
         title: 'قوانین گازها و سینتیک مولکولی',
         description: 'بررسی معادله گاز آرمانی، قوانین بویل، شارل، گیلوساک، توزیع سرعت ماکسول-بولتزمن و گازهای واقعی وان‌دروالس'
+      },
+      thermalExpansion: {
+        title: 'انبساط گرمایی اجسام',
+        description: 'بررسی انبساط طولی میله‌ها با میکرومتر ساعتی، خمش تیغه دوفلزه در کلید ترموستات و رفتار ناهنجار انبساط آب در ۴ درجه'
       }
     },
     experiment: {
@@ -505,6 +509,10 @@ const globalMessages = {
       gasLaws: {
         title: "Gas Laws & Molecular Kinetics",
         description: "Investigate ideal gas equation, Boyle, Charles, Gay-Lussac laws, Maxwell-Boltzmann velocity distribution, and Van der Waals real gases"
+      },
+      thermalExpansion: {
+        title: "Thermal Expansion",
+        description: "Investigate linear rod expansion with micrometer dial, bimetallic strip thermostat deflection, and water 4°C density anomaly"
       }
     },
     experiment: {
